@@ -1,0 +1,32 @@
+-series GW1NS
+-device GW1NS-4C
+-package MBGA64
+-part_number GW1NS-LV4CMG64C7/I6
+
+
+-mod_name LVDS_TX_PLLVR
+-file_name LVDS_TX_PLLVR
+-path D:/proj/gw1n_proj/gw1n4_test/src/gowin_pllvr/
+-type PLL
+-pllvr true
+-file_type vlg
+-dev_type GW1NS-4C
+-dyn_idiv_sel false
+-idiv_sel 2
+-dyn_fbdiv_sel false
+-fbdiv_sel 7
+-dyn_odiv_sel false
+-odiv_sel 2
+-dyn_da_en false
+-rst_sig true
+-rst_sig_p false
+-pll_reg false
+-fclkin 83.5
+-clkfb_sel 0
+-en_lock true
+-clkout_bypass false
+-en_clkoutp false
+-clkoutp_bypass false
+-en_clkoutd false
+-clkoutd_bypass false
+-en_clkoutd3 false
