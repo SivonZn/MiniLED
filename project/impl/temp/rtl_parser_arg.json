@@ -64,6 +64,10 @@
   {
    "Path" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/MiniLED/project/src/sram_top_gowin_top_sim.v",
    "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/MiniLED/project/src/gowin_rpll/rx_sclk_rpll.v",
+   "Type" : "verilog"
   }
  ],
  "IncludePath" : [

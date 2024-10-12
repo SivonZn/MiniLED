@@ -4,7 +4,7 @@
 -cst C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_video.cst
 -cfg C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\impl\pnr\device.cfg
 -sdc C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_video.sdc
--gao_crc 0001000011010011
+-gao_crc 1111010000000100
 -bit
 -tr
 -ph

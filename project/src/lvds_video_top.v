@@ -57,8 +57,10 @@ wire        r_Hsync_0;
 wire        r_DE_0   ;
 
 wire 		rx_sclk;
+//wire        rx_sclk_copy;
+//wire        rx_sclk_debug;
 
-wire [7*8-1:0]  led_light_flatted;
+wire [8*9-1:0]  led_light_flatted;
 
 //===================================================
 //LED test
@@ -81,7 +83,9 @@ assign  O_led[3] = running;
 
 
 
-
+//=======================================================
+//DEBUG
+//RX_SCLK_rPLL debug_u1(rx_sclk_debug, rx_sclk);
 
 
 

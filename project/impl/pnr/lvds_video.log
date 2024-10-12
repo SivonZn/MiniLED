@@ -8,8 +8,9 @@ Running placement......
 [20%] Placement Phase 1 completed
 [30%] Placement Phase 2 completed
 WARN  (TA1132) :  'tck_pad_i' was determined to be a clock but was not created.
-WARN  (TA1117) : Can't calculate clocks' relationship between: "tck_pad_i" and "rx_sclk"
-WARN  (TA1117) : Can't calculate clocks' relationship between: "rx_sclk" and "tck_pad_i"
+WARN  (TA1132) :  'LVDS_7to1_TX_Top_inst_0_1' was determined to be a clock but was not created.
+WARN  (TA1117) : Can't calculate clocks' relationship between: "rx_sclk" and "LVDS_7to1_TX_Top_inst_0_1"
+WARN  (TA1117) : Can't calculate clocks' relationship between: "LVDS_7to1_TX_Top_inst_0_1" and "rx_sclk"
 [50%] Placement Phase 3 completed
 Running routing......
 [60%] Routing Phase 0 completed
@@ -29,5 +30,5 @@ Generate file "C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\i
 Generate file "C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\impl\pnr\lvds_video.rpt.html" completed
 Generate file "C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\impl\pnr\lvds_video.rpt.txt" completed
 Generate file "C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\impl\pnr\lvds_video.tr.html" completed
-Sat Oct 12 18:35:49 2024
+Sat Oct 12 19:39:18 2024
 
