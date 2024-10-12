@@ -1,16 +1,18 @@
 module MiniLED_driver
 (
-    input          I_clk       ,  //50MHz      
-    input          I_rst_n     ,   
+    input           I_clk       ,  //50MHz      
+    input           I_rst_n     ,   
+    //input           led_light   ,
+    input           led_mode    ,
     //led
-    output         LE          ,
-    output         DCLK        , //12.5M
-    output         SDI         ,
-    output         GCLK         ,
-    output         scan1       ,
-    output         scan2       ,
-    output         scan3       , 
-    output         scan4       
+    output          LE          ,
+    output          DCLK        , //12.5M
+    output          SDI         ,
+    output          GCLK        ,
+    output          scan1       ,
+    output          scan2       ,
+    output          scan3       , 
+    output          scan4       
 );
 
 wire clk25M;
@@ -22,6 +24,8 @@ wire frame_flag;
 wire latch_flag;
 wire [95:0]datain;
 wire [15:0]wtdina;
+wire [7:0]led_light[8:0];
+wire [1:0]led_mode;
 //PLL分频
 SPI7001_25M_1M_rPLL SPI7001_25M_1M_rPLL_inst(
          .clkout(clk25M), //output clkout
@@ -32,6 +36,8 @@ SPI7001_25M_1M_rPLL SPI7001_25M_1M_rPLL_inst(
 ramflag_1 u1(
     .clk(clk25M),
     .rst_n(I_rst_n),
+    //.light_reg(led_light),//背光灯珠亮度值
+    .mode_selector(led_mode),//背光显示模式
     .sdbpflag_wire(sdbpflag),//写入一帧起始信号
     .wtdina_wire(wtdina),//写入的灰度值
     .wtaddr_wire(wtaddr)//灯板上灯珠位置对应的地址

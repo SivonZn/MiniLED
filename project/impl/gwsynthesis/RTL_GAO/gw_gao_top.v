@@ -1,114 +1,42 @@
 module gw_gao(
-    \O_led[3] ,
-    \O_led[2] ,
-    \O_led[1] ,
-    \O_led[0] ,
     rx_sclk,
-    \LVDS_7to1_RX_Top_inst/O_data_r[7] ,
-    \LVDS_7to1_RX_Top_inst/O_data_r[6] ,
-    \LVDS_7to1_RX_Top_inst/O_data_r[5] ,
-    \LVDS_7to1_RX_Top_inst/O_data_r[4] ,
-    \LVDS_7to1_RX_Top_inst/O_data_r[3] ,
-    \LVDS_7to1_RX_Top_inst/O_data_r[2] ,
-    \LVDS_7to1_RX_Top_inst/O_data_r[1] ,
-    \LVDS_7to1_RX_Top_inst/O_data_r[0] ,
-    \LVDS_7to1_RX_Top_inst/O_data_g[7] ,
-    \LVDS_7to1_RX_Top_inst/O_data_g[6] ,
-    \LVDS_7to1_RX_Top_inst/O_data_g[5] ,
-    \LVDS_7to1_RX_Top_inst/O_data_g[4] ,
-    \LVDS_7to1_RX_Top_inst/O_data_g[3] ,
-    \LVDS_7to1_RX_Top_inst/O_data_g[2] ,
-    \LVDS_7to1_RX_Top_inst/O_data_g[1] ,
-    \LVDS_7to1_RX_Top_inst/O_data_g[0] ,
-    \LVDS_7to1_RX_Top_inst/O_data_b[7] ,
-    \LVDS_7to1_RX_Top_inst/O_data_b[6] ,
-    \LVDS_7to1_RX_Top_inst/O_data_b[5] ,
-    \LVDS_7to1_RX_Top_inst/O_data_b[4] ,
-    \LVDS_7to1_RX_Top_inst/O_data_b[3] ,
-    \LVDS_7to1_RX_Top_inst/O_data_b[2] ,
-    \LVDS_7to1_RX_Top_inst/O_data_b[1] ,
-    \LVDS_7to1_RX_Top_inst/O_data_b[0] ,
-    \LVDS_7to1_RX_Top_inst/O_de ,
-    \LVDS_7to1_RX_Top_inst/O_hs ,
-    \LVDS_7to1_RX_Top_inst/O_vs ,
-    I_clk,
+    \LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[7] ,
+    \LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[6] ,
+    \LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[5] ,
+    \LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[4] ,
+    \LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[3] ,
+    \LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[2] ,
+    \LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[1] ,
+    \LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[0] ,
     tms_pad_i,
     tck_pad_i,
     tdi_pad_i,
     tdo_pad_o
 );
 
-input \O_led[3] ;
-input \O_led[2] ;
-input \O_led[1] ;
-input \O_led[0] ;
 input rx_sclk;
-input \LVDS_7to1_RX_Top_inst/O_data_r[7] ;
-input \LVDS_7to1_RX_Top_inst/O_data_r[6] ;
-input \LVDS_7to1_RX_Top_inst/O_data_r[5] ;
-input \LVDS_7to1_RX_Top_inst/O_data_r[4] ;
-input \LVDS_7to1_RX_Top_inst/O_data_r[3] ;
-input \LVDS_7to1_RX_Top_inst/O_data_r[2] ;
-input \LVDS_7to1_RX_Top_inst/O_data_r[1] ;
-input \LVDS_7to1_RX_Top_inst/O_data_r[0] ;
-input \LVDS_7to1_RX_Top_inst/O_data_g[7] ;
-input \LVDS_7to1_RX_Top_inst/O_data_g[6] ;
-input \LVDS_7to1_RX_Top_inst/O_data_g[5] ;
-input \LVDS_7to1_RX_Top_inst/O_data_g[4] ;
-input \LVDS_7to1_RX_Top_inst/O_data_g[3] ;
-input \LVDS_7to1_RX_Top_inst/O_data_g[2] ;
-input \LVDS_7to1_RX_Top_inst/O_data_g[1] ;
-input \LVDS_7to1_RX_Top_inst/O_data_g[0] ;
-input \LVDS_7to1_RX_Top_inst/O_data_b[7] ;
-input \LVDS_7to1_RX_Top_inst/O_data_b[6] ;
-input \LVDS_7to1_RX_Top_inst/O_data_b[5] ;
-input \LVDS_7to1_RX_Top_inst/O_data_b[4] ;
-input \LVDS_7to1_RX_Top_inst/O_data_b[3] ;
-input \LVDS_7to1_RX_Top_inst/O_data_b[2] ;
-input \LVDS_7to1_RX_Top_inst/O_data_b[1] ;
-input \LVDS_7to1_RX_Top_inst/O_data_b[0] ;
-input \LVDS_7to1_RX_Top_inst/O_de ;
-input \LVDS_7to1_RX_Top_inst/O_hs ;
-input \LVDS_7to1_RX_Top_inst/O_vs ;
-input I_clk;
+input \LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[7] ;
+input \LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[6] ;
+input \LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[5] ;
+input \LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[4] ;
+input \LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[3] ;
+input \LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[2] ;
+input \LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[1] ;
+input \LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[0] ;
 input tms_pad_i;
 input tck_pad_i;
 input tdi_pad_i;
 output tdo_pad_o;
 
-wire \O_led[3] ;
-wire \O_led[2] ;
-wire \O_led[1] ;
-wire \O_led[0] ;
 wire rx_sclk;
-wire \LVDS_7to1_RX_Top_inst/O_data_r[7] ;
-wire \LVDS_7to1_RX_Top_inst/O_data_r[6] ;
-wire \LVDS_7to1_RX_Top_inst/O_data_r[5] ;
-wire \LVDS_7to1_RX_Top_inst/O_data_r[4] ;
-wire \LVDS_7to1_RX_Top_inst/O_data_r[3] ;
-wire \LVDS_7to1_RX_Top_inst/O_data_r[2] ;
-wire \LVDS_7to1_RX_Top_inst/O_data_r[1] ;
-wire \LVDS_7to1_RX_Top_inst/O_data_r[0] ;
-wire \LVDS_7to1_RX_Top_inst/O_data_g[7] ;
-wire \LVDS_7to1_RX_Top_inst/O_data_g[6] ;
-wire \LVDS_7to1_RX_Top_inst/O_data_g[5] ;
-wire \LVDS_7to1_RX_Top_inst/O_data_g[4] ;
-wire \LVDS_7to1_RX_Top_inst/O_data_g[3] ;
-wire \LVDS_7to1_RX_Top_inst/O_data_g[2] ;
-wire \LVDS_7to1_RX_Top_inst/O_data_g[1] ;
-wire \LVDS_7to1_RX_Top_inst/O_data_g[0] ;
-wire \LVDS_7to1_RX_Top_inst/O_data_b[7] ;
-wire \LVDS_7to1_RX_Top_inst/O_data_b[6] ;
-wire \LVDS_7to1_RX_Top_inst/O_data_b[5] ;
-wire \LVDS_7to1_RX_Top_inst/O_data_b[4] ;
-wire \LVDS_7to1_RX_Top_inst/O_data_b[3] ;
-wire \LVDS_7to1_RX_Top_inst/O_data_b[2] ;
-wire \LVDS_7to1_RX_Top_inst/O_data_b[1] ;
-wire \LVDS_7to1_RX_Top_inst/O_data_b[0] ;
-wire \LVDS_7to1_RX_Top_inst/O_de ;
-wire \LVDS_7to1_RX_Top_inst/O_hs ;
-wire \LVDS_7to1_RX_Top_inst/O_vs ;
-wire I_clk;
+wire \LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[7] ;
+wire \LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[6] ;
+wire \LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[5] ;
+wire \LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[4] ;
+wire \LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[3] ;
+wire \LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[2] ;
+wire \LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[1] ;
+wire \LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[0] ;
 wire tms_pad_i;
 wire tck_pad_i;
 wire tdi_pad_i;
@@ -182,9 +110,9 @@ gw_con_top  u_icon_top(
 
 ao_top_0  u_la0_top(
     .control(control0[9:0]),
-    .trig0_i(rx_sclk),
-    .data_i({\O_led[3] ,\O_led[2] ,\O_led[1] ,\O_led[0] ,rx_sclk,\LVDS_7to1_RX_Top_inst/O_data_r[7] ,\LVDS_7to1_RX_Top_inst/O_data_r[6] ,\LVDS_7to1_RX_Top_inst/O_data_r[5] ,\LVDS_7to1_RX_Top_inst/O_data_r[4] ,\LVDS_7to1_RX_Top_inst/O_data_r[3] ,\LVDS_7to1_RX_Top_inst/O_data_r[2] ,\LVDS_7to1_RX_Top_inst/O_data_r[1] ,\LVDS_7to1_RX_Top_inst/O_data_r[0] ,\LVDS_7to1_RX_Top_inst/O_data_g[7] ,\LVDS_7to1_RX_Top_inst/O_data_g[6] ,\LVDS_7to1_RX_Top_inst/O_data_g[5] ,\LVDS_7to1_RX_Top_inst/O_data_g[4] ,\LVDS_7to1_RX_Top_inst/O_data_g[3] ,\LVDS_7to1_RX_Top_inst/O_data_g[2] ,\LVDS_7to1_RX_Top_inst/O_data_g[1] ,\LVDS_7to1_RX_Top_inst/O_data_g[0] ,\LVDS_7to1_RX_Top_inst/O_data_b[7] ,\LVDS_7to1_RX_Top_inst/O_data_b[6] ,\LVDS_7to1_RX_Top_inst/O_data_b[5] ,\LVDS_7to1_RX_Top_inst/O_data_b[4] ,\LVDS_7to1_RX_Top_inst/O_data_b[3] ,\LVDS_7to1_RX_Top_inst/O_data_b[2] ,\LVDS_7to1_RX_Top_inst/O_data_b[1] ,\LVDS_7to1_RX_Top_inst/O_data_b[0] ,\LVDS_7to1_RX_Top_inst/O_de ,\LVDS_7to1_RX_Top_inst/O_hs ,\LVDS_7to1_RX_Top_inst/O_vs }),
-    .clk_i(I_clk)
+    .trig0_i({rx_sclk,\LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[7] ,\LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[6] ,\LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[5] ,\LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[4] ,\LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[3] ,\LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[2] ,\LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[1] ,\LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[0] }),
+    .data_i({rx_sclk,\LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[7] ,\LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[6] ,\LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[5] ,\LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[4] ,\LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[3] ,\LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[2] ,\LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[1] ,\LVDS_7to1_RX_Top_inst/bit_aln_ctl_inst/phase_flag[0] }),
+    .clk_i(rx_sclk)
 );
 
 endmodule

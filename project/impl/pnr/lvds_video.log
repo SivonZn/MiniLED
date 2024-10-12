@@ -1,14 +1,15 @@
-Reading netlist file: "C:\Users\Sivon\Desktop\Gowin_LVDS_7to1_RX_RefDesign\project\impl\gwsynthesis\lvds_video.vg"
-Parsing netlist file "C:\Users\Sivon\Desktop\Gowin_LVDS_7to1_RX_RefDesign\project\impl\gwsynthesis\lvds_video.vg" completed
+Reading netlist file: "C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\impl\gwsynthesis\lvds_video.vg"
+Parsing netlist file "C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\impl\gwsynthesis\lvds_video.vg" completed
 Processing netlist completed
-Reading constraint file: "C:\Users\Sivon\Desktop\Gowin_LVDS_7to1_RX_RefDesign\project\src\lvds_video.cst"
+Reading constraint file: "C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_video.cst"
 Physical Constraint parsed completed
 Running placement......
 [10%] Placement Phase 0 completed
 [20%] Placement Phase 1 completed
 [30%] Placement Phase 2 completed
 WARN  (TA1132) :  'tck_pad_i' was determined to be a clock but was not created.
-WARN  (TA1117) : Can't calculate clocks' relationship between: "rx_sclk" and "I_clk"
+WARN  (TA1117) : Can't calculate clocks' relationship between: "tck_pad_i" and "rx_sclk"
+WARN  (TA1117) : Can't calculate clocks' relationship between: "rx_sclk" and "tck_pad_i"
 [50%] Placement Phase 3 completed
 Running routing......
 [60%] Routing Phase 0 completed
@@ -23,10 +24,10 @@ Bitstream generation in progress......
 Bitstream generation completed
 Running power analysis......
 [100%] Power analysis completed
-Generate file "C:\Users\Sivon\Desktop\Gowin_LVDS_7to1_RX_RefDesign\project\impl\pnr\lvds_video.power.html" completed
-Generate file "C:\Users\Sivon\Desktop\Gowin_LVDS_7to1_RX_RefDesign\project\impl\pnr\lvds_video.pin.html" completed
-Generate file "C:\Users\Sivon\Desktop\Gowin_LVDS_7to1_RX_RefDesign\project\impl\pnr\lvds_video.rpt.html" completed
-Generate file "C:\Users\Sivon\Desktop\Gowin_LVDS_7to1_RX_RefDesign\project\impl\pnr\lvds_video.rpt.txt" completed
-Generate file "C:\Users\Sivon\Desktop\Gowin_LVDS_7to1_RX_RefDesign\project\impl\pnr\lvds_video.tr.html" completed
-Fri Oct 11 19:19:41 2024
+Generate file "C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\impl\pnr\lvds_video.power.html" completed
+Generate file "C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\impl\pnr\lvds_video.pin.html" completed
+Generate file "C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\impl\pnr\lvds_video.rpt.html" completed
+Generate file "C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\impl\pnr\lvds_video.rpt.txt" completed
+Generate file "C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\impl\pnr\lvds_video.tr.html" completed
+Sat Oct 12 18:12:08 2024
 

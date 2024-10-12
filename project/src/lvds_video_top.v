@@ -21,28 +21,27 @@
 
 module lvds_video_top
 (
-    input          I_clk       ,  //50MHz      
-    input          I_rst_n     ,
-    output [3:0]   O_led       , 
-    input          I_clkin_p   ,  //LVDS Input
-    input          I_clkin_n   ,  //LVDS Input
-    input  [3:0]   I_din_p     ,  //LVDS Input
-    input  [3:0]   I_din_n     ,  //LVDS Input    
-    output         O_clkout_p  ,
-    output         O_clkout_n  ,
-    output [3:0]   O_dout_p    ,
-    output [3:0]   O_dout_n    ,
+    input           I_clk       ,  //50MHz      
+    input           I_rst_n     ,
+    output  [3:0]   O_led       , 
+    input           I_clkin_p   ,  //LVDS Input
+    input           I_clkin_n   ,  //LVDS Input
+    input   [3:0]   I_din_p     ,  //LVDS Input
+    input   [3:0]   I_din_n     ,  //LVDS Input    
+    output          O_clkout_p  ,
+    output          O_clkout_n  ,
+    output  [3:0]   O_dout_p    ,
+    output  [3:0]   O_dout_n    ,
 
-
-
-	output         LE          ,
-    output         DCLK        , //12.5M
-    output         SDI         ,
-    output         GCLK         ,
-    output         scan1       ,
-    output         scan2       ,
-    output         scan3       , 
-    output         scan4   	
+	output          LE          ,
+    output          DCLK        , //12.5M
+    output          SDI         ,
+    output          GCLK        ,
+    output          scan1       ,
+    output          scan2       ,
+    output          scan3       , 
+    output          scan4       ,
+    input   [1:0]   led_mode    
 );
 
 //======================================================
@@ -58,6 +57,8 @@ wire        r_Hsync_0;
 wire        r_DE_0   ;
 
 wire 		rx_sclk;
+
+wire [7*8-1:0]  led_light_flatted;
 
 //===================================================
 //LED test
@@ -87,17 +88,17 @@ assign  O_led[3] = running;
 //MiniLED_driver
 MiniLED_driver   MiniLED_driver_inst
 (
-  .I_clk(I_clk)       ,  //50MHz      
-  .I_rst_n(I_rst_n)   ,   
- 
-  .LE(LE)          ,
-  .DCLK(DCLK)      , //12.5M
-  .SDI(SDI)        ,
-  .GCLK(GCLK)      ,
-  .scan1(scan1)    ,
-  .scan2(scan2)    ,
-  .scan3(scan3)    , 
-  .scan4(scan4)     
+    .I_clk(I_clk)       ,  //50MHz      
+    .I_rst_n(I_rst_n)   ,   
+    .led_mode(led_mode) ,
+    .LE(LE)             ,
+    .DCLK(DCLK)         , //12.5M
+    .SDI(SDI)           ,
+    .GCLK(GCLK)         ,
+    .scan1(scan1)       ,
+    .scan2(scan2)       ,
+    .scan3(scan3)       , 
+    .scan4(scan4)       
 );
 
 

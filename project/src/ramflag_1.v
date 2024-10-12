@@ -1,6 +1,8 @@
-  module ramflag_1(
+ module ramflag_1(
     input clk,   // 25Mclk
     input rst_n,
+    //input [7:0]light_reg[8:0],
+    input   [1:0] mode_selector,
     output  sdbpflag_wire,
     output  [15:0] wtdina_wire,
     output  [9:0] wtaddr_wire
@@ -117,30 +119,6 @@ end
 //      else
 //          wtdina <= 0;
 //  end
-//全亮 换显示形式时把此always块注释掉
-always@(posedge clk or negedge rst_n)
-begin
-  if(!rst_n)begin
-      wtdina <= 0;
-  end
-  else if(cnt1>3&&cnt1<=364&&flag)begin
-      wtdina <= 16'hffff ; 
-  end
-  else
-      wtdina <= 0;
-end
-// 1/3全亮度 1/3一半亮度 1/3暗 换显示形式时把此always块注释掉
-// always@(posedge clk or negedge rst_n)begin 
-//     if(!rst_n)begin
-//         wtdina <= 0;    
-//     end 
-//     else if(wtaddr%24==0 || (wtaddr-1)%24==0 || (wtaddr-2)%24==0 || (wtaddr-3)%24==0 || (wtaddr-4)%24==0 || (wtaddr-5)%24==0 ||(wtaddr-6)%24==0 || (wtaddr-7)%24==0)
-//         wtdina <= 16'hffff;
-//         else if((wtaddr-8)%24==0 || (wtaddr-9)%24==0 || (wtaddr-10)%24==0 || (wtaddr-11)%24==0||(wtaddr-12)%24==0 || (wtaddr-13)%24==0 || (wtaddr-14)%24==0 || (wtaddr-15)%24==0)
-//             wtdina <= 16'h0100;
-//     else
-//     wtdina <= 0;
-// end 
 //亮固定某一个灯珠 换显示形式时把此always块注释掉
 // always@(posedge clk or negedge rst_n)begin 
 // if(!rst_n)begin
@@ -153,6 +131,50 @@ end
 //         wtdina <= 0;
 //     end
 // end 
+//根据传入的亮度数据调整灯珠亮度
+always@(posedge clk or negedge rst_n)
+begin
+    if(!rst_n)begin
+        wtdina <= 0;
+    end
+    else if(cnt1>3 && cnt1<=364 && flag)begin
+        wtdina <= 16'hffff;
+    end
+    else
+        wtdina <= 0;
+end
 
+//always@(posedge clk or negedge rst_n) begin
+//    if(!rst_n) begin
+//        wtdina <= 0;
+//    end
+//    else begin
+//        case(mode_selector)
+
+//            2'b01: begin// 亮 1/2 灯珠
+//                if(wtaddr%24==0 || (wtaddr-1)%24==0 || (wtaddr-2)%24==0 || (wtaddr-3)%24==0 || (wtaddr-4)%24==0 || (wtaddr-5)%24==0 ||(wtaddr-6)%24==0 || (wtaddr-7)%24==0 || (wtaddr-8)%24==0 || (wtaddr-9)%24==0 || (wtaddr-10)%24==0 || (wtaddr-11)%24==0)
+//                    wtdina <= 16'hffff;
+//                else
+//                    wtdina <= 0;
+//            end
+
+//            2'b11: begin //1/3全亮度 1/3一半亮度 1/3暗
+//                if(wtaddr%24==0 || (wtaddr-1)%24==0 || (wtaddr-2)%24==0 || (wtaddr-3)%24==0 || (wtaddr-4)%24==0 || (wtaddr-5)%24==0 ||(wtaddr-6)%24==0 || (wtaddr-7)%24==0)
+//                    wtdina <= 16'hffff;
+//                else if((wtaddr-8)%24==0 || (wtaddr-9)%24==0 || (wtaddr-10)%24==0 || (wtaddr-11)%24==0||(wtaddr-12)%24==0 || (wtaddr-13)%24==0 || (wtaddr-14)%24==0 || (wtaddr-15)%24==0)
+//                    wtdina <= 16'h0100;
+//                else
+//                    wtdina <= 0;
+//            end
+
+//            default: begin//全亮
+//                if(cnt1>3 && cnt1<=364 && flag)
+//                    wtdina <= 16'hffff ; 
+//                else
+//                    wtdina <= 0;
+//            end
+//        endcase
+//    end
+//end
 
 endmodule
