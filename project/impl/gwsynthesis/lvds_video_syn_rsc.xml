@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module name="lvds_video_top" Register="26" Lut="55" T_Register="1088(26)" T_Alu="51(0)" T_Lut="1538(55)" T_Bsram="7(0)">
-    <SubModule name="gw_gao_inst_0" Register="332" Alu="16" Lut="498" Bsram="5" T_Register="332(332)" T_Alu="16(16)" T_Lut="498(498)" T_Bsram="5(5)"/>
-    <SubModule name="MiniLED_driver_inst" T_Register="567(0)" T_Alu="11(0)" T_Lut="733(0)" T_Bsram="2(0)">
+<Module name="lvds_video_top" Register="26" Lut="56" T_Register="1070(26)" T_Alu="44(0)" T_Lut="1518(56)" T_Bsram="7(0)">
+    <SubModule name="gw_gao_inst_0" Register="332" Alu="16" Lut="490" Bsram="5" T_Register="332(332)" T_Alu="16(16)" T_Lut="490(490)" T_Bsram="5(5)"/>
+    <SubModule name="MiniLED_driver_inst" T_Register="567(0)" T_Alu="11(0)" T_Lut="732(0)" T_Bsram="2(0)">
         <SubModule name="SPI7001_25M_1M_rPLL_inst"/>
-        <SubModule name="u1" Register="44" Alu="11" Lut="80" T_Register="44(44)" T_Alu="11(11)" T_Lut="80(80)"/>
+        <SubModule name="u1" Register="44" Alu="11" Lut="79" T_Register="44(44)" T_Alu="11(11)" T_Lut="79(79)"/>
         <SubModule name="u2" Register="216" Lut="192" Bsram="2" T_Register="216(216)" T_Lut="192(192)" T_Bsram="2(2)"/>
         <SubModule name="u3" Register="307" Lut="461" T_Register="307(307)" T_Lut="461(461)"/>
     </SubModule>
-    <SubModule name="LVDS_7to1_RX_Top_inst" Register="49" Alu="17" Lut="31" T_Register="163(49)" T_Alu="24(17)" T_Lut="251(31)">
+    <SubModule name="LVDS_7to1_RX_Top_inst" Register="49" Alu="17" Lut="30" T_Register="145(49)" T_Alu="17(17)" T_Lut="239(30)">
         <SubModule name="lvds_71_rx" Lut="1" T_Lut="1(1)">
             <SubModule name="LVDS_RX_rPLL_inst"/>
         </SubModule>
-        <SubModule name="bit_aln_ctl_inst" Register="106" Alu="7" Lut="203" T_Register="106(106)" T_Alu="7(7)" T_Lut="203(203)"/>
+        <SubModule name="bit_aln_ctl_inst" Register="88" Lut="192" T_Register="88(88)" T_Lut="192(192)"/>
         <SubModule name="wd_aln_ctl_inst" Register="8" Lut="16" T_Register="8(8)" T_Lut="16(16)"/>
     </SubModule>
     <SubModule name="LVDS_7to1_TX_Top_inst" Lut="1" T_Lut="1(1)">
