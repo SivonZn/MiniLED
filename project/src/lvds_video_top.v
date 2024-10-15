@@ -60,41 +60,51 @@ wire 		rx_sclk;
 //wire        rx_sclk_copy;
 //wire        rx_sclk_debug;
 
-wire [8*9-1:0]  led_light_flatted;
+reg [8*9-1:0] led_light_flatted;
 
 //===================================================
 //LED test
-always @(posedge I_clk or negedge I_rst_n)//I_clk
-begin
+//always @(posedge I_clk or negedge I_rst_n)//I_clk
+//begin
+//    if(!I_rst_n)
+//        run_cnt <= 32'd0;
+//    else if(run_cnt >= 32'd50_000_000)
+//        run_cnt <= 32'd0;
+//    else
+//        run_cnt <= run_cnt + 1'b1;
+//end
+
+//assign  running = (run_cnt < 32'd25_000_000) ? 1'b1 : 1'b0;
+
+//assign  O_led[0] = 1'b1;
+//assign  O_led[1] = 1'b1;
+//assign  O_led[2] = 1'b0;
+//assign  O_led[3] = running;
+assign O_led[3] = (2'b00 == led_mode) ? 1'b1 : 1'b0;
+assign O_led[2] = (2'b01 == led_mode) ? 1'b1 : 1'b0;
+assign O_led[1] = (2'b10 == led_mode) ? 1'b1 : 1'b0;
+assign O_led[0] = (2'b11 == led_mode) ? 1'b1 : 1'b0;
+
+
+//==========================================================
+//LED_LIGHT_REG_TEST
+integer i;
+always @(posedge I_clk or negedge I_rst_n) begin
     if(!I_rst_n)
-        run_cnt <= 32'd0;
-    else if(run_cnt >= 32'd50_000_000)
-        run_cnt <= 32'd0;
+        led_light_flatted <= 0;
     else
-        run_cnt <= run_cnt + 1'b1;
+        for(i = 0; i < 8 * 9; i  = i + 1) begin
+            led_light_flatted[i] <= 1;
+        end
 end
-
-assign  running = (run_cnt < 32'd25_000_000) ? 1'b1 : 1'b0;
-
-assign  O_led[0] = 1'b1;
-assign  O_led[1] = 1'b1;
-assign  O_led[2] = 1'b0;
-assign  O_led[3] = running;
-
-
-
-//=======================================================
-//DEBUG
-//RX_SCLK_rPLL debug_u1(rx_sclk_debug, rx_sclk);
-
-
 
 //MiniLED_driver
 MiniLED_driver   MiniLED_driver_inst
 (
     .I_clk(I_clk)       ,  //50MHz      
     .I_rst_n(I_rst_n)   ,   
-    .led_mode(led_mode) ,
+    .I_led_light(led_light_flatted) ,
+    .I_led_mode(led_mode) ,
     .LE(LE)             ,
     .DCLK(DCLK)         , //12.5M
     .SDI(SDI)           ,

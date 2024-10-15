@@ -1,99 +1,192 @@
 module gw_gao(
-    r_Vsync_0,
-    rx_sclk,
-    r_Hsync_0,
-    \LVDS_7to1_TX_Top_inst/I_data_r[7] ,
-    \LVDS_7to1_TX_Top_inst/I_data_r[6] ,
-    \LVDS_7to1_TX_Top_inst/I_data_r[5] ,
-    \LVDS_7to1_TX_Top_inst/I_data_r[4] ,
-    \LVDS_7to1_TX_Top_inst/I_data_r[3] ,
-    \LVDS_7to1_TX_Top_inst/I_data_r[2] ,
-    \LVDS_7to1_TX_Top_inst/I_data_r[1] ,
-    \LVDS_7to1_TX_Top_inst/I_data_r[0] ,
-    \LVDS_7to1_TX_Top_inst/I_data_g[7] ,
-    \LVDS_7to1_TX_Top_inst/I_data_g[6] ,
-    \LVDS_7to1_TX_Top_inst/I_data_g[5] ,
-    \LVDS_7to1_TX_Top_inst/I_data_g[4] ,
-    \LVDS_7to1_TX_Top_inst/I_data_g[3] ,
-    \LVDS_7to1_TX_Top_inst/I_data_g[2] ,
-    \LVDS_7to1_TX_Top_inst/I_data_g[1] ,
-    \LVDS_7to1_TX_Top_inst/I_data_g[0] ,
-    \LVDS_7to1_TX_Top_inst/I_data_b[7] ,
-    \LVDS_7to1_TX_Top_inst/I_data_b[6] ,
-    \LVDS_7to1_TX_Top_inst/I_data_b[5] ,
-    \LVDS_7to1_TX_Top_inst/I_data_b[4] ,
-    \LVDS_7to1_TX_Top_inst/I_data_b[3] ,
-    \LVDS_7to1_TX_Top_inst/I_data_b[2] ,
-    \LVDS_7to1_TX_Top_inst/I_data_b[1] ,
-    \LVDS_7to1_TX_Top_inst/I_data_b[0] ,
-    \r_R_0[7] ,
+    \MiniLED_driver_inst/u1/wtaddr_wire[9] ,
+    \MiniLED_driver_inst/u1/wtaddr_wire[8] ,
+    \MiniLED_driver_inst/u1/wtaddr_wire[7] ,
+    \MiniLED_driver_inst/u1/wtaddr_wire[6] ,
+    \MiniLED_driver_inst/u1/wtaddr_wire[5] ,
+    \MiniLED_driver_inst/u1/wtaddr_wire[4] ,
+    \MiniLED_driver_inst/u1/wtaddr_wire[3] ,
+    \MiniLED_driver_inst/u1/wtaddr_wire[2] ,
+    \MiniLED_driver_inst/u1/wtaddr_wire[1] ,
+    \MiniLED_driver_inst/u1/wtaddr_wire[0] ,
+    \MiniLED_driver_inst/u1/light_reg[1][7] ,
+    \MiniLED_driver_inst/u1/light_reg[1][6] ,
+    \MiniLED_driver_inst/u1/light_reg[1][5] ,
+    \MiniLED_driver_inst/u1/light_reg[1][4] ,
+    \MiniLED_driver_inst/u1/light_reg[1][3] ,
+    \MiniLED_driver_inst/u1/light_reg[1][2] ,
+    \MiniLED_driver_inst/u1/light_reg[1][1] ,
+    \MiniLED_driver_inst/u1/light_reg[1][0] ,
+    \MiniLED_driver_inst/u1/light_reg[0][7] ,
+    \MiniLED_driver_inst/u1/light_reg[0][6] ,
+    \MiniLED_driver_inst/u1/light_reg[0][5] ,
+    \MiniLED_driver_inst/u1/light_reg[0][4] ,
+    \MiniLED_driver_inst/u1/light_reg[0][3] ,
+    \MiniLED_driver_inst/u1/light_reg[0][2] ,
+    \MiniLED_driver_inst/u1/light_reg[0][1] ,
+    \MiniLED_driver_inst/u1/light_reg[0][0] ,
+    \MiniLED_driver_inst/u1/light_reg[5][7] ,
+    \MiniLED_driver_inst/u1/light_reg[5][6] ,
+    \MiniLED_driver_inst/u1/light_reg[5][5] ,
+    \MiniLED_driver_inst/u1/light_reg[5][4] ,
+    \MiniLED_driver_inst/u1/light_reg[5][3] ,
+    \MiniLED_driver_inst/u1/light_reg[5][2] ,
+    \MiniLED_driver_inst/u1/light_reg[5][1] ,
+    \MiniLED_driver_inst/u1/light_reg[5][0] ,
+    \MiniLED_driver_inst/u1/light_reg[4][7] ,
+    \MiniLED_driver_inst/u1/light_reg[4][6] ,
+    \MiniLED_driver_inst/u1/light_reg[4][5] ,
+    \MiniLED_driver_inst/u1/light_reg[4][4] ,
+    \MiniLED_driver_inst/u1/light_reg[4][3] ,
+    \MiniLED_driver_inst/u1/light_reg[4][2] ,
+    \MiniLED_driver_inst/u1/light_reg[4][1] ,
+    \MiniLED_driver_inst/u1/light_reg[4][0] ,
+    \MiniLED_driver_inst/u1/light_reg[3][7] ,
+    \MiniLED_driver_inst/u1/light_reg[3][6] ,
+    \MiniLED_driver_inst/u1/light_reg[3][5] ,
+    \MiniLED_driver_inst/u1/light_reg[3][4] ,
+    \MiniLED_driver_inst/u1/light_reg[3][3] ,
+    \MiniLED_driver_inst/u1/light_reg[3][2] ,
+    \MiniLED_driver_inst/u1/light_reg[3][1] ,
+    \MiniLED_driver_inst/u1/light_reg[3][0] ,
+    \MiniLED_driver_inst/u1/light_reg[2][7] ,
+    \MiniLED_driver_inst/u1/light_reg[2][6] ,
+    \MiniLED_driver_inst/u1/light_reg[2][5] ,
+    \MiniLED_driver_inst/u1/light_reg[2][4] ,
+    \MiniLED_driver_inst/u1/light_reg[2][3] ,
+    \MiniLED_driver_inst/u1/light_reg[2][2] ,
+    \MiniLED_driver_inst/u1/light_reg[2][1] ,
+    \MiniLED_driver_inst/u1/light_reg[2][0] ,
+    \MiniLED_driver_inst/u1/clk ,
     tms_pad_i,
     tck_pad_i,
     tdi_pad_i,
     tdo_pad_o
 );
 
-input r_Vsync_0;
-input rx_sclk;
-input r_Hsync_0;
-input \LVDS_7to1_TX_Top_inst/I_data_r[7] ;
-input \LVDS_7to1_TX_Top_inst/I_data_r[6] ;
-input \LVDS_7to1_TX_Top_inst/I_data_r[5] ;
-input \LVDS_7to1_TX_Top_inst/I_data_r[4] ;
-input \LVDS_7to1_TX_Top_inst/I_data_r[3] ;
-input \LVDS_7to1_TX_Top_inst/I_data_r[2] ;
-input \LVDS_7to1_TX_Top_inst/I_data_r[1] ;
-input \LVDS_7to1_TX_Top_inst/I_data_r[0] ;
-input \LVDS_7to1_TX_Top_inst/I_data_g[7] ;
-input \LVDS_7to1_TX_Top_inst/I_data_g[6] ;
-input \LVDS_7to1_TX_Top_inst/I_data_g[5] ;
-input \LVDS_7to1_TX_Top_inst/I_data_g[4] ;
-input \LVDS_7to1_TX_Top_inst/I_data_g[3] ;
-input \LVDS_7to1_TX_Top_inst/I_data_g[2] ;
-input \LVDS_7to1_TX_Top_inst/I_data_g[1] ;
-input \LVDS_7to1_TX_Top_inst/I_data_g[0] ;
-input \LVDS_7to1_TX_Top_inst/I_data_b[7] ;
-input \LVDS_7to1_TX_Top_inst/I_data_b[6] ;
-input \LVDS_7to1_TX_Top_inst/I_data_b[5] ;
-input \LVDS_7to1_TX_Top_inst/I_data_b[4] ;
-input \LVDS_7to1_TX_Top_inst/I_data_b[3] ;
-input \LVDS_7to1_TX_Top_inst/I_data_b[2] ;
-input \LVDS_7to1_TX_Top_inst/I_data_b[1] ;
-input \LVDS_7to1_TX_Top_inst/I_data_b[0] ;
-input \r_R_0[7] ;
+input \MiniLED_driver_inst/u1/wtaddr_wire[9] ;
+input \MiniLED_driver_inst/u1/wtaddr_wire[8] ;
+input \MiniLED_driver_inst/u1/wtaddr_wire[7] ;
+input \MiniLED_driver_inst/u1/wtaddr_wire[6] ;
+input \MiniLED_driver_inst/u1/wtaddr_wire[5] ;
+input \MiniLED_driver_inst/u1/wtaddr_wire[4] ;
+input \MiniLED_driver_inst/u1/wtaddr_wire[3] ;
+input \MiniLED_driver_inst/u1/wtaddr_wire[2] ;
+input \MiniLED_driver_inst/u1/wtaddr_wire[1] ;
+input \MiniLED_driver_inst/u1/wtaddr_wire[0] ;
+input \MiniLED_driver_inst/u1/light_reg[1][7] ;
+input \MiniLED_driver_inst/u1/light_reg[1][6] ;
+input \MiniLED_driver_inst/u1/light_reg[1][5] ;
+input \MiniLED_driver_inst/u1/light_reg[1][4] ;
+input \MiniLED_driver_inst/u1/light_reg[1][3] ;
+input \MiniLED_driver_inst/u1/light_reg[1][2] ;
+input \MiniLED_driver_inst/u1/light_reg[1][1] ;
+input \MiniLED_driver_inst/u1/light_reg[1][0] ;
+input \MiniLED_driver_inst/u1/light_reg[0][7] ;
+input \MiniLED_driver_inst/u1/light_reg[0][6] ;
+input \MiniLED_driver_inst/u1/light_reg[0][5] ;
+input \MiniLED_driver_inst/u1/light_reg[0][4] ;
+input \MiniLED_driver_inst/u1/light_reg[0][3] ;
+input \MiniLED_driver_inst/u1/light_reg[0][2] ;
+input \MiniLED_driver_inst/u1/light_reg[0][1] ;
+input \MiniLED_driver_inst/u1/light_reg[0][0] ;
+input \MiniLED_driver_inst/u1/light_reg[5][7] ;
+input \MiniLED_driver_inst/u1/light_reg[5][6] ;
+input \MiniLED_driver_inst/u1/light_reg[5][5] ;
+input \MiniLED_driver_inst/u1/light_reg[5][4] ;
+input \MiniLED_driver_inst/u1/light_reg[5][3] ;
+input \MiniLED_driver_inst/u1/light_reg[5][2] ;
+input \MiniLED_driver_inst/u1/light_reg[5][1] ;
+input \MiniLED_driver_inst/u1/light_reg[5][0] ;
+input \MiniLED_driver_inst/u1/light_reg[4][7] ;
+input \MiniLED_driver_inst/u1/light_reg[4][6] ;
+input \MiniLED_driver_inst/u1/light_reg[4][5] ;
+input \MiniLED_driver_inst/u1/light_reg[4][4] ;
+input \MiniLED_driver_inst/u1/light_reg[4][3] ;
+input \MiniLED_driver_inst/u1/light_reg[4][2] ;
+input \MiniLED_driver_inst/u1/light_reg[4][1] ;
+input \MiniLED_driver_inst/u1/light_reg[4][0] ;
+input \MiniLED_driver_inst/u1/light_reg[3][7] ;
+input \MiniLED_driver_inst/u1/light_reg[3][6] ;
+input \MiniLED_driver_inst/u1/light_reg[3][5] ;
+input \MiniLED_driver_inst/u1/light_reg[3][4] ;
+input \MiniLED_driver_inst/u1/light_reg[3][3] ;
+input \MiniLED_driver_inst/u1/light_reg[3][2] ;
+input \MiniLED_driver_inst/u1/light_reg[3][1] ;
+input \MiniLED_driver_inst/u1/light_reg[3][0] ;
+input \MiniLED_driver_inst/u1/light_reg[2][7] ;
+input \MiniLED_driver_inst/u1/light_reg[2][6] ;
+input \MiniLED_driver_inst/u1/light_reg[2][5] ;
+input \MiniLED_driver_inst/u1/light_reg[2][4] ;
+input \MiniLED_driver_inst/u1/light_reg[2][3] ;
+input \MiniLED_driver_inst/u1/light_reg[2][2] ;
+input \MiniLED_driver_inst/u1/light_reg[2][1] ;
+input \MiniLED_driver_inst/u1/light_reg[2][0] ;
+input \MiniLED_driver_inst/u1/clk ;
 input tms_pad_i;
 input tck_pad_i;
 input tdi_pad_i;
 output tdo_pad_o;
 
-wire r_Vsync_0;
-wire rx_sclk;
-wire r_Hsync_0;
-wire \LVDS_7to1_TX_Top_inst/I_data_r[7] ;
-wire \LVDS_7to1_TX_Top_inst/I_data_r[6] ;
-wire \LVDS_7to1_TX_Top_inst/I_data_r[5] ;
-wire \LVDS_7to1_TX_Top_inst/I_data_r[4] ;
-wire \LVDS_7to1_TX_Top_inst/I_data_r[3] ;
-wire \LVDS_7to1_TX_Top_inst/I_data_r[2] ;
-wire \LVDS_7to1_TX_Top_inst/I_data_r[1] ;
-wire \LVDS_7to1_TX_Top_inst/I_data_r[0] ;
-wire \LVDS_7to1_TX_Top_inst/I_data_g[7] ;
-wire \LVDS_7to1_TX_Top_inst/I_data_g[6] ;
-wire \LVDS_7to1_TX_Top_inst/I_data_g[5] ;
-wire \LVDS_7to1_TX_Top_inst/I_data_g[4] ;
-wire \LVDS_7to1_TX_Top_inst/I_data_g[3] ;
-wire \LVDS_7to1_TX_Top_inst/I_data_g[2] ;
-wire \LVDS_7to1_TX_Top_inst/I_data_g[1] ;
-wire \LVDS_7to1_TX_Top_inst/I_data_g[0] ;
-wire \LVDS_7to1_TX_Top_inst/I_data_b[7] ;
-wire \LVDS_7to1_TX_Top_inst/I_data_b[6] ;
-wire \LVDS_7to1_TX_Top_inst/I_data_b[5] ;
-wire \LVDS_7to1_TX_Top_inst/I_data_b[4] ;
-wire \LVDS_7to1_TX_Top_inst/I_data_b[3] ;
-wire \LVDS_7to1_TX_Top_inst/I_data_b[2] ;
-wire \LVDS_7to1_TX_Top_inst/I_data_b[1] ;
-wire \LVDS_7to1_TX_Top_inst/I_data_b[0] ;
-wire \r_R_0[7] ;
+wire \MiniLED_driver_inst/u1/wtaddr_wire[9] ;
+wire \MiniLED_driver_inst/u1/wtaddr_wire[8] ;
+wire \MiniLED_driver_inst/u1/wtaddr_wire[7] ;
+wire \MiniLED_driver_inst/u1/wtaddr_wire[6] ;
+wire \MiniLED_driver_inst/u1/wtaddr_wire[5] ;
+wire \MiniLED_driver_inst/u1/wtaddr_wire[4] ;
+wire \MiniLED_driver_inst/u1/wtaddr_wire[3] ;
+wire \MiniLED_driver_inst/u1/wtaddr_wire[2] ;
+wire \MiniLED_driver_inst/u1/wtaddr_wire[1] ;
+wire \MiniLED_driver_inst/u1/wtaddr_wire[0] ;
+wire \MiniLED_driver_inst/u1/light_reg[1][7] ;
+wire \MiniLED_driver_inst/u1/light_reg[1][6] ;
+wire \MiniLED_driver_inst/u1/light_reg[1][5] ;
+wire \MiniLED_driver_inst/u1/light_reg[1][4] ;
+wire \MiniLED_driver_inst/u1/light_reg[1][3] ;
+wire \MiniLED_driver_inst/u1/light_reg[1][2] ;
+wire \MiniLED_driver_inst/u1/light_reg[1][1] ;
+wire \MiniLED_driver_inst/u1/light_reg[1][0] ;
+wire \MiniLED_driver_inst/u1/light_reg[0][7] ;
+wire \MiniLED_driver_inst/u1/light_reg[0][6] ;
+wire \MiniLED_driver_inst/u1/light_reg[0][5] ;
+wire \MiniLED_driver_inst/u1/light_reg[0][4] ;
+wire \MiniLED_driver_inst/u1/light_reg[0][3] ;
+wire \MiniLED_driver_inst/u1/light_reg[0][2] ;
+wire \MiniLED_driver_inst/u1/light_reg[0][1] ;
+wire \MiniLED_driver_inst/u1/light_reg[0][0] ;
+wire \MiniLED_driver_inst/u1/light_reg[5][7] ;
+wire \MiniLED_driver_inst/u1/light_reg[5][6] ;
+wire \MiniLED_driver_inst/u1/light_reg[5][5] ;
+wire \MiniLED_driver_inst/u1/light_reg[5][4] ;
+wire \MiniLED_driver_inst/u1/light_reg[5][3] ;
+wire \MiniLED_driver_inst/u1/light_reg[5][2] ;
+wire \MiniLED_driver_inst/u1/light_reg[5][1] ;
+wire \MiniLED_driver_inst/u1/light_reg[5][0] ;
+wire \MiniLED_driver_inst/u1/light_reg[4][7] ;
+wire \MiniLED_driver_inst/u1/light_reg[4][6] ;
+wire \MiniLED_driver_inst/u1/light_reg[4][5] ;
+wire \MiniLED_driver_inst/u1/light_reg[4][4] ;
+wire \MiniLED_driver_inst/u1/light_reg[4][3] ;
+wire \MiniLED_driver_inst/u1/light_reg[4][2] ;
+wire \MiniLED_driver_inst/u1/light_reg[4][1] ;
+wire \MiniLED_driver_inst/u1/light_reg[4][0] ;
+wire \MiniLED_driver_inst/u1/light_reg[3][7] ;
+wire \MiniLED_driver_inst/u1/light_reg[3][6] ;
+wire \MiniLED_driver_inst/u1/light_reg[3][5] ;
+wire \MiniLED_driver_inst/u1/light_reg[3][4] ;
+wire \MiniLED_driver_inst/u1/light_reg[3][3] ;
+wire \MiniLED_driver_inst/u1/light_reg[3][2] ;
+wire \MiniLED_driver_inst/u1/light_reg[3][1] ;
+wire \MiniLED_driver_inst/u1/light_reg[3][0] ;
+wire \MiniLED_driver_inst/u1/light_reg[2][7] ;
+wire \MiniLED_driver_inst/u1/light_reg[2][6] ;
+wire \MiniLED_driver_inst/u1/light_reg[2][5] ;
+wire \MiniLED_driver_inst/u1/light_reg[2][4] ;
+wire \MiniLED_driver_inst/u1/light_reg[2][3] ;
+wire \MiniLED_driver_inst/u1/light_reg[2][2] ;
+wire \MiniLED_driver_inst/u1/light_reg[2][1] ;
+wire \MiniLED_driver_inst/u1/light_reg[2][0] ;
+wire \MiniLED_driver_inst/u1/clk ;
 wire tms_pad_i;
 wire tck_pad_i;
 wire tdi_pad_i;
@@ -167,9 +260,9 @@ gw_con_top  u_icon_top(
 
 ao_top_0  u_la0_top(
     .control(control0[9:0]),
-    .trig0_i({rx_sclk,r_Hsync_0,r_Vsync_0,\LVDS_7to1_TX_Top_inst/I_data_r[7] ,\LVDS_7to1_TX_Top_inst/I_data_r[6] ,\LVDS_7to1_TX_Top_inst/I_data_r[5] ,\LVDS_7to1_TX_Top_inst/I_data_r[4] ,\LVDS_7to1_TX_Top_inst/I_data_r[3] ,\LVDS_7to1_TX_Top_inst/I_data_r[2] ,\LVDS_7to1_TX_Top_inst/I_data_r[1] ,\LVDS_7to1_TX_Top_inst/I_data_r[0] ,\LVDS_7to1_TX_Top_inst/I_data_g[7] ,\LVDS_7to1_TX_Top_inst/I_data_g[6] ,\LVDS_7to1_TX_Top_inst/I_data_g[5] ,\LVDS_7to1_TX_Top_inst/I_data_g[4] ,\LVDS_7to1_TX_Top_inst/I_data_g[3] ,\LVDS_7to1_TX_Top_inst/I_data_g[2] ,\LVDS_7to1_TX_Top_inst/I_data_g[1] ,\LVDS_7to1_TX_Top_inst/I_data_g[0] ,\LVDS_7to1_TX_Top_inst/I_data_b[7] ,\LVDS_7to1_TX_Top_inst/I_data_b[6] ,\LVDS_7to1_TX_Top_inst/I_data_b[5] ,\LVDS_7to1_TX_Top_inst/I_data_b[4] ,\LVDS_7to1_TX_Top_inst/I_data_b[3] ,\LVDS_7to1_TX_Top_inst/I_data_b[2] ,\LVDS_7to1_TX_Top_inst/I_data_b[1] ,\LVDS_7to1_TX_Top_inst/I_data_b[0] }),
-    .data_i(r_Vsync_0),
-    .clk_i(\r_R_0[7] )
+    .trig0_i({\MiniLED_driver_inst/u1/wtaddr_wire[9] ,\MiniLED_driver_inst/u1/wtaddr_wire[8] ,\MiniLED_driver_inst/u1/wtaddr_wire[7] ,\MiniLED_driver_inst/u1/wtaddr_wire[6] ,\MiniLED_driver_inst/u1/wtaddr_wire[5] ,\MiniLED_driver_inst/u1/wtaddr_wire[4] ,\MiniLED_driver_inst/u1/wtaddr_wire[3] ,\MiniLED_driver_inst/u1/wtaddr_wire[2] ,\MiniLED_driver_inst/u1/wtaddr_wire[1] ,\MiniLED_driver_inst/u1/wtaddr_wire[0] ,\MiniLED_driver_inst/u1/light_reg[5][7] ,\MiniLED_driver_inst/u1/light_reg[5][6] ,\MiniLED_driver_inst/u1/light_reg[5][5] ,\MiniLED_driver_inst/u1/light_reg[5][4] ,\MiniLED_driver_inst/u1/light_reg[5][3] ,\MiniLED_driver_inst/u1/light_reg[5][2] ,\MiniLED_driver_inst/u1/light_reg[5][1] ,\MiniLED_driver_inst/u1/light_reg[5][0] ,\MiniLED_driver_inst/u1/light_reg[4][7] ,\MiniLED_driver_inst/u1/light_reg[4][6] ,\MiniLED_driver_inst/u1/light_reg[4][5] ,\MiniLED_driver_inst/u1/light_reg[4][4] ,\MiniLED_driver_inst/u1/light_reg[4][3] ,\MiniLED_driver_inst/u1/light_reg[4][2] ,\MiniLED_driver_inst/u1/light_reg[4][1] ,\MiniLED_driver_inst/u1/light_reg[4][0] ,\MiniLED_driver_inst/u1/light_reg[3][7] ,\MiniLED_driver_inst/u1/light_reg[3][6] ,\MiniLED_driver_inst/u1/light_reg[3][5] ,\MiniLED_driver_inst/u1/light_reg[3][4] ,\MiniLED_driver_inst/u1/light_reg[3][3] ,\MiniLED_driver_inst/u1/light_reg[3][2] ,\MiniLED_driver_inst/u1/light_reg[3][1] ,\MiniLED_driver_inst/u1/light_reg[3][0] ,\MiniLED_driver_inst/u1/light_reg[2][7] ,\MiniLED_driver_inst/u1/light_reg[2][6] ,\MiniLED_driver_inst/u1/light_reg[2][5] ,\MiniLED_driver_inst/u1/light_reg[2][4] ,\MiniLED_driver_inst/u1/light_reg[2][3] ,\MiniLED_driver_inst/u1/light_reg[2][2] ,\MiniLED_driver_inst/u1/light_reg[2][1] ,\MiniLED_driver_inst/u1/light_reg[2][0] ,\MiniLED_driver_inst/u1/light_reg[1][7] ,\MiniLED_driver_inst/u1/light_reg[1][6] ,\MiniLED_driver_inst/u1/light_reg[1][5] ,\MiniLED_driver_inst/u1/light_reg[1][4] ,\MiniLED_driver_inst/u1/light_reg[1][3] ,\MiniLED_driver_inst/u1/light_reg[1][2] ,\MiniLED_driver_inst/u1/light_reg[1][1] ,\MiniLED_driver_inst/u1/light_reg[1][0] ,\MiniLED_driver_inst/u1/light_reg[0][7] ,\MiniLED_driver_inst/u1/light_reg[0][6] ,\MiniLED_driver_inst/u1/light_reg[0][5] ,\MiniLED_driver_inst/u1/light_reg[0][4] ,\MiniLED_driver_inst/u1/light_reg[0][3] ,\MiniLED_driver_inst/u1/light_reg[0][2] ,\MiniLED_driver_inst/u1/light_reg[0][1] ,\MiniLED_driver_inst/u1/light_reg[0][0] }),
+    .data_i({\MiniLED_driver_inst/u1/wtaddr_wire[9] ,\MiniLED_driver_inst/u1/wtaddr_wire[8] ,\MiniLED_driver_inst/u1/wtaddr_wire[7] ,\MiniLED_driver_inst/u1/wtaddr_wire[6] ,\MiniLED_driver_inst/u1/wtaddr_wire[5] ,\MiniLED_driver_inst/u1/wtaddr_wire[4] ,\MiniLED_driver_inst/u1/wtaddr_wire[3] ,\MiniLED_driver_inst/u1/wtaddr_wire[2] ,\MiniLED_driver_inst/u1/wtaddr_wire[1] ,\MiniLED_driver_inst/u1/wtaddr_wire[0] ,\MiniLED_driver_inst/u1/light_reg[1][7] ,\MiniLED_driver_inst/u1/light_reg[1][6] ,\MiniLED_driver_inst/u1/light_reg[1][5] ,\MiniLED_driver_inst/u1/light_reg[1][4] ,\MiniLED_driver_inst/u1/light_reg[1][3] ,\MiniLED_driver_inst/u1/light_reg[1][2] ,\MiniLED_driver_inst/u1/light_reg[1][1] ,\MiniLED_driver_inst/u1/light_reg[1][0] ,\MiniLED_driver_inst/u1/light_reg[0][7] ,\MiniLED_driver_inst/u1/light_reg[0][6] ,\MiniLED_driver_inst/u1/light_reg[0][5] ,\MiniLED_driver_inst/u1/light_reg[0][4] ,\MiniLED_driver_inst/u1/light_reg[0][3] ,\MiniLED_driver_inst/u1/light_reg[0][2] ,\MiniLED_driver_inst/u1/light_reg[0][1] ,\MiniLED_driver_inst/u1/light_reg[0][0] ,\MiniLED_driver_inst/u1/light_reg[5][7] ,\MiniLED_driver_inst/u1/light_reg[5][6] ,\MiniLED_driver_inst/u1/light_reg[5][5] ,\MiniLED_driver_inst/u1/light_reg[5][4] ,\MiniLED_driver_inst/u1/light_reg[5][3] ,\MiniLED_driver_inst/u1/light_reg[5][2] ,\MiniLED_driver_inst/u1/light_reg[5][1] ,\MiniLED_driver_inst/u1/light_reg[5][0] ,\MiniLED_driver_inst/u1/light_reg[4][7] ,\MiniLED_driver_inst/u1/light_reg[4][6] ,\MiniLED_driver_inst/u1/light_reg[4][5] ,\MiniLED_driver_inst/u1/light_reg[4][4] ,\MiniLED_driver_inst/u1/light_reg[4][3] ,\MiniLED_driver_inst/u1/light_reg[4][2] ,\MiniLED_driver_inst/u1/light_reg[4][1] ,\MiniLED_driver_inst/u1/light_reg[4][0] ,\MiniLED_driver_inst/u1/light_reg[3][7] ,\MiniLED_driver_inst/u1/light_reg[3][6] ,\MiniLED_driver_inst/u1/light_reg[3][5] ,\MiniLED_driver_inst/u1/light_reg[3][4] ,\MiniLED_driver_inst/u1/light_reg[3][3] ,\MiniLED_driver_inst/u1/light_reg[3][2] ,\MiniLED_driver_inst/u1/light_reg[3][1] ,\MiniLED_driver_inst/u1/light_reg[3][0] ,\MiniLED_driver_inst/u1/light_reg[2][7] ,\MiniLED_driver_inst/u1/light_reg[2][6] ,\MiniLED_driver_inst/u1/light_reg[2][5] ,\MiniLED_driver_inst/u1/light_reg[2][4] ,\MiniLED_driver_inst/u1/light_reg[2][3] ,\MiniLED_driver_inst/u1/light_reg[2][2] ,\MiniLED_driver_inst/u1/light_reg[2][1] ,\MiniLED_driver_inst/u1/light_reg[2][0] }),
+    .clk_i(\MiniLED_driver_inst/u1/clk )
 );
 
 endmodule
