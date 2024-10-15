@@ -2,67 +2,71 @@
  "Device" : "GW2A-55",
  "Files" : [
   {
-   "Path" : "C:/Users/Sivon/Desktop/Gowin_LVDS_7to1_RX_RefDesign/project/src/MiniLED_driver.v",
+   "Path" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/MiniLED/project/src/MiniLED_driver.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/Sivon/Desktop/Gowin_LVDS_7to1_RX_RefDesign/project/src/SPI7001_gowin.vp",
+   "Path" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/MiniLED/project/src/SPI7001_gowin.vp",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/Sivon/Desktop/Gowin_LVDS_7to1_RX_RefDesign/project/src/gowin_rpll/gowin_rpll.v",
+   "Path" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/MiniLED/project/src/gowin_rpll/gowin_rpll.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/Sivon/Desktop/Gowin_LVDS_7to1_RX_RefDesign/project/src/lvds_7to1_rx/LVDS71RX_1CLK8DATA.v",
+   "Path" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/MiniLED/project/src/gowin_rpll/rx_sclk_rpll.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/Sivon/Desktop/Gowin_LVDS_7to1_RX_RefDesign/project/src/lvds_7to1_rx/bit_align_ctl.v",
+   "Path" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/MiniLED/project/src/lvds_7to1_rx/LVDS71RX_1CLK8DATA.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/Sivon/Desktop/Gowin_LVDS_7to1_RX_RefDesign/project/src/lvds_7to1_rx/gowin_rpll/LVDS_RX_rPLL.v",
+   "Path" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/MiniLED/project/src/lvds_7to1_rx/bit_align_ctl.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/Sivon/Desktop/Gowin_LVDS_7to1_RX_RefDesign/project/src/lvds_7to1_rx/lvds_7to1_rx_defines.v",
+   "Path" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/MiniLED/project/src/lvds_7to1_rx/gowin_rpll/LVDS_RX_rPLL.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/Sivon/Desktop/Gowin_LVDS_7to1_RX_RefDesign/project/src/lvds_7to1_rx/lvds_7to1_rx_top.v",
+   "Path" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/MiniLED/project/src/lvds_7to1_rx/lvds_7to1_rx_defines.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/Sivon/Desktop/Gowin_LVDS_7to1_RX_RefDesign/project/src/lvds_7to1_rx/word_align_ctl.v",
+   "Path" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/MiniLED/project/src/lvds_7to1_rx/lvds_7to1_rx_top.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/Sivon/Desktop/Gowin_LVDS_7to1_RX_RefDesign/project/src/lvds_7to1_tx/gowin_rpll/LVDS_TX_rPLL.v",
+   "Path" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/MiniLED/project/src/lvds_7to1_rx/word_align_ctl.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/Sivon/Desktop/Gowin_LVDS_7to1_RX_RefDesign/project/src/lvds_7to1_tx/ip_gddr71tx.v",
+   "Path" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/MiniLED/project/src/lvds_7to1_tx/gowin_rpll/LVDS_TX_rPLL.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/Sivon/Desktop/Gowin_LVDS_7to1_RX_RefDesign/project/src/lvds_7to1_tx/lvds_7to1_tx_defines.v",
+   "Path" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/MiniLED/project/src/lvds_7to1_tx/ip_gddr71tx.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/Sivon/Desktop/Gowin_LVDS_7to1_RX_RefDesign/project/src/lvds_7to1_tx/lvds_7to1_tx_top.v",
+   "Path" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/MiniLED/project/src/lvds_7to1_tx/lvds_7to1_tx_defines.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/Sivon/Desktop/Gowin_LVDS_7to1_RX_RefDesign/project/src/lvds_video_top.v",
+   "Path" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/MiniLED/project/src/lvds_7to1_tx/lvds_7to1_tx_top.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/Sivon/Desktop/Gowin_LVDS_7to1_RX_RefDesign/project/src/ramflag_1.v",
+   "Path" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/MiniLED/project/src/lvds_video_top.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/Sivon/Desktop/Gowin_LVDS_7to1_RX_RefDesign/project/src/sram_top_gowin_top_sim.v",
+   "Path" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/MiniLED/project/src/ramflag_1.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/MiniLED/project/src/sram_top_gowin_top_sim.v",
    "Type" : "verilog"
   }
  ],
@@ -71,7 +75,7 @@
   "src/lvds_7to1_rx"
  ],
  "LoopLimit" : 2000,
- "ResultFile" : "C:/Users/Sivon/Desktop/Gowin_LVDS_7to1_RX_RefDesign/project/impl/temp/rtl_parser.result",
+ "ResultFile" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/MiniLED/project/impl/temp/rtl_parser.result",
  "Top" : "lvds_video_top",
  "VerilogStd" : "verilog_2001",
  "VhdlStd" : "vhdl_93"

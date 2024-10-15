@@ -1,10 +1,10 @@
--d C:\Users\Sivon\Desktop\Gowin_LVDS_7to1_RX_RefDesign\project\impl\gwsynthesis\lvds_video.vg
+-d C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\impl\gwsynthesis\lvds_video.vg
 -p GW2A-55-PBGA484-8
 -pn GW2A-LV55PG484C8/I7
--cst C:\Users\Sivon\Desktop\Gowin_LVDS_7to1_RX_RefDesign\project\src\lvds_video.cst
--cfg C:\Users\Sivon\Desktop\Gowin_LVDS_7to1_RX_RefDesign\project\impl\pnr\device.cfg
--sdc C:\Users\Sivon\Desktop\Gowin_LVDS_7to1_RX_RefDesign\project\src\lvds_video.sdc
--gao_crc 0111001011101000
+-cst C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_video.cst
+-cfg C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\impl\pnr\device.cfg
+-sdc C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_video.sdc
+-gao_crc 0110001001101001
 -bit
 -tr
 -ph

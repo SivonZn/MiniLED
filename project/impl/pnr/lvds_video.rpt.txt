@@ -5,33 +5,33 @@
 1. PnR Messages
 
   <Report Title>: PnR Report
-  <Design File>: C:\Users\Sivon\Desktop\Gowin_LVDS_7to1_RX_RefDesign\project\impl\gwsynthesis\lvds_video.vg
-  <Physical Constraints File>: C:\Users\Sivon\Desktop\Gowin_LVDS_7to1_RX_RefDesign\project\src\lvds_video.cst
-  <Timing Constraints File>: C:\Users\Sivon\Desktop\Gowin_LVDS_7to1_RX_RefDesign\project\src\lvds_video.sdc
+  <Design File>: C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\impl\gwsynthesis\lvds_video.vg
+  <Physical Constraints File>: C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_video.cst
+  <Timing Constraints File>: C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_video.sdc
   <Tool Version>: V1.9.10.02
   <Part Number>: GW2A-LV55PG484C8/I7
   <Device>: GW2A-55
-  <Created Time>:Fri Oct 11 19:19:41 2024
+  <Created Time>:Tue Oct 15 18:35:10 2024
 
 
 2. PnR Details
 
   Running placement:
-    Placement Phase 0: CPU time = 0h 0m 0.306s, Elapsed time = 0h 0m 0.306s
-    Placement Phase 1: CPU time = 0h 0m 0.871s, Elapsed time = 0h 0m 0.871s
-    Placement Phase 2: CPU time = 0h 0m 0.402s, Elapsed time = 0h 0m 0.401s
-    Placement Phase 3: CPU time = 0h 0m 1s, Elapsed time = 0h 0m 1s
-    Total Placement: CPU time = 0h 0m 3s, Elapsed time = 0h 0m 3s
+    Placement Phase 0: CPU time = 0h 0m 0.434s, Elapsed time = 0h 0m 0.434s
+    Placement Phase 1: CPU time = 0h 0m 0.805s, Elapsed time = 0h 0m 0.806s
+    Placement Phase 2: CPU time = 0h 0m 0.671s, Elapsed time = 0h 0m 0.671s
+    Placement Phase 3: CPU time = 0h 0m 2s, Elapsed time = 0h 0m 2s
+    Total Placement: CPU time = 0h 0m 4s, Elapsed time = 0h 0m 4s
  Running routing:
-    Routing Phase 0: CPU time = 0h 0m 0.004s, Elapsed time = 0h 0m 0.004s
-    Routing Phase 1: CPU time = 0h 0m 1s, Elapsed time = 0h 0m 1s
+    Routing Phase 0: CPU time = 0h 0m 0.002s, Elapsed time = 0h 0m 0.002s
+    Routing Phase 1: CPU time = 0h 0m 0.923s, Elapsed time = 0h 0m 0.923s
     Routing Phase 2: CPU time = 0h 0m 4s, Elapsed time = 0h 0m 4s
     Routing Phase 3: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
     Total Routing: CPU time = 0h 0m 5s, Elapsed time = 0h 0m 5s
  Generate output files:
     CPU time = 0h 0m 7s, Elapsed time = 0h 0m 7s
 
- Total Time and Memory Usage: CPU time = 0h 0m 15s, Elapsed time = 0h 0m 15s, Peak memory usage = 847MB
+ Total Time and Memory Usage: CPU time = 0h 0m 16s, Elapsed time = 0h 0m 16s, Peak memory usage = 851MB
 
 
 3. Resource Usage Summary
@@ -39,26 +39,26 @@
   ----------------------------------------------------------
   Resources                   | Usage
   ----------------------------------------------------------
-  Logic                       | 1684/54720  4%
-    --LUT,ALU,ROM16           | 1684(1625 LUT, 59 ALU, 0 ROM16)
+  Logic                       | 2133/54720  4%
+    --LUT,ALU,ROM16           | 2133(1894 LUT, 239 ALU, 0 ROM16)
     --SSRAM(RAM16)            | 0
-  Register                    | 1249/41997  3%
-    --Logic Register as Latch | 2/41040  <1%
-    --Logic Register as FF    | 1243/41040  4%
+  Register                    | 1557/41997  4%
+    --Logic Register as Latch | 0/41040  0%
+    --Logic Register as FF    | 1553/41040  4%
     --I/O Register as Latch   | 0/957  0%
     --I/O Register as FF      | 4/957  <1%
-  CLS                         | 1124/27360  5%
-  I/O Port                    | 38
-  I/O Buf                     | 28
-    --Input Buf               | 10
+  CLS                         | 1503/27360  6%
+  I/O Port                    | 40
+  I/O Buf                     | 30
+    --Input Buf               | 12
     --Output Buf              | 18
     --Inout Buf               | 0
   IOLOGIC                     | 7%
     --IVIDEO                  | 5
     --OVIDEO                  | 5
     --IODELAY                 | 4
-  BSRAM                       | 8%
-    --SDPB                    | 10
+  BSRAM                       | 13%
+    --SDPB                    | 16
     --pROM                    | 1
   DSP                         | 0%
   PLL                         | 3/6  50%
@@ -81,7 +81,7 @@
   bank 0   | 10/40(25%)  
   bank 1   | 10/39(25%)  
   bank 2   | 13/46(28%)  
-  bank 3   | 4/34(11%)   
+  bank 3   | 6/34(17%)   
   bank 4   | 0/40(0%)    
   bank 5   | 1/40(2%)    
   bank 6   | 0/34(0%)    
@@ -94,8 +94,8 @@
   -------------------------------
   Global Clock  | Usage       
   -------------------------------
-  PRIMARY       | 7/8(88%)
-  LW            | 5/8(63%)
+  PRIMARY       | 6/8(75%)
+  LW            | 6/8(75%)
   GCLK_PIN      | 1/8(13%)
   PLL           | 3/6(50%)
   CLKDIV        | 1/8(13%)
@@ -108,15 +108,15 @@
   -------------------------------------------
   Signal         | Global Clock   | Location
   -------------------------------------------
-  I_clk_d        | PRIMARY        |  TR TL BL
-  rx_sclk        | PRIMARY        |  TR TL BL
+  I_clk_d        | PRIMARY        |  TR
+  MiniLED_driver_inst_58| PRIMARY        |  TR TL BR BL
+  rx_sclk        | PRIMARY        |  TR TL
   gw_gao_inst_0/control0[0]| PRIMARY        |  TR TL BR BL
-  MiniLED_driver_inst/clk25M| PRIMARY        |  TR BR BL
-  MiniLED_driver_inst/clk1M| PRIMARY        |  TR TL BR BL
+  MiniLED_driver_inst/clk1M| PRIMARY        |  TL
   LVDS_7to1_RX_Top_inst/ibuf_clk| PRIMARY        |  TR TL
-  LVDS_7to1_RX_Top_inst/pll_lock| PRIMARY        |  TR TL
   I_rst_n_d      | LW             |  -
   gw_gao_inst_0/gao_jtag_reset| LW             |  -
+  gw_gao_inst_0/u_la0_top/rst_ao| LW             |  -
   MiniLED_driver_inst/u3/SPI7001_ins/data96_reg_95_8| LW             |  -
   LVDS_7to1_RX_Top_inst/reset_sync| LW             |  -
   LVDS_7to1_TX_Top_inst/n45_5| LW             |  -
@@ -137,6 +137,8 @@ I_din_p[0]   | I_din_n[0] | A11,A12/0     | Y          | in    | IOT42    | LVDS
 I_din_p[1]   | I_din_n[1] | A9,A10/0      | Y          | in    | IOT40    | LVDS25     | NA    | NONE      | NA        | NA         | NA         | NA         | NA              | OFF           | 2.5       
 I_din_p[2]   | I_din_n[2] | B6,A6/0       | Y          | in    | IOT24    | LVDS25     | NA    | NONE      | NA        | NA         | NA         | NA         | NA              | OFF           | 2.5       
 I_din_p[3]   | I_din_n[3] | A2,A3/0       | Y          | in    | IOT18    | LVDS25     | NA    | NONE      | NA        | NA         | NA         | NA         | NA              | OFF           | 2.5       
+led_mode[0]  |           | W20/3         | Y          | in    | IOR77[A] | LVCMOS25   | NA    | UP        | ON        | NONE       | NA         | NA         | OFF             | NA            | 2.5       
+led_mode[1]  |           | V20/3         | Y          | in    | IOR77[B] | LVCMOS25   | NA    | UP        | ON        | NONE       | NA         | NA         | OFF             | NA            | 2.5       
 tms_pad_i    |           | N22/2         | N          | in    | IOR42[B] | LVCMOS25   | NA    | UP        | ON        | NONE       | NA         | NA         | OFF             | NA            | 2.5       
 tck_pad_i    |           | N20/2         | N          | in    | IOR43[A] | LVCMOS25   | NA    | UP        | ON        | NONE       | NA         | NA         | OFF             | NA            | 2.5       
 tdi_pad_i    |           | M20/2         | N          | in    | IOR43[B] | LVCMOS25   | NA    | UP        | ON        | NONE       | NA         | NA         | OFF             | NA            | 2.5       
@@ -483,8 +485,8 @@ R18/3    | -            | in    | IOR74[A] | LVCMOS18 | NA    | UP        | ON  
 T18/3    | -            | in    | IOR74[B] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 2.5  
 Y21/3    | -            | in    | IOR76[A] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 2.5  
 AA21/3   | -            | in    | IOR76[B] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 2.5  
-W20/3    | -            | in    | IOR77[A] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 2.5  
-V20/3    | -            | in    | IOR77[B] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 2.5  
+W20/3    | led_mode[0]  | in    | IOR77[A] | LVCMOS25 | NA    | UP        | ON        | NONE       | NA         | NA         | OFF             | NA            | 2.5  
+V20/3    | led_mode[1]  | in    | IOR77[B] | LVCMOS25 | NA    | UP        | ON        | NONE       | NA         | NA         | OFF             | NA            | 2.5  
 AB22/3   | -            | in    | IOR79[A] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 2.5  
 AB21/3   | -            | in    | IOR79[B] | LVCMOS18 | NA    | UP        | ON        | NONE       | NA         | NA         | NA              | NA            | 2.5  
 T17/3    | O_led[3]     | out   | IOR82[A] | LVCMOS25 | 8     | UP        | NA        | NA         | OFF        | NA         | OFF             | NA            | 2.5  

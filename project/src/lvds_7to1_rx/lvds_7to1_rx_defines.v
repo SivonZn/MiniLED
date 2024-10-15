@@ -1,7 +1,7 @@
 
 //---------------------------------------------
 // `define AUTO_PHASE
-`define AUTO_PHASE
+`define MANUAL_PHASE
 
 `ifdef AUTO_PHASE
     `define AUTO_INIT_PHASE 4'd0  // 4'd0, 4'd8
@@ -9,7 +9,7 @@
 `endif
 
 `ifdef MANUAL_PHASE
-    `define RX_CLKOUTP_PHASE 4'd4  // 4'd0~4'd15  
+    `define RX_CLKOUTP_PHASE 4'd10  // 4'd0~4'd15  
 `endif
 
 
