@@ -57,7 +57,7 @@ module gw_gao(
     \MiniLED_driver_inst/u1/light_reg[2][2] ,
     \MiniLED_driver_inst/u1/light_reg[2][1] ,
     \MiniLED_driver_inst/u1/light_reg[2][0] ,
-    \MiniLED_driver_inst/u1/clk ,
+    \MiniLED_driver_inst/u1/cnt1[0] ,
     tms_pad_i,
     tck_pad_i,
     tdi_pad_i,
@@ -122,7 +122,7 @@ input \MiniLED_driver_inst/u1/light_reg[2][3] ;
 input \MiniLED_driver_inst/u1/light_reg[2][2] ;
 input \MiniLED_driver_inst/u1/light_reg[2][1] ;
 input \MiniLED_driver_inst/u1/light_reg[2][0] ;
-input \MiniLED_driver_inst/u1/clk ;
+input \MiniLED_driver_inst/u1/cnt1[0] ;
 input tms_pad_i;
 input tck_pad_i;
 input tdi_pad_i;
@@ -186,7 +186,7 @@ wire \MiniLED_driver_inst/u1/light_reg[2][3] ;
 wire \MiniLED_driver_inst/u1/light_reg[2][2] ;
 wire \MiniLED_driver_inst/u1/light_reg[2][1] ;
 wire \MiniLED_driver_inst/u1/light_reg[2][0] ;
-wire \MiniLED_driver_inst/u1/clk ;
+wire \MiniLED_driver_inst/u1/cnt1[0] ;
 wire tms_pad_i;
 wire tck_pad_i;
 wire tdi_pad_i;
@@ -262,7 +262,7 @@ ao_top_0  u_la0_top(
     .control(control0[9:0]),
     .trig0_i({\MiniLED_driver_inst/u1/wtaddr_wire[9] ,\MiniLED_driver_inst/u1/wtaddr_wire[8] ,\MiniLED_driver_inst/u1/wtaddr_wire[7] ,\MiniLED_driver_inst/u1/wtaddr_wire[6] ,\MiniLED_driver_inst/u1/wtaddr_wire[5] ,\MiniLED_driver_inst/u1/wtaddr_wire[4] ,\MiniLED_driver_inst/u1/wtaddr_wire[3] ,\MiniLED_driver_inst/u1/wtaddr_wire[2] ,\MiniLED_driver_inst/u1/wtaddr_wire[1] ,\MiniLED_driver_inst/u1/wtaddr_wire[0] ,\MiniLED_driver_inst/u1/light_reg[5][7] ,\MiniLED_driver_inst/u1/light_reg[5][6] ,\MiniLED_driver_inst/u1/light_reg[5][5] ,\MiniLED_driver_inst/u1/light_reg[5][4] ,\MiniLED_driver_inst/u1/light_reg[5][3] ,\MiniLED_driver_inst/u1/light_reg[5][2] ,\MiniLED_driver_inst/u1/light_reg[5][1] ,\MiniLED_driver_inst/u1/light_reg[5][0] ,\MiniLED_driver_inst/u1/light_reg[4][7] ,\MiniLED_driver_inst/u1/light_reg[4][6] ,\MiniLED_driver_inst/u1/light_reg[4][5] ,\MiniLED_driver_inst/u1/light_reg[4][4] ,\MiniLED_driver_inst/u1/light_reg[4][3] ,\MiniLED_driver_inst/u1/light_reg[4][2] ,\MiniLED_driver_inst/u1/light_reg[4][1] ,\MiniLED_driver_inst/u1/light_reg[4][0] ,\MiniLED_driver_inst/u1/light_reg[3][7] ,\MiniLED_driver_inst/u1/light_reg[3][6] ,\MiniLED_driver_inst/u1/light_reg[3][5] ,\MiniLED_driver_inst/u1/light_reg[3][4] ,\MiniLED_driver_inst/u1/light_reg[3][3] ,\MiniLED_driver_inst/u1/light_reg[3][2] ,\MiniLED_driver_inst/u1/light_reg[3][1] ,\MiniLED_driver_inst/u1/light_reg[3][0] ,\MiniLED_driver_inst/u1/light_reg[2][7] ,\MiniLED_driver_inst/u1/light_reg[2][6] ,\MiniLED_driver_inst/u1/light_reg[2][5] ,\MiniLED_driver_inst/u1/light_reg[2][4] ,\MiniLED_driver_inst/u1/light_reg[2][3] ,\MiniLED_driver_inst/u1/light_reg[2][2] ,\MiniLED_driver_inst/u1/light_reg[2][1] ,\MiniLED_driver_inst/u1/light_reg[2][0] ,\MiniLED_driver_inst/u1/light_reg[1][7] ,\MiniLED_driver_inst/u1/light_reg[1][6] ,\MiniLED_driver_inst/u1/light_reg[1][5] ,\MiniLED_driver_inst/u1/light_reg[1][4] ,\MiniLED_driver_inst/u1/light_reg[1][3] ,\MiniLED_driver_inst/u1/light_reg[1][2] ,\MiniLED_driver_inst/u1/light_reg[1][1] ,\MiniLED_driver_inst/u1/light_reg[1][0] ,\MiniLED_driver_inst/u1/light_reg[0][7] ,\MiniLED_driver_inst/u1/light_reg[0][6] ,\MiniLED_driver_inst/u1/light_reg[0][5] ,\MiniLED_driver_inst/u1/light_reg[0][4] ,\MiniLED_driver_inst/u1/light_reg[0][3] ,\MiniLED_driver_inst/u1/light_reg[0][2] ,\MiniLED_driver_inst/u1/light_reg[0][1] ,\MiniLED_driver_inst/u1/light_reg[0][0] }),
     .data_i({\MiniLED_driver_inst/u1/wtaddr_wire[9] ,\MiniLED_driver_inst/u1/wtaddr_wire[8] ,\MiniLED_driver_inst/u1/wtaddr_wire[7] ,\MiniLED_driver_inst/u1/wtaddr_wire[6] ,\MiniLED_driver_inst/u1/wtaddr_wire[5] ,\MiniLED_driver_inst/u1/wtaddr_wire[4] ,\MiniLED_driver_inst/u1/wtaddr_wire[3] ,\MiniLED_driver_inst/u1/wtaddr_wire[2] ,\MiniLED_driver_inst/u1/wtaddr_wire[1] ,\MiniLED_driver_inst/u1/wtaddr_wire[0] ,\MiniLED_driver_inst/u1/light_reg[1][7] ,\MiniLED_driver_inst/u1/light_reg[1][6] ,\MiniLED_driver_inst/u1/light_reg[1][5] ,\MiniLED_driver_inst/u1/light_reg[1][4] ,\MiniLED_driver_inst/u1/light_reg[1][3] ,\MiniLED_driver_inst/u1/light_reg[1][2] ,\MiniLED_driver_inst/u1/light_reg[1][1] ,\MiniLED_driver_inst/u1/light_reg[1][0] ,\MiniLED_driver_inst/u1/light_reg[0][7] ,\MiniLED_driver_inst/u1/light_reg[0][6] ,\MiniLED_driver_inst/u1/light_reg[0][5] ,\MiniLED_driver_inst/u1/light_reg[0][4] ,\MiniLED_driver_inst/u1/light_reg[0][3] ,\MiniLED_driver_inst/u1/light_reg[0][2] ,\MiniLED_driver_inst/u1/light_reg[0][1] ,\MiniLED_driver_inst/u1/light_reg[0][0] ,\MiniLED_driver_inst/u1/light_reg[5][7] ,\MiniLED_driver_inst/u1/light_reg[5][6] ,\MiniLED_driver_inst/u1/light_reg[5][5] ,\MiniLED_driver_inst/u1/light_reg[5][4] ,\MiniLED_driver_inst/u1/light_reg[5][3] ,\MiniLED_driver_inst/u1/light_reg[5][2] ,\MiniLED_driver_inst/u1/light_reg[5][1] ,\MiniLED_driver_inst/u1/light_reg[5][0] ,\MiniLED_driver_inst/u1/light_reg[4][7] ,\MiniLED_driver_inst/u1/light_reg[4][6] ,\MiniLED_driver_inst/u1/light_reg[4][5] ,\MiniLED_driver_inst/u1/light_reg[4][4] ,\MiniLED_driver_inst/u1/light_reg[4][3] ,\MiniLED_driver_inst/u1/light_reg[4][2] ,\MiniLED_driver_inst/u1/light_reg[4][1] ,\MiniLED_driver_inst/u1/light_reg[4][0] ,\MiniLED_driver_inst/u1/light_reg[3][7] ,\MiniLED_driver_inst/u1/light_reg[3][6] ,\MiniLED_driver_inst/u1/light_reg[3][5] ,\MiniLED_driver_inst/u1/light_reg[3][4] ,\MiniLED_driver_inst/u1/light_reg[3][3] ,\MiniLED_driver_inst/u1/light_reg[3][2] ,\MiniLED_driver_inst/u1/light_reg[3][1] ,\MiniLED_driver_inst/u1/light_reg[3][0] ,\MiniLED_driver_inst/u1/light_reg[2][7] ,\MiniLED_driver_inst/u1/light_reg[2][6] ,\MiniLED_driver_inst/u1/light_reg[2][5] ,\MiniLED_driver_inst/u1/light_reg[2][4] ,\MiniLED_driver_inst/u1/light_reg[2][3] ,\MiniLED_driver_inst/u1/light_reg[2][2] ,\MiniLED_driver_inst/u1/light_reg[2][1] ,\MiniLED_driver_inst/u1/light_reg[2][0] }),
-    .clk_i(\MiniLED_driver_inst/u1/clk )
+    .clk_i(\MiniLED_driver_inst/u1/cnt1[0] )
 );
 
 endmodule

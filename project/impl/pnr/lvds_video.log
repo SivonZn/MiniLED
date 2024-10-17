@@ -8,6 +8,7 @@ Running placement......
 [20%] Placement Phase 1 completed
 [30%] Placement Phase 2 completed
 WARN  (TA1132) :  'tck_pad_i' was determined to be a clock but was not created.
+WARN  (TA1132) :  'MiniLED_driver_inst_58_1' was determined to be a clock but was not created.
 [50%] Placement Phase 3 completed
 Running routing......
 [60%] Routing Phase 0 completed
@@ -27,5 +28,5 @@ Generate file "C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\i
 Generate file "C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\impl\pnr\lvds_video.rpt.html" completed
 Generate file "C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\impl\pnr\lvds_video.rpt.txt" completed
 Generate file "C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\impl\pnr\lvds_video.tr.html" completed
-Tue Oct 15 18:35:10 2024
+Tue Oct 15 19:42:56 2024
 

@@ -60,7 +60,7 @@ wire 		rx_sclk;
 //wire        rx_sclk_copy;
 //wire        rx_sclk_debug;
 
-reg [8*9-1:0] led_light_flatted;
+reg [8*360-1:0] led_light_flatted;
 
 //===================================================
 //LED test
@@ -93,8 +93,8 @@ always @(posedge I_clk or negedge I_rst_n) begin
     if(!I_rst_n)
         led_light_flatted <= 0;
     else
-        for(i = 0; i < 8 * 9; i  = i + 1) begin
-            led_light_flatted[i] <= 1;
+        for(i = 0; i < 360; i = i + 8) begin
+            led_light_flatted[i*8+:8] <= 8'hff;
         end
 end
 

@@ -11,20 +11,20 @@
   <Tool Version>: V1.9.10.02
   <Part Number>: GW2A-LV55PG484C8/I7
   <Device>: GW2A-55
-  <Created Time>:Tue Oct 15 18:35:10 2024
+  <Created Time>:Tue Oct 15 19:42:56 2024
 
 
 2. PnR Details
 
   Running placement:
-    Placement Phase 0: CPU time = 0h 0m 0.434s, Elapsed time = 0h 0m 0.434s
-    Placement Phase 1: CPU time = 0h 0m 0.805s, Elapsed time = 0h 0m 0.806s
-    Placement Phase 2: CPU time = 0h 0m 0.671s, Elapsed time = 0h 0m 0.671s
+    Placement Phase 0: CPU time = 0h 0m 0.399s, Elapsed time = 0h 0m 0.399s
+    Placement Phase 1: CPU time = 0h 0m 0.769s, Elapsed time = 0h 0m 0.769s
+    Placement Phase 2: CPU time = 0h 0m 0.678s, Elapsed time = 0h 0m 0.678s
     Placement Phase 3: CPU time = 0h 0m 2s, Elapsed time = 0h 0m 2s
     Total Placement: CPU time = 0h 0m 4s, Elapsed time = 0h 0m 4s
  Running routing:
     Routing Phase 0: CPU time = 0h 0m 0.002s, Elapsed time = 0h 0m 0.002s
-    Routing Phase 1: CPU time = 0h 0m 0.923s, Elapsed time = 0h 0m 0.923s
+    Routing Phase 1: CPU time = 0h 0m 0.893s, Elapsed time = 0h 0m 0.893s
     Routing Phase 2: CPU time = 0h 0m 4s, Elapsed time = 0h 0m 4s
     Routing Phase 3: CPU time = 0h 0m 0s, Elapsed time = 0h 0m 0s
     Total Routing: CPU time = 0h 0m 5s, Elapsed time = 0h 0m 5s
@@ -39,15 +39,15 @@
   ----------------------------------------------------------
   Resources                   | Usage
   ----------------------------------------------------------
-  Logic                       | 2133/54720  4%
-    --LUT,ALU,ROM16           | 2133(1894 LUT, 239 ALU, 0 ROM16)
+  Logic                       | 1952/54720  4%
+    --LUT,ALU,ROM16           | 1952(1872 LUT, 80 ALU, 0 ROM16)
     --SSRAM(RAM16)            | 0
   Register                    | 1557/41997  4%
     --Logic Register as Latch | 0/41040  0%
     --Logic Register as FF    | 1553/41040  4%
     --I/O Register as Latch   | 0/957  0%
     --I/O Register as FF      | 4/957  <1%
-  CLS                         | 1503/27360  6%
+  CLS                         | 1391/27360  6%
   I/O Port                    | 40
   I/O Buf                     | 30
     --Input Buf               | 12
@@ -94,8 +94,8 @@
   -------------------------------
   Global Clock  | Usage       
   -------------------------------
-  PRIMARY       | 6/8(75%)
-  LW            | 6/8(75%)
+  PRIMARY       | 7/8(88%)
+  LW            | 7/8(88%)
   GCLK_PIN      | 1/8(13%)
   PLL           | 3/6(50%)
   CLKDIV        | 1/8(13%)
@@ -108,14 +108,16 @@
   -------------------------------------------
   Signal         | Global Clock   | Location
   -------------------------------------------
-  I_clk_d        | PRIMARY        |  TR
-  MiniLED_driver_inst_58| PRIMARY        |  TR TL BR BL
+  I_clk_d        | PRIMARY        |  TR BL
+  MiniLED_driver_inst_58_1| PRIMARY        |  TR TL BR BL
   rx_sclk        | PRIMARY        |  TR TL
   gw_gao_inst_0/control0[0]| PRIMARY        |  TR TL BR BL
-  MiniLED_driver_inst/clk1M| PRIMARY        |  TL
+  MiniLED_driver_inst/clk25M| PRIMARY        |  TR BR
+  MiniLED_driver_inst/clk1M| PRIMARY        |  TR BR
   LVDS_7to1_RX_Top_inst/ibuf_clk| PRIMARY        |  TR TL
   I_rst_n_d      | LW             |  -
   gw_gao_inst_0/gao_jtag_reset| LW             |  -
+  gw_gao_inst_0/u_la0_top/n20_3| LW             |  -
   gw_gao_inst_0/u_la0_top/rst_ao| LW             |  -
   MiniLED_driver_inst/u3/SPI7001_ins/data96_reg_95_8| LW             |  -
   LVDS_7to1_RX_Top_inst/reset_sync| LW             |  -

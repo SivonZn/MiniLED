@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Module name="lvds_video_top" Register="1" Lut="4" T_Register="1368(1)" T_Alu="225(0)" T_Lut="1711(4)" T_Bsram="17(0)">
-    <SubModule name="gw_gao_inst_0" Register="741" Alu="197" Lut="913" Bsram="15" T_Register="741(741)" T_Alu="197(197)" T_Lut="913(913)" T_Bsram="15(15)"/>
-    <SubModule name="MiniLED_driver_inst" T_Register="569(0)" T_Alu="11(0)" T_Lut="748(0)" T_Bsram="2(0)">
+<Module name="lvds_video_top" Register="1" Lut="4" T_Register="1368(1)" T_Alu="68(0)" T_Lut="1690(4)" T_Bsram="17(0)">
+    <SubModule name="gw_gao_inst_0" Register="741" Alu="40" Lut="888" Bsram="15" T_Register="741(741)" T_Alu="40(40)" T_Lut="888(888)" T_Bsram="15(15)"/>
+    <SubModule name="MiniLED_driver_inst" T_Register="569(0)" T_Alu="11(0)" T_Lut="752(0)" T_Bsram="2(0)">
         <SubModule name="SPI7001_25M_1M_rPLL_inst"/>
-        <SubModule name="u1" Register="46" Alu="11" Lut="95" T_Register="46(46)" T_Alu="11(11)" T_Lut="95(95)"/>
+        <SubModule name="u1" Register="46" Alu="11" Lut="99" T_Register="46(46)" T_Alu="11(11)" T_Lut="99(99)"/>
         <SubModule name="u2" Register="216" Lut="192" Bsram="2" T_Register="216(216)" T_Lut="192(192)" T_Bsram="2(2)"/>
         <SubModule name="u3" Register="307" Lut="461" T_Register="307(307)" T_Lut="461(461)"/>
     </SubModule>

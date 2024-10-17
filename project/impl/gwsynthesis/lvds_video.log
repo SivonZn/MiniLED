@@ -67,7 +67,6 @@ WARN  (EX3791) : Expression size 32 truncated to fit in target size 31("C:\Gowin
 WARN  (EX3791) : Expression size 11 truncated to fit in target size 10("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\ramflag_1.v":70)
 WARN  (EX3791) : Expression size 15 truncated to fit in target size 14("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\ramflag_1.v":85)
 WARN  (EX3791) : Expression size 11 truncated to fit in target size 10("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\ramflag_1.v":110)
-WARN  (EX1998) : Net 'light_reg[8][7]' does not have a driver("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\ramflag_1.v":18)
 Compiling module 'sram_top_gowin_top'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\sram_top_gowin_top_sim.v":8)
 Compiling module 'SPI7001_gowin_top'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\SPI7001_gowin.vp":7)
 Compiling module '**'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\SPI7001_gowin.vp":2392)
