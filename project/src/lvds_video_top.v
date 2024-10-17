@@ -21,19 +21,36 @@
 
 module lvds_video_top
 (
-    input           I_clk       ,  //50MHz      
-    input           I_rst_n     ,
-    output  [3:0]   O_led       , 
-    input           I_clkin_p   ,  //LVDS Input
-    input           I_clkin_n   ,  //LVDS Input
-    input   [3:0]   I_din_p     ,  //LVDS Input
-    input   [3:0]   I_din_n     ,  //LVDS Input    
-    output          O_clkout_p  ,
-    output          O_clkout_n  ,
-    output  [3:0]   O_dout_p    ,
-    output  [3:0]   O_dout_n    ,
+    input          I_clk       ,  //50MHz      
+    input          I_rst_n     ,
+    output [3:0]   O_led       , 
+    input          I_clkin_p   ,  //LVDS Input
+    input          I_clkin_n   ,  //LVDS Input
+    input  [3:0]   I_din_p     ,  //LVDS Input
+    input  [3:0]   I_din_n     ,  //LVDS Input    
+    output         O_clkout_p  ,
+    output         O_clkout_n  ,
+    output [3:0]   O_dout_p    ,
+    output [3:0]   O_dout_n    ,
 
-	output          LE          ,
+
+	  output [14-1:0] ddr_addr,
+    output [3-1:0]  ddr_bank,
+    output          ddr_cs,
+    output          ddr_ras,
+    output          ddr_cas,
+    output          ddr_we,
+    output          ddr_ck,
+    output          ddr_ck_n,
+    output          ddr_cke,
+    output          ddr_odt,
+    output          ddr_reset_n,
+    output [2-1:0]  ddr_dm,
+    inout  [16-1:0] ddr_dq,
+    inout  [2-1:0]  ddr_dqs,
+    inout  [2-1:0]  ddr_dqs_n,
+
+	  output          LE          ,
     output          DCLK        , //12.5M
     output          SDI         ,
     output          GCLK        ,
@@ -112,27 +129,39 @@ buffer_360  max_gray_buffer(
     .buf_360_flatted(led_light_flatted)	//读出数据
 )
 
-//MiniLED_driver
-MiniLED_driver   MiniLED_driver_inst
-(
-    .I_clk(I_clk)       ,  //50MHz      
-    .I_rst_n(I_rst_n)   ,   
-    .I_led_light(led_light_flatted) ,
-    .I_led_mode(led_mode) ,
-    .LE(LE)             ,
-    .DCLK(DCLK)         , //12.5M
-    .SDI(SDI)           ,
-    .GCLK(GCLK)         ,
-    .scan1(scan1)       ,
-    .scan2(scan2)       ,
-    .scan3(scan3)       , 
-    .scan4(scan4)       
-);
+assign  running = (run_cnt < 32'd25_000_000) ? 1'b1 : 1'b0;
+
+assign  O_led[0] = 1'b1;
+assign  O_led[1] = 1'b1;
+assign  O_led[2] = 1'b0;
+assign  O_led[3] = running;
+
+wire	[7:0] gray;
+wire	[10:0]pix_x;
+wire	[10:0]pix_y;
+
+wire	[2:0] cnt_6;
+wire		  wr_en;
+wire	   page_sel;
+wire [47:0] wr_data;
+wire [15:0]	wr_addr;
+
+wire 		  rd_en;
+wire  [15:0]rd_addr;
+wire  [8:0] cnt_360;
+
+wire 		 clk_x1;//100M from DDr3 interface
+wire 	app_rd_data_valid;
+wire	  app_rd_data_end;
+wire [64-1:0] app_rd_data;
+
+wire  		buf_en;
+wire [8:0]  cnt_buf;
+wire [7:0] max_gray;
 
 
 
-
-//==============================================================
+//=============================================================
 //LVDS Reciver
 LVDS_7to1_RX_Top LVDS_7to1_RX_Top_inst
 (
@@ -158,7 +187,7 @@ LVDS_7to1_RX_Top LVDS_7to1_RX_Top_inst
 LVDS_7to1_TX_Top LVDS_7to1_TX_Top_inst
 (
     .I_rst_n       (I_rst_n     ),
-    .I_pix_clk     (rx_sclk     ), //x1                       
+    .I_pix_clk     (rx_sclk     ),                      
     .I_vs          (r_Vsync_0   ), 
     .I_hs          (r_Hsync_0   ),
     .I_de          (r_DE_0      ),
@@ -170,5 +199,173 @@ LVDS_7to1_TX_Top LVDS_7to1_TX_Top_inst
     .O_dout_p      (O_dout_p    ),    
     .O_dout_n      (O_dout_n    ) 
 );
+
+
+
+rgb_to_gray  gray_trans(
+.i_pix_clk(rx_sclk),
+.rst_n(I_rst_n),
+.data_de(r_DE_0),
+.data_r(r_R_0),
+.data_g(r_G_0),
+.data_b(r_B_0),
+
+
+.gray(gray),
+.pix_x(pix_x),
+.pix_y(pix_y)
+);
+
+
+
+addr_wr wr_control(
+.i_pix_clk(rx_sclk),
+.rst_n(I_rst_n),
+.data_de(r_DE_0),
+.pix_x(pix_x),
+.pix_y(pix_y),
+.data_gray(gray),
+
+.cnt_6(cnt_6),					
+
+.wr_en(wr_en)   ,					
+.page_sel(page_sel),                   
+.wr_data(wr_data),
+.wr_addr(wr_addr)
+);
+
+
+ddr3_syn_top DDr3
+(
+.clk(I_clk),   
+.rst_nn(I_rst_n),
+//	
+.wr_en(wr_en),
+.wr_data(wr_data),
+.wr_addr(wr_addr),
+.rd_en(rd_en),
+.rd_addr(rd_addr),
+//	
+    .ddr_addr(ddr_addr),
+    .ddr_bank(ddr_bank),
+    .ddr_cs(ddr_cs),
+    .ddr_ras(ddr_ras),
+    .ddr_cas(ddr_cas),
+    .ddr_we(ddr_we),
+    .ddr_ck(ddr_ck),
+    .ddr_ck_n(ddr_ck_n),
+    .ddr_cke(ddr_cke),
+    .ddr_odt(ddr_odt),
+    .ddr_reset_n(ddr_reset_n),
+    .ddr_dm(ddr_dm),
+    .ddr_dq(ddr_dq),
+    .ddr_dqs(ddr_dqs),
+    .ddr_dqs_n(ddr_dqs_n),
+    
+	
+	
+	
+	
+	//
+.clk_x1(clk_x1),
+.app_rd_data_valid(app_rd_data_valid), 
+.app_rd_data_end(app_rd_data_end),
+.app_rd_data(app_rd_data)
+  //
+);
+
+
+
+addr_rd_cal rd_control
+(
+.i_pix_clk(O_pix_clk),
+.rst_n(I_rst_n),
+.page_sel(page_sel),
+.cnt_6(cnt_6), 
+
+
+.rd_en(rd_en) ,	
+.rd_addr(rd_addr),
+.cnt_360(cnt_360) 
+
+
+);
+
+ddr_rd_receiver	rd_receiver
+(
+.clk_x1(clk_x1),
+.rst_n(I_rst_n),
+.rd_valid(app_rd_data_valid),
+.rd_end(app_rd_data_end),
+.rd_data(app_rd_data),
+
+.buf_en(buf_en),
+.cnt_buf(cnt_buf),
+.max_gray(max_gray)
+
+);
+
+
+buffer_360  buffer_1(
+.clk_x1(clk_x1),
+.rst_n(I_rst_n),
+.buf_en(buf_en),
+.cnt_buf(cnt_buf),
+.max_gray(max_gray)//,
+
+//input rd_buf_en,		//读使能
+//input [8:0]array_map,	//读地址
+//
+//output [7:0] gray_data	//读出数据
+
+);
+
+//MiniLED_driver
+MiniLED_driver   MiniLED_driver_inst
+(
+  .I_clk(I_clk)       ,  //50MHz      
+  .I_rst_n(I_rst_n)   ,   
+ 
+  .LE(LE)          ,
+  .DCLK(DCLK)      , //12.5M
+  .SDI(SDI)        ,
+  .GCLK(GCLK)      ,
+  .scan1(scan1)    ,
+  .scan2(scan2)    ,
+  .scan3(scan3)    , 
+  .scan4(scan4)     
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 endmodule
