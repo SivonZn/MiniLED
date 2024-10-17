@@ -16,6 +16,7 @@
         <File path="src/DDR3/rgb_to_gray.v" type="file.verilog" enable="1"/>
         <File path="src/MiniLED_driver.v" type="file.verilog" enable="1"/>
         <File path="src/SPI7001_gowin.vp" type="file.verilog" enable="1"/>
+        <File path="src/buffer_360.v" type="file.verilog" enable="1"/>
         <File path="src/gowin_rpll/gowin_rpll.v" type="file.verilog" enable="1"/>
         <File path="src/gowin_rpll/rx_sclk_rpll.v" type="file.verilog" enable="1"/>
         <File path="src/lvds_7to1_rx/LVDS71RX_1CLK8DATA.v" type="file.verilog" enable="1"/>
