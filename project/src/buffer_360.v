@@ -8,7 +8,7 @@ module buffer_360(
     input rd_buf_en,		//读使能
     input [8:0] array_map,	//读地址
 
-    output [360*8-1:0]buf_360_flatted	//读出数据
+    output reg [360*8-1:0]buf_360_flatted	//读出数据
 
 );
 

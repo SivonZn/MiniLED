@@ -77,7 +77,7 @@ wire 		rx_sclk;
 //wire        rx_sclk_copy;
 //wire        rx_sclk_debug;
 
-reg [8*360-1:0] led_light_flatted;
+wire [8*360-1:0] led_light_flatted;
 
 //===================================================
 //LED test
@@ -127,14 +127,7 @@ buffer_360  max_gray_buffer(
     .array_map  (       ),	//读地址
 
     .buf_360_flatted(led_light_flatted)	//读出数据
-)
-
-assign  running = (run_cnt < 32'd25_000_000) ? 1'b1 : 1'b0;
-
-assign  O_led[0] = 1'b1;
-assign  O_led[1] = 1'b1;
-assign  O_led[2] = 1'b0;
-assign  O_led[3] = running;
+);
 
 wire	[7:0] gray;
 wire	[10:0]pix_x;
@@ -311,7 +304,7 @@ buffer_360  buffer_1(
 .rst_n(I_rst_n),
 .buf_en(buf_en),
 .cnt_buf(cnt_buf),
-.max_gray(max_gray)//,
+.gray(max_gray)//,
 
 //input rd_buf_en,		//读使能
 //input [8:0]array_map,	//读地址
@@ -333,7 +326,9 @@ MiniLED_driver   MiniLED_driver_inst
   .scan1(scan1)    ,
   .scan2(scan2)    ,
   .scan3(scan3)    , 
-  .scan4(scan4)     
+  .scan4(scan4)    ,
+    .I_led_light(led_light_flatted),
+    .I_led_mode(led_mode)
 );
 
 
