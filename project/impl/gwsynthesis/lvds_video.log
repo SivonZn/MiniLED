@@ -28,6 +28,7 @@ Back to file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\sr
 Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_video_top.v'
 Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\ramflag_1.v'
 Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\sram_top_gowin_top_sim.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\buffer_360.v'
 Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\data\ipcores\GAO\GW_AO_0\gw_ao_crc32.v'
 Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\data\ipcores\GAO\GW_AO_0\gw_ao_match.v'
 Analyzing included file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\data\ipcores\GAO\GW_AO_0\gw_ao_define.v'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\data\ipcores\GAO\GW_AO_0\gw_ao_match.v":374)

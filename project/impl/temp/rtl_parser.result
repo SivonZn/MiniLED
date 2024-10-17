@@ -138,5 +138,13 @@
     ]
    }
   ]
+ },
+ {
+  "InstFile" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/MiniLED/project/src/buffer_360.v",
+  "InstLine" : 1,
+  "InstName" : "buffer_360",
+  "ModuleFile" : "C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/MiniLED/project/src/buffer_360.v",
+  "ModuleLine" : 1,
+  "ModuleName" : "buffer_360"
  }
 ]

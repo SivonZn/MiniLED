@@ -88,15 +88,29 @@ assign O_led[0] = (2'b11 == led_mode) ? 1'b1 : 1'b0;
 
 //==========================================================
 //LED_LIGHT_REG_TEST
-integer i;
-always @(posedge I_clk or negedge I_rst_n) begin
-    if(!I_rst_n)
-        led_light_flatted <= 0;
-    else
-        for(i = 0; i < 360; i = i + 8) begin
-            led_light_flatted[i*8+:8] <= 8'hff;
-        end
-end
+//integer i;
+//always @(posedge I_clk or negedge I_rst_n) begin
+//    if(!I_rst_n)
+//        led_light_flatted <= 0;
+//    else
+//        for(i = 0; i < 360; i = i + 8) begin
+//            led_light_flatted[i*8+:8] <= 8'hff;
+//        end
+//end
+
+//buffer_driver
+buffer_360  max_gray_buffer(
+    .clk_x1     (       ),
+    .rst_n      (I_rst_n),
+    .buf_en     (       ),
+    .cnt_buf    (       ),
+    .gray       (       ),
+
+    .rd_buf_en  (       ),		//读使能
+    .array_map  (       ),	//读地址
+
+    .buf_360_flatted(led_light_flatted)	//读出数据
+)
 
 //MiniLED_driver
 MiniLED_driver   MiniLED_driver_inst
