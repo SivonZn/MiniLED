@@ -34,7 +34,7 @@ module lvds_video_top
     output [3:0]   O_dout_n    ,
 
 
-	output [14-1:0] ddr_addr,
+	  output [14-1:0] ddr_addr,
     output [3-1:0]  ddr_bank,
     output          ddr_cs,
     output          ddr_ras,
@@ -49,20 +49,16 @@ module lvds_video_top
     inout  [16-1:0] ddr_dq,
     inout  [2-1:0]  ddr_dqs,
     inout  [2-1:0]  ddr_dqs_n,
-     
 
-
-
-	output         LE          ,
-    output         DCLK        , //12.5M
-    output         SDI         ,
-    output         GCLK         ,
-    output         scan1       ,
-    output         scan2       ,
-    output         scan3       , 
-    output         scan4   	
-	
-	
+	  output          LE          ,
+    output          DCLK        , //12.5M
+    output          SDI         ,
+    output          GCLK        ,
+    output          scan1       ,
+    output          scan2       ,
+    output          scan3       , 
+    output          scan4       ,
+    input   [1:0]   led_mode    
 );
 
 //======================================================
@@ -78,17 +74,45 @@ wire        r_Hsync_0;
 wire        r_DE_0   ;
 
 wire 		rx_sclk;
+//wire        rx_sclk_copy;
+//wire        rx_sclk_debug;
+
+reg [8*9-1:0] led_light_flatted;
 
 //===================================================
 //LED test
-always @(posedge I_clk or negedge I_rst_n)//I_clk
-begin
+//always @(posedge I_clk or negedge I_rst_n)//I_clk
+//begin
+//    if(!I_rst_n)
+//        run_cnt <= 32'd0;
+//    else if(run_cnt >= 32'd50_000_000)
+//        run_cnt <= 32'd0;
+//    else
+//        run_cnt <= run_cnt + 1'b1;
+//end
+
+//assign  running = (run_cnt < 32'd25_000_000) ? 1'b1 : 1'b0;
+
+//assign  O_led[0] = 1'b1;
+//assign  O_led[1] = 1'b1;
+//assign  O_led[2] = 1'b0;
+//assign  O_led[3] = running;
+assign O_led[3] = (2'b00 == led_mode) ? 1'b1 : 1'b0;
+assign O_led[2] = (2'b01 == led_mode) ? 1'b1 : 1'b0;
+assign O_led[1] = (2'b10 == led_mode) ? 1'b1 : 1'b0;
+assign O_led[0] = (2'b11 == led_mode) ? 1'b1 : 1'b0;
+
+
+//==========================================================
+//LED_LIGHT_REG_TEST
+integer i;
+always @(posedge I_clk or negedge I_rst_n) begin
     if(!I_rst_n)
-        run_cnt <= 32'd0;
-    else if(run_cnt >= 32'd50_000_000)
-        run_cnt <= 32'd0;
+        led_light_flatted <= 0;
     else
-        run_cnt <= run_cnt + 1'b1;
+        for(i = 0; i < 8 * 9; i  = i + 1) begin
+            led_light_flatted[i] <= 1;
+        end
 end
 
 assign  running = (run_cnt < 32'd25_000_000) ? 1'b1 : 1'b0;
@@ -97,8 +121,6 @@ assign  O_led[0] = 1'b1;
 assign  O_led[1] = 1'b1;
 assign  O_led[2] = 1'b0;
 assign  O_led[3] = running;
-
-
 
 wire	[7:0] gray;
 wire	[10:0]pix_x;
@@ -122,6 +144,7 @@ wire [64-1:0] app_rd_data;
 wire  		buf_en;
 wire [8:0]  cnt_buf;
 wire [7:0] max_gray;
+
 
 
 //=============================================================
@@ -282,19 +305,6 @@ buffer_360  buffer_1(
 //output [7:0] gray_data	//读出数据
 
 );
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //MiniLED_driver
 MiniLED_driver   MiniLED_driver_inst
