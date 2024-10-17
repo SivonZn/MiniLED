@@ -38,26 +38,6 @@
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/MiniLED/MiniLED_driver.v",
-   "Type" : "verilog"
-  },
-  {
-   "Path" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/MiniLED/SPI7001_gowin.vp",
-   "Type" : "verilog"
-  },
-  {
-   "Path" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/MiniLED/gowin_rpll/gowin_rpll.v",
-   "Type" : "verilog"
-  },
-  {
-   "Path" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/MiniLED/ramflag_1.v",
-   "Type" : "verilog"
-  },
-  {
-   "Path" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/MiniLED/sram_top_gowin_top_sim.v",
-   "Type" : "verilog"
-  },
-  {
    "Path" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/lvds_7to1_rx/LVDS71RX_1CLK8DATA.v",
    "Type" : "verilog"
   },
@@ -99,6 +79,26 @@
   },
   {
    "Path" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/lvds_video_top.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/MiniLED_driver.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/ramflag_1.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/SPI7001_gowin.vp",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/sram_top_gowin_top_sim.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/gowin_rpll/gowin_rpll.v",
    "Type" : "verilog"
   }
  ],

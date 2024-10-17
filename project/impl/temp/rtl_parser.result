@@ -165,47 +165,47 @@
     "InstFile" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/lvds_video_top.v",
     "InstLine" : 300,
     "InstName" : "MiniLED_driver_inst",
-    "ModuleFile" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/MiniLED/MiniLED_driver.v",
+    "ModuleFile" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/MiniLED_driver.v",
     "ModuleLine" : 1,
     "ModuleName" : "MiniLED_driver",
     "SubInsts" : [
      {
-      "InstFile" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/MiniLED/MiniLED_driver.v",
+      "InstFile" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/MiniLED_driver.v",
       "InstLine" : 26,
       "InstName" : "SPI7001_25M_1M_rPLL_inst",
-      "ModuleFile" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/MiniLED/gowin_rpll/gowin_rpll.v",
+      "ModuleFile" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/gowin_rpll/gowin_rpll.v",
       "ModuleLine" : 9,
       "ModuleName" : "SPI7001_25M_1M_rPLL"
      },
      {
-      "InstFile" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/MiniLED/MiniLED_driver.v",
+      "InstFile" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/MiniLED_driver.v",
       "InstLine" : 32,
       "InstName" : "u1",
-      "ModuleFile" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/MiniLED/ramflag_1.v",
+      "ModuleFile" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/ramflag_1.v",
       "ModuleLine" : 1,
       "ModuleName" : "ramflag_1"
      },
      {
-      "InstFile" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/MiniLED/MiniLED_driver.v",
+      "InstFile" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/MiniLED_driver.v",
       "InstLine" : 40,
       "InstName" : "u2",
-      "ModuleFile" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/MiniLED/sram_top_gowin_top_sim.v",
+      "ModuleFile" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/sram_top_gowin_top_sim.v",
       "ModuleLine" : 8,
       "ModuleName" : "sram_top_gowin_top"
      },
      {
-      "InstFile" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/MiniLED/MiniLED_driver.v",
+      "InstFile" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/MiniLED_driver.v",
       "InstLine" : 53,
       "InstName" : "u3",
-      "ModuleFile" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/MiniLED/SPI7001_gowin.vp",
+      "ModuleFile" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/SPI7001_gowin.vp",
       "ModuleLine" : 7,
       "ModuleName" : "SPI7001_gowin_top",
       "SubInsts" : [
        {
-        "InstFile" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/MiniLED/SPI7001_gowin.vp",
+        "InstFile" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/SPI7001_gowin.vp",
         "InstLine" : 47,
         "InstName" : "SPI7001_ins",
-        "ModuleFile" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/MiniLED/SPI7001_gowin.vp",
+        "ModuleFile" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/SPI7001_gowin.vp",
         "ModuleLine" : 77,
         "ModuleName" : "SPI7001"
        }
