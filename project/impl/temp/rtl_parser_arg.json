@@ -2,15 +2,59 @@
  "Device" : "GW2A-55",
  "Files" : [
   {
-   "Path" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/MiniLED_driver.v",
+   "Path" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/DDR3/DDR3_test.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/SPI7001_gowin.vp",
+   "Path" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/DDR3/addr_wr.v",
    "Type" : "verilog"
   },
   {
-   "Path" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/gowin_rpll/gowin_rpll.v",
+   "Path" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/DDR3/buffer_360.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/DDR3/calculate.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/DDR3/ddr3_memory_interface/ddr3_memory_interface.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/DDR3/ddr3_syn_top.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/DDR3/ddr_rd&&cal.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/DDR3/gowin_rpll/gowin_rpll.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/DDR3/rgb_to_gray.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/MiniLED/MiniLED_driver.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/MiniLED/SPI7001_gowin.vp",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/MiniLED/gowin_rpll/gowin_rpll.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/MiniLED/ramflag_1.v",
+   "Type" : "verilog"
+  },
+  {
+   "Path" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/MiniLED/sram_top_gowin_top_sim.v",
    "Type" : "verilog"
   },
   {
@@ -55,14 +99,6 @@
   },
   {
    "Path" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/lvds_video_top.v",
-   "Type" : "verilog"
-  },
-  {
-   "Path" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/ramflag_1.v",
-   "Type" : "verilog"
-  },
-  {
-   "Path" : "C:/Users/The-strip/Desktop/LVDS/MiniLED/project/src/sram_top_gowin_top_sim.v",
    "Type" : "verilog"
   }
  ],

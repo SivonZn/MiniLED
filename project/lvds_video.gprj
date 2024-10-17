@@ -5,9 +5,20 @@
     <Version>5</Version>
     <Device name="GW2A-55" pn="GW2A-LV55PG484C8/I7">gw2a55-000</Device>
     <FileList>
-        <File path="src/MiniLED_driver.v" type="file.verilog" enable="1"/>
-        <File path="src/SPI7001_gowin.vp" type="file.verilog" enable="1"/>
-        <File path="src/gowin_rpll/gowin_rpll.v" type="file.verilog" enable="1"/>
+        <File path="src/DDR3/DDR3_test.v" type="file.verilog" enable="1"/>
+        <File path="src/DDR3/addr_wr.v" type="file.verilog" enable="1"/>
+        <File path="src/DDR3/buffer_360.v" type="file.verilog" enable="1"/>
+        <File path="src/DDR3/calculate.v" type="file.verilog" enable="1"/>
+        <File path="src/DDR3/ddr3_memory_interface/ddr3_memory_interface.v" type="file.verilog" enable="1"/>
+        <File path="src/DDR3/ddr3_syn_top.v" type="file.verilog" enable="1"/>
+        <File path="src/DDR3/ddr_rd&amp;&amp;cal.v" type="file.verilog" enable="1"/>
+        <File path="src/DDR3/gowin_rpll/gowin_rpll.v" type="file.verilog" enable="1"/>
+        <File path="src/DDR3/rgb_to_gray.v" type="file.verilog" enable="1"/>
+        <File path="src/MiniLED/MiniLED_driver.v" type="file.verilog" enable="1"/>
+        <File path="src/MiniLED/SPI7001_gowin.vp" type="file.verilog" enable="1"/>
+        <File path="src/MiniLED/gowin_rpll/gowin_rpll.v" type="file.verilog" enable="1"/>
+        <File path="src/MiniLED/ramflag_1.v" type="file.verilog" enable="1"/>
+        <File path="src/MiniLED/sram_top_gowin_top_sim.v" type="file.verilog" enable="1"/>
         <File path="src/lvds_7to1_rx/LVDS71RX_1CLK8DATA.v" type="file.verilog" enable="1"/>
         <File path="src/lvds_7to1_rx/bit_align_ctl.v" type="file.verilog" enable="1"/>
         <File path="src/lvds_7to1_rx/gowin_rpll/LVDS_RX_rPLL.v" type="file.verilog" enable="1"/>
@@ -19,8 +30,6 @@
         <File path="src/lvds_7to1_tx/lvds_7to1_tx_defines.v" type="file.verilog" enable="1"/>
         <File path="src/lvds_7to1_tx/lvds_7to1_tx_top.v" type="file.verilog" enable="1"/>
         <File path="src/lvds_video_top.v" type="file.verilog" enable="1"/>
-        <File path="src/ramflag_1.v" type="file.verilog" enable="1"/>
-        <File path="src/sram_top_gowin_top_sim.v" type="file.verilog" enable="1"/>
         <File path="src/lvds_video.cst" type="file.cst" enable="1"/>
         <File path="src/lvds_video.sdc" type="file.sdc" enable="1"/>
         <File path="src/lvds_video.rao" type="file.gao" enable="1"/>
