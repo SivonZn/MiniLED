@@ -86,6 +86,12 @@ assign O_led[1] = (2'b10 == led_mode) ? 1'b1 : 1'b0;
 assign O_led[0] = (2'b11 == led_mode) ? 1'b1 : 1'b0;
 
 
+
+wire [7:0]data_gray;
+wire [10:0]pix_x;
+wire [10:0]pix_y;
+
+
 //==========================================================
 //LED_LIGHT_REG_TEST
 integer i;
@@ -97,23 +103,6 @@ always @(posedge I_clk or negedge I_rst_n) begin
             led_light_flatted[i * 8 +:8] <= 8'hff;
         end
 end
-
-//MiniLED_driver
-MiniLED_driver   MiniLED_driver_inst
-(
-    .I_clk(I_clk)       ,  //50MHz      
-    .I_rst_n(I_rst_n)   ,   
-    .I_led_light(led_light_flatted) ,
-    .I_led_mode(led_mode) ,
-    .LE(LE)             ,
-    .DCLK(DCLK)         , //12.5M
-    .SDI(SDI)           ,
-    .GCLK(GCLK)         ,
-    .scan1(scan1)       ,
-    .scan2(scan2)       ,
-    .scan3(scan3)       , 
-    .scan4(scan4)       
-);
 
 
 
@@ -156,5 +145,63 @@ LVDS_7to1_TX_Top LVDS_7to1_TX_Top_inst
     .O_dout_p      (O_dout_p    ),    
     .O_dout_n      (O_dout_n    ) 
 );
+
+
+
+
+
+
+rgb_to_data_gray 	rtg(
+.i_pix_clk(rx_sclk),
+.rst_n(I_rst_n),
+.data_de(r_DE_0),
+.data_r(r_R_0 ),
+.data_g(r_G_0 ),
+.data_b(r_B_0 ),
+
+.data_gray(data_gray),
+.pix_x(pix_x),//1280*800 像素坐标
+.pix_y(pix_y)
+);
+
+
+
+
+
+
+
+
+
+
+
+block_360	calculate(
+.i_pix_clk(rx_sclk),
+.rst_n(I_rst_n),
+.data_de(r_DE_0),
+.pix_x(pix_x),							//1280*800 像素坐标);
+.pix_y(pix_y),
+.data_gray(data_gray),
+
+.buf_360_flatted()	//读出数据
+);
+
+
+//MiniLED_driver
+MiniLED_driver   MiniLED_driver_inst
+(
+    .I_clk(I_clk)       ,  //50MHz      
+    .I_rst_n(I_rst_n)   ,   
+    .I_led_light(led_light_flatted) ,
+    .I_led_mode(led_mode) ,
+    .LE(LE)             ,
+    .DCLK(DCLK)         , //12.5M
+    .SDI(SDI)           ,
+    .GCLK(GCLK)         ,
+    .scan1(scan1)       ,
+    .scan2(scan2)       ,
+    .scan3(scan3)       , 
+    .scan4(scan4)       
+);
+
 
 endmodule
