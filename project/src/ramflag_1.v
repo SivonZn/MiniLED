@@ -1,7 +1,7 @@
  module ramflag_1(
     input clk,   // 25Mclk
     input rst_n,
-    input [8*9-1:0] light_reg_flatted,
+    input [8*360-1:0] light_reg_flatted,
     input   [1:0] mode_selector,
     output  sdbpflag_wire,
     output  [15:0] wtdina_wire,
@@ -15,7 +15,7 @@ reg flag= 'd0; //标志配置寄存器结束，可以发送sdbp数据了;
 reg sdbpflag;
 reg [15:0]wtdina;
 reg [9:0]wtaddr;
-reg [7:0]light_reg[8:0];
+reg [7:0]light_reg[360-1:0];
 
 integer temp_i;
 
@@ -117,7 +117,7 @@ end
 //展开数组
 integer i;
 always@* begin
-    for(i = 0; i < 8; i = i + 1) begin
+    for(i = 0; i < 360; i = i + 1) begin
         light_reg[i] <= light_reg_flatted[i * 8 +:8];
     end
 end
