@@ -2,7 +2,7 @@ module MiniLED_driver
 (
     input           I_clk       ,  //50MHz      
     input           I_rst_n     ,   
-    input [8*9-1:0] I_led_light ,
+    input [8*360-1:0] I_led_light ,
     input [1:0]     I_led_mode  ,
     //led
     output          LE          ,
