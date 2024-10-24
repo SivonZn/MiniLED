@@ -2,9 +2,61 @@
 <GAO_CONFIG>
     <Version>3.0</Version>
     <Mode>Standard</Mode>
-    <AoCore index="0" sample_clock="rx_sclk" trig_type="0" storage_depth="4096" window_num="1" capture_amount="4096" implementation="0" trigger_pos="0" module_name="lvds_video_top" force_trigger_by_falling_edge="false" capture_init_data_enabled="false">
+    <AoCore index="0" sample_clock="rx_sclk" trig_type="0" storage_depth="8192" window_num="1" capture_amount="8192" implementation="0" trigger_pos="0" module_name="lvds_video_top" force_trigger_by_falling_edge="false" capture_init_data_enabled="false">
         <SignalList>
-            <Bus capture_enable="true" name="MiniLED_driver_inst/u1/light_reg[359][7:0]">
+            <Signal capture_enable="true">r_Vsync_0</Signal>
+            <Signal capture_enable="true">r_Hsync_0</Signal>
+            <Signal capture_enable="true">r_DE_0</Signal>
+            <Signal capture_enable="true">rx_sclk</Signal>
+            <Bus capture_enable="true" name="pix_x[10:0]">
+                <Signal>pix_x[10]</Signal>
+                <Signal>pix_x[9]</Signal>
+                <Signal>pix_x[8]</Signal>
+                <Signal>pix_x[7]</Signal>
+                <Signal>pix_x[6]</Signal>
+                <Signal>pix_x[5]</Signal>
+                <Signal>pix_x[4]</Signal>
+                <Signal>pix_x[3]</Signal>
+                <Signal>pix_x[2]</Signal>
+                <Signal>pix_x[1]</Signal>
+                <Signal>pix_x[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="pix_y[10:0]">
+                <Signal>pix_y[10]</Signal>
+                <Signal>pix_y[9]</Signal>
+                <Signal>pix_y[8]</Signal>
+                <Signal>pix_y[7]</Signal>
+                <Signal>pix_y[6]</Signal>
+                <Signal>pix_y[5]</Signal>
+                <Signal>pix_y[4]</Signal>
+                <Signal>pix_y[3]</Signal>
+                <Signal>pix_y[2]</Signal>
+                <Signal>pix_y[1]</Signal>
+                <Signal>pix_y[0]</Signal>
+            </Bus>
+            <Bus capture_enable="true" name="r_R_0[7:0]">
+                <Signal>r_R_0[7]</Signal>
+                <Signal>r_R_0[6]</Signal>
+                <Signal>r_R_0[5]</Signal>
+                <Signal>r_R_0[4]</Signal>
+                <Signal>r_R_0[3]</Signal>
+                <Signal>r_R_0[2]</Signal>
+                <Signal>r_R_0[1]</Signal>
+                <Signal>r_R_0[0]</Signal>
+            </Bus>
+            <Signal capture_enable="true">flag_start</Signal>
+            <Bus capture_enable="true" name="calculate/cnt_360[8:0]">
+                <Signal>calculate/cnt_360[8]</Signal>
+                <Signal>calculate/cnt_360[7]</Signal>
+                <Signal>calculate/cnt_360[6]</Signal>
+                <Signal>calculate/cnt_360[5]</Signal>
+                <Signal>calculate/cnt_360[4]</Signal>
+                <Signal>calculate/cnt_360[3]</Signal>
+                <Signal>calculate/cnt_360[2]</Signal>
+                <Signal>calculate/cnt_360[1]</Signal>
+                <Signal>calculate/cnt_360[0]</Signal>
+            </Bus>
+            <Bus capture_enable="false" name="MiniLED_driver_inst/u1/light_reg[359][7:0]">
                 <Signal>MiniLED_driver_inst/u1/light_reg[359][7]</Signal>
                 <Signal>MiniLED_driver_inst/u1/light_reg[359][6]</Signal>
                 <Signal>MiniLED_driver_inst/u1/light_reg[359][5]</Signal>
@@ -14,7 +66,7 @@
                 <Signal>MiniLED_driver_inst/u1/light_reg[359][1]</Signal>
                 <Signal>MiniLED_driver_inst/u1/light_reg[359][0]</Signal>
             </Bus>
-            <Bus capture_enable="true" name="MiniLED_driver_inst/u1/light_reg[313][7:0]">
+            <Bus capture_enable="false" name="MiniLED_driver_inst/u1/light_reg[313][7:0]">
                 <Signal>MiniLED_driver_inst/u1/light_reg[313][7]</Signal>
                 <Signal>MiniLED_driver_inst/u1/light_reg[313][6]</Signal>
                 <Signal>MiniLED_driver_inst/u1/light_reg[313][5]</Signal>
@@ -24,7 +76,7 @@
                 <Signal>MiniLED_driver_inst/u1/light_reg[313][1]</Signal>
                 <Signal>MiniLED_driver_inst/u1/light_reg[313][0]</Signal>
             </Bus>
-            <Bus capture_enable="true" name="MiniLED_driver_inst/u1/light_reg[286][7:0]">
+            <Bus capture_enable="false" name="MiniLED_driver_inst/u1/light_reg[286][7:0]">
                 <Signal>MiniLED_driver_inst/u1/light_reg[286][7]</Signal>
                 <Signal>MiniLED_driver_inst/u1/light_reg[286][6]</Signal>
                 <Signal>MiniLED_driver_inst/u1/light_reg[286][5]</Signal>
@@ -34,7 +86,7 @@
                 <Signal>MiniLED_driver_inst/u1/light_reg[286][1]</Signal>
                 <Signal>MiniLED_driver_inst/u1/light_reg[286][0]</Signal>
             </Bus>
-            <Bus capture_enable="true" name="MiniLED_driver_inst/u1/light_reg[202][7:0]">
+            <Bus capture_enable="false" name="MiniLED_driver_inst/u1/light_reg[202][7:0]">
                 <Signal>MiniLED_driver_inst/u1/light_reg[202][7]</Signal>
                 <Signal>MiniLED_driver_inst/u1/light_reg[202][6]</Signal>
                 <Signal>MiniLED_driver_inst/u1/light_reg[202][5]</Signal>
@@ -44,7 +96,7 @@
                 <Signal>MiniLED_driver_inst/u1/light_reg[202][1]</Signal>
                 <Signal>MiniLED_driver_inst/u1/light_reg[202][0]</Signal>
             </Bus>
-            <Bus capture_enable="true" name="MiniLED_driver_inst/u1/light_reg[127][7:0]">
+            <Bus capture_enable="false" name="MiniLED_driver_inst/u1/light_reg[127][7:0]">
                 <Signal>MiniLED_driver_inst/u1/light_reg[127][7]</Signal>
                 <Signal>MiniLED_driver_inst/u1/light_reg[127][6]</Signal>
                 <Signal>MiniLED_driver_inst/u1/light_reg[127][5]</Signal>
@@ -54,7 +106,7 @@
                 <Signal>MiniLED_driver_inst/u1/light_reg[127][1]</Signal>
                 <Signal>MiniLED_driver_inst/u1/light_reg[127][0]</Signal>
             </Bus>
-            <Bus capture_enable="true" name="MiniLED_driver_inst/u1/light_reg[85][7:0]">
+            <Bus capture_enable="false" name="MiniLED_driver_inst/u1/light_reg[85][7:0]">
                 <Signal>MiniLED_driver_inst/u1/light_reg[85][7]</Signal>
                 <Signal>MiniLED_driver_inst/u1/light_reg[85][6]</Signal>
                 <Signal>MiniLED_driver_inst/u1/light_reg[85][5]</Signal>
@@ -64,7 +116,7 @@
                 <Signal>MiniLED_driver_inst/u1/light_reg[85][1]</Signal>
                 <Signal>MiniLED_driver_inst/u1/light_reg[85][0]</Signal>
             </Bus>
-            <Bus capture_enable="true" name="MiniLED_driver_inst/u1/light_reg[46][7:0]">
+            <Bus capture_enable="false" name="MiniLED_driver_inst/u1/light_reg[46][7:0]">
                 <Signal>MiniLED_driver_inst/u1/light_reg[46][7]</Signal>
                 <Signal>MiniLED_driver_inst/u1/light_reg[46][6]</Signal>
                 <Signal>MiniLED_driver_inst/u1/light_reg[46][5]</Signal>
@@ -74,7 +126,7 @@
                 <Signal>MiniLED_driver_inst/u1/light_reg[46][1]</Signal>
                 <Signal>MiniLED_driver_inst/u1/light_reg[46][0]</Signal>
             </Bus>
-            <Bus capture_enable="true" name="MiniLED_driver_inst/u1/light_reg[22][7:0]">
+            <Bus capture_enable="false" name="MiniLED_driver_inst/u1/light_reg[22][7:0]">
                 <Signal>MiniLED_driver_inst/u1/light_reg[22][7]</Signal>
                 <Signal>MiniLED_driver_inst/u1/light_reg[22][6]</Signal>
                 <Signal>MiniLED_driver_inst/u1/light_reg[22][5]</Signal>
@@ -84,7 +136,7 @@
                 <Signal>MiniLED_driver_inst/u1/light_reg[22][1]</Signal>
                 <Signal>MiniLED_driver_inst/u1/light_reg[22][0]</Signal>
             </Bus>
-            <Bus capture_enable="true" name="MiniLED_driver_inst/u1/light_reg[11][7:0]">
+            <Bus capture_enable="false" name="MiniLED_driver_inst/u1/light_reg[11][7:0]">
                 <Signal>MiniLED_driver_inst/u1/light_reg[11][7]</Signal>
                 <Signal>MiniLED_driver_inst/u1/light_reg[11][6]</Signal>
                 <Signal>MiniLED_driver_inst/u1/light_reg[11][5]</Signal>
@@ -94,7 +146,7 @@
                 <Signal>MiniLED_driver_inst/u1/light_reg[11][1]</Signal>
                 <Signal>MiniLED_driver_inst/u1/light_reg[11][0]</Signal>
             </Bus>
-            <Bus capture_enable="true" name="MiniLED_driver_inst/u1/light_reg[1][7:0]">
+            <Bus capture_enable="false" name="MiniLED_driver_inst/u1/light_reg[1][7:0]">
                 <Signal>MiniLED_driver_inst/u1/light_reg[1][7]</Signal>
                 <Signal>MiniLED_driver_inst/u1/light_reg[1][6]</Signal>
                 <Signal>MiniLED_driver_inst/u1/light_reg[1][5]</Signal>
@@ -104,20 +156,52 @@
                 <Signal>MiniLED_driver_inst/u1/light_reg[1][1]</Signal>
                 <Signal>MiniLED_driver_inst/u1/light_reg[1][0]</Signal>
             </Bus>
-            <Signal capture_enable="true">MiniLED_driver_inst/u1/light_reg_flatted[96]</Signal>
-            <Signal capture_enable="true">MiniLED_driver_inst/u1/light_reg_flatted[95]</Signal>
-            <Signal capture_enable="true">MiniLED_driver_inst/u1/light_reg_flatted[94]</Signal>
-            <Signal capture_enable="true">MiniLED_driver_inst/u1/light_reg_flatted[93]</Signal>
-            <Signal capture_enable="true">MiniLED_driver_inst/u1/light_reg_flatted[92]</Signal>
-            <Signal capture_enable="true">MiniLED_driver_inst/u1/light_reg_flatted[91]</Signal>
-            <Signal capture_enable="true">MiniLED_driver_inst/u1/light_reg_flatted[90]</Signal>
-            <Signal capture_enable="true">MiniLED_driver_inst/u1/light_reg_flatted[89]</Signal>
-            <Signal capture_enable="true">MiniLED_driver_inst/u1/light_reg_flatted[88]</Signal>
+            <Signal capture_enable="false">MiniLED_driver_inst/u1/light_reg_flatted[96]</Signal>
+            <Signal capture_enable="false">MiniLED_driver_inst/u1/light_reg_flatted[95]</Signal>
+            <Signal capture_enable="false">MiniLED_driver_inst/u1/light_reg_flatted[94]</Signal>
+            <Signal capture_enable="false">MiniLED_driver_inst/u1/light_reg_flatted[93]</Signal>
+            <Signal capture_enable="false">MiniLED_driver_inst/u1/light_reg_flatted[92]</Signal>
+            <Signal capture_enable="false">MiniLED_driver_inst/u1/light_reg_flatted[91]</Signal>
+            <Signal capture_enable="false">MiniLED_driver_inst/u1/light_reg_flatted[90]</Signal>
+            <Signal capture_enable="false">MiniLED_driver_inst/u1/light_reg_flatted[89]</Signal>
+            <Signal capture_enable="false">MiniLED_driver_inst/u1/light_reg_flatted[88]</Signal>
+            <Bus capture_enable="false" name="r_B_0[7:0]">
+                <Signal>r_B_0[7]</Signal>
+                <Signal>r_B_0[6]</Signal>
+                <Signal>r_B_0[5]</Signal>
+                <Signal>r_B_0[4]</Signal>
+                <Signal>r_B_0[3]</Signal>
+                <Signal>r_B_0[2]</Signal>
+                <Signal>r_B_0[1]</Signal>
+                <Signal>r_B_0[0]</Signal>
+            </Bus>
+            <Bus capture_enable="false" name="r_G_0[7:0]">
+                <Signal>r_G_0[7]</Signal>
+                <Signal>r_G_0[6]</Signal>
+                <Signal>r_G_0[5]</Signal>
+                <Signal>r_G_0[4]</Signal>
+                <Signal>r_G_0[3]</Signal>
+                <Signal>r_G_0[2]</Signal>
+                <Signal>r_G_0[1]</Signal>
+                <Signal>r_G_0[0]</Signal>
+            </Bus>
         </SignalList>
         <Triggers>
             <Trigger index="0">
                 <SignalList>
-                    <Signal>rx_sclk</Signal>
+                    <Bus restorename="pix_y[10:0]">
+                        <Signal>pix_y[10]</Signal>
+                        <Signal>pix_y[9]</Signal>
+                        <Signal>pix_y[8]</Signal>
+                        <Signal>pix_y[7]</Signal>
+                        <Signal>pix_y[6]</Signal>
+                        <Signal>pix_y[5]</Signal>
+                        <Signal>pix_y[4]</Signal>
+                        <Signal>pix_y[3]</Signal>
+                        <Signal>pix_y[2]</Signal>
+                        <Signal>pix_y[1]</Signal>
+                        <Signal>pix_y[0]</Signal>
+                    </Bus>
                 </SignalList>
             </Trigger>
             <Trigger index="1"/>
@@ -137,9 +221,9 @@
             <Trigger index="15"/>
         </Triggers>
         <MatchUnits>
-            <MatchUnit index="0" enabled="1" match_type="3" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="0" value1="0" trigger="0"/>
-            <MatchUnit index="1" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
-            <MatchUnit index="2" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
+            <MatchUnit index="0" enabled="1" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="00000000000" value1="00000000000" trigger="0"/>
+            <MatchUnit index="1" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="00000000000" value1="00000000000" trigger="1"/>
+            <MatchUnit index="2" enabled="0" match_type="1" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="0" value1="0" trigger="2"/>
             <MatchUnit index="3" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
             <MatchUnit index="4" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
             <MatchUnit index="5" enabled="0" match_type="0" counter_enable="0" counter_width="2" counter="2" countinuous="0" func="0" value0="" value1=""/>
@@ -158,5 +242,5 @@
             <Expression>M0</Expression>
         </Expressions>
     </AoCore>
-    <GAO_ID>0001101010100001</GAO_ID>
+    <GAO_ID>0100001111000000</GAO_ID>
 </GAO_CONFIG>

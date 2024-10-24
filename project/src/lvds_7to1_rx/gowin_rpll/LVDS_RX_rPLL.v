@@ -41,7 +41,7 @@ rPLL rpll_inst (
     .FDLY(fdly)
 );
 
-defparam rpll_inst.FCLKIN = "83.5";
+defparam rpll_inst.FCLKIN = "70.2";
 defparam rpll_inst.DYN_IDIV_SEL = "false";
 defparam rpll_inst.IDIV_SEL = 1;
 defparam rpll_inst.DYN_FBDIV_SEL = "false";
