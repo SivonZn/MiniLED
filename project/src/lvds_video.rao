@@ -45,17 +45,6 @@
                 <Signal>r_R_0[0]</Signal>
             </Bus>
             <Signal capture_enable="true">flag_start</Signal>
-            <Bus capture_enable="true" name="calculate/cnt_360[8:0]">
-                <Signal>calculate/cnt_360[8]</Signal>
-                <Signal>calculate/cnt_360[7]</Signal>
-                <Signal>calculate/cnt_360[6]</Signal>
-                <Signal>calculate/cnt_360[5]</Signal>
-                <Signal>calculate/cnt_360[4]</Signal>
-                <Signal>calculate/cnt_360[3]</Signal>
-                <Signal>calculate/cnt_360[2]</Signal>
-                <Signal>calculate/cnt_360[1]</Signal>
-                <Signal>calculate/cnt_360[0]</Signal>
-            </Bus>
             <Bus capture_enable="false" name="MiniLED_driver_inst/u1/light_reg[359][7:0]">
                 <Signal>MiniLED_driver_inst/u1/light_reg[359][7]</Signal>
                 <Signal>MiniLED_driver_inst/u1/light_reg[359][6]</Signal>
@@ -184,6 +173,17 @@
                 <Signal>r_G_0[2]</Signal>
                 <Signal>r_G_0[1]</Signal>
                 <Signal>r_G_0[0]</Signal>
+            </Bus>
+            <Bus capture_enable="false" name="calculate/cnt_360[8:0]">
+                <Signal>calculate/cnt_360[8]</Signal>
+                <Signal>calculate/cnt_360[7]</Signal>
+                <Signal>calculate/cnt_360[6]</Signal>
+                <Signal>calculate/cnt_360[5]</Signal>
+                <Signal>calculate/cnt_360[4]</Signal>
+                <Signal>calculate/cnt_360[3]</Signal>
+                <Signal>calculate/cnt_360[2]</Signal>
+                <Signal>calculate/cnt_360[1]</Signal>
+                <Signal>calculate/cnt_360[0]</Signal>
             </Bus>
         </SignalList>
         <Triggers>

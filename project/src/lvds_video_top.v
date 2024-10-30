@@ -33,6 +33,9 @@ module lvds_video_top
     output  [3:0]   O_dout_p    ,
     output  [3:0]   O_dout_n    ,
 	
+	input  			max_mode	,
+	input  			ave_mode	,
+	input  			cor_mode	,
 
 	output          LE          ,
     output          DCLK        , //12.5M
@@ -50,7 +53,7 @@ reg  [31:0] run_cnt;
 reg Vsync_reg0;
 reg Vsync_reg1;
 
-
+reg [1:0] gray_mode;
 
 wire        running;
 
@@ -114,8 +117,25 @@ wire [7:0]data_gray;
 wire [10:0]pix_x;
 wire [10:0]pix_y;
 
+wire [8:0] cnt_360;
+wire flag_done;
 
 
+
+always@(posedge I_clk or negedge I_rst_n) begin
+	if(!I_rst_n) 
+	gray_mode<=1;
+	else begin if(!max_mode)
+			gray_mode<='d1;
+		else if(!ave_mode)
+			gray_mode<='d2;
+		else if(!cor_mode)
+		gray_mode<='d3;
+
+	end
+end
+		
+		
 
 //==============================================================
 //LVDS Reciver
@@ -186,7 +206,22 @@ rgb_to_data_gray 	rtg(
 
 
 
-block_360	calculate(
+//block_360	calculate(
+//.i_pix_clk(rx_sclk),
+//.rst_n(I_rst_n),
+//.data_de(r_DE_0),
+//.pix_x(pix_x),							//1280*800 像素坐标);
+//.pix_y(pix_y),
+//.data_gray(data_gray),
+//
+//.r_Hsync_0(r_Hsync_0),
+//.r_Vsync_0(r_Vsync_0),
+//
+//
+//.buf_360_flatted(led_light_flatted)	//读出数据
+//);
+
+block_360_pro	calculate_pro(
 .i_pix_clk(rx_sclk),
 .rst_n(I_rst_n),
 .data_de(r_DE_0),
@@ -197,9 +232,13 @@ block_360	calculate(
 .r_Hsync_0(r_Hsync_0),
 .r_Vsync_0(r_Vsync_0),
 
+.gray_mode(gray_mode),
 
+.flag_done(flag_done),
+.cnt_360(cnt_360),
 .buf_360_flatted(led_light_flatted)	//读出数据
 );
+
 
 
 //MiniLED_driver
@@ -209,6 +248,11 @@ MiniLED_driver   MiniLED_driver_inst
     .I_rst_n(I_rst_n)   ,   
     .I_led_light(led_light_flatted) ,
     .I_led_mode(led_mode) ,
+	
+	.i_pix_clk(rx_sclk),
+	.cnt_360(cnt_360),
+	.flag_done(flag_done),
+	
     .LE(LE)             ,
     .DCLK(DCLK)         , //12.5M
     .SDI(SDI)           ,

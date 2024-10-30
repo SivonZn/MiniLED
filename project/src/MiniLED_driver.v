@@ -4,6 +4,14 @@ module MiniLED_driver
     input           I_rst_n     ,   
     input [8*360-1:0] I_led_light ,
     input [1:0]     I_led_mode  ,
+	
+	input i_pix_clk,
+	input	[8:0] cnt_360,
+	input  	flag_done,
+	
+	
+	
+	
     //led
     output          LE          ,
     output          DCLK        , //12.5M
@@ -31,16 +39,42 @@ SPI7001_25M_1M_rPLL SPI7001_25M_1M_rPLL_inst(
          .clkoutd(clk1M), //output clkoutd
          .clkin(I_clk) //input clkin
 );
-//ramflag_1是模拟分区背光算法后控制灯板点亮的模块（通过信号sdbpflag、wtaddr、wtdina传入LED驱动芯片接口模块进行后续输出）
-ramflag_1 u1(
+////ramflag_1是模拟分区背光算法后控制灯板点亮的模块（通过信号sdbpflag、wtaddr、wtdina传入LED驱动芯片接口模块进行后续输出）
+//ramflag_1 u1(
+//    .clk(clk25M),
+//    .rst_n(I_rst_n),
+//    .light_reg_flatted(I_led_light),//背光灯珠亮度值
+//    .mode_selector(I_led_mode),//背光显示模式
+//    .sdbpflag_wire(sdbpflag),//写入一帧起始信号
+//    .wtdina_wire(wtdina),//写入的灰度值
+//    .wtaddr_wire(wtaddr)//灯板上灯珠位置对应的地址
+//);
+
+ramflag_In u1_pro(
     .clk(clk25M),
     .rst_n(I_rst_n),
-    .light_reg_flatted(I_led_light),//背光灯珠亮度值
+	.light_reg_flatted(I_led_light),//背光灯珠亮度值
     .mode_selector(I_led_mode),//背光显示模式
     .sdbpflag_wire(sdbpflag),//写入一帧起始信号
     .wtdina_wire(wtdina),//写入的灰度值
-    .wtaddr_wire(wtaddr)//灯板上灯珠位置对应的地址
+    .wtaddr_wire(wtaddr),//灯板上灯珠位置对应的地址
+	
+	.i_pix_clk(i_pix_clk),
+   
+	.cnt_360(cnt_360),
+	.flag_done(flag_done)
+	
+    
 );
+
+
+
+
+
+
+
+
+
 //以下代码不建议做修改
 sram_top_gowin_top u2(
     .clka(clk25M),
