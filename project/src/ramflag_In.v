@@ -1,7 +1,12 @@
- module ramflag_1(
+ module ramflag_In(
     input clk,   // 25Mclk
     input rst_n,
-    input [8*360-1:0] light_reg_flatted,
+	
+	input i_pix_clk,
+    input [7:0] light_reg_flatted,
+	input	[8:0] cnt_360,
+	input  	flag_done,
+	
     input   [1:0] mode_selector,
     output  sdbpflag_wire,
     output  [15:0] wtdina_wire,
@@ -17,7 +22,9 @@ reg [15:0]wtdina;
 reg [9:0]wtaddr;
 reg [7:0]light_reg[360-1:0];
 
-integer temp_i;
+reg [8:0] cnt_360_delay;
+
+
 
 assign sdbpflag_wire = sdbpflag;
 assign wtdina_wire = wtdina;
@@ -106,7 +113,7 @@ begin
     else if(cnt1 == 3) begin
         wtaddr <= 0;
     end 
-    else if (cnt1 > 4 && cnt1 <=4+360 && flag)begin//cnt1:5-364 wtaddr:1-360 ?0-359
+    else if (cnt1 > 4 && cnt1 <=4+360 && flag)begin//cnt1:5-364 wtaddr:1-360
         wtaddr <= wtaddr + 1;
     end
     else if(cnt1 > 4+360) begin
@@ -114,13 +121,21 @@ begin
     end
 end
 
-//展开数组
-integer i;
-always@* begin
-    for(i = 0; i < 360; i = i + 1) begin
-        light_reg[i] <= light_reg_flatted[i * 8 +:8];
-    end
+
+
+//灰度值传入
+always@(posedge i_pix_clk )begin
+	if(!rst_n) 
+	cnt_360_delay<=0;
+	else begin
+			cnt_360_delay<=cnt_360;
+			if(flag_done)
+			light_reg[cnt_360_delay] <= light_reg_flatted;
+		end
 end
+
+
+
 
 //流水灯 换显示形式时把此always块注释掉
 //always@(posedge clk or negedge rst_n)
@@ -158,28 +173,24 @@ end
 //end
 
 always@(posedge clk or negedge rst_n) begin
-    if(!rst_n) begin
+    if(!rst_n) 
         wtdina <= 0;
-        temp_i <= 0;//count of LED
-    end
+       
     else begin
         case(mode_selector)
             
-            2'b00: begin//根据传入的亮度数据调整灯珠亮度 MODE4
-                if(cnt1>3 && cnt1<=364 && flag) begin
-                    wtdina <= light_reg[wtaddr] * 256;
-                    //wtdina <= 8'hff *256;
-                end
-                else begin
+            2'b00: begin//全亮 MODE2
+                if(cnt1>3 && cnt1 <= 364 && flag)
+                    wtdina <= 8'hE0*256;  //224*256 ; 
+                else
                     wtdina <= 0;
-                end
             end
 
             2'b01: begin// 亮 1/2 灯珠 MODE3
                 if(wtaddr%24==0 || (wtaddr-1)%24==0 || (wtaddr-2)%24==0 || (wtaddr-3)%24==0 || (wtaddr-4)%24==0 || (wtaddr-5)%24==0 ||(wtaddr-6)%24==0 || (wtaddr-7)%24==0 || (wtaddr-8)%24==0 || (wtaddr-9)%24==0 || (wtaddr-10)%24==0 || (wtaddr-11)%24==0)
-                    wtdina <= 16'hffff;
+                    wtdina <= 8'hE0*256;
                 else
-                    wtdina <=  light_reg[wtaddr] * 256;;
+                    wtdina <=  light_reg[wtaddr] * 256;
             end
             
             2'b10:  begin //1/3全亮度 1/3一半亮度 1/3暗 MODE1
@@ -191,11 +202,14 @@ always@(posedge clk or negedge rst_n) begin
                     wtdina <= 0;
 			end
 			
-            2'b11:begin//全亮 MODE2
-                if(cnt1>3 && cnt1<=364 && flag)
-                    wtdina <= 16'hffff ; 
-                else
+            2'b11:begin//根据传入的亮度数据调整灯珠亮度 MODE4
+                if(cnt1>3 && cnt1<=364 && flag) begin
+                    wtdina <= light_reg[wtaddr] * 256;
+                    //wtdina <= 8'hff *256;
+                end
+                else begin
                     wtdina <= 0;
+                end
             end
             
 
