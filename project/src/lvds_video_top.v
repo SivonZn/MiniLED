@@ -32,6 +32,10 @@ module lvds_video_top
     output          O_clkout_n  ,
     output  [3:0]   O_dout_p    ,
     output  [3:0]   O_dout_n    ,
+	
+	input  			max_mode	,
+	input  			ave_mode	,
+	input  			cor_mode	,
 
 	output          LE          ,
     output          DCLK        , //12.5M
@@ -46,6 +50,11 @@ module lvds_video_top
 
 //======================================================
 reg  [31:0] run_cnt;
+reg Vsync_reg0;
+reg Vsync_reg1;
+
+reg [1:0] gray_mode;
+
 wire        running;
 
 //--------------------------
@@ -57,10 +66,12 @@ wire        r_Hsync_0;
 wire        r_DE_0   ;
 
 wire 		rx_sclk;
+
+wire		flag_start;
+wire  [8*360-1:0] led_light_flatted;
+
 //wire        rx_sclk_copy;
 //wire        rx_sclk_debug;
-
-reg [8*360-1:0] led_light_flatted;
 
 //===================================================
 //LED test
@@ -80,6 +91,21 @@ reg [8*360-1:0] led_light_flatted;
 //assign  O_led[1] = 1'b1;
 //assign  O_led[2] = 1'b0;
 //assign  O_led[3] = running;
+
+
+
+//==========================================================
+//LED_LIGHT_REG_TEST
+//integer i;
+//always @(posedge I_clk or negedge I_rst_n) begin
+//    if(!I_rst_n)
+//        led_light_flatted <= 0;
+//    else
+//        for(i = 0; i < 360; i  = i + 1) begin
+//            led_light_flatted[i * 8 +:8] <= 8'hff;
+//        end
+//end
+
 assign O_led[3] = (2'b00 == led_mode) ? 1'b1 : 1'b0;
 assign O_led[2] = (2'b01 == led_mode) ? 1'b1 : 1'b0;
 assign O_led[1] = (2'b10 == led_mode) ? 1'b1 : 1'b0;
@@ -91,21 +117,25 @@ wire [7:0]data_gray;
 wire [10:0]pix_x;
 wire [10:0]pix_y;
 
+wire [8:0] cnt_360;
+wire flag_done;
 
-//==========================================================
-//LED_LIGHT_REG_TEST
-integer i;
-always @(posedge I_clk or negedge I_rst_n) begin
-    if(!I_rst_n)
-        led_light_flatted <= 0;
-    else
-        for(i = 0; i < 360; i  = i + 1) begin
-            led_light_flatted[i * 8 +:8] <= 8'hff;
-        end
+
+
+always@(posedge I_clk or negedge I_rst_n) begin
+	if(!I_rst_n) 
+	gray_mode<=1;
+	else begin if(!max_mode)
+			gray_mode<='d1;
+		else if(!ave_mode)
+			gray_mode<='d2;
+		else if(!cor_mode)
+		gray_mode<='d3;
+
+	end
 end
-
-
-
+		
+		
 
 //==============================================================
 //LVDS Reciver
@@ -159,6 +189,8 @@ rgb_to_data_gray 	rtg(
 .data_g(r_G_0 ),
 .data_b(r_B_0 ),
 
+
+
 .data_gray(data_gray),
 .pix_x(pix_x),//1280*800 像素坐标
 .pix_y(pix_y)
@@ -174,7 +206,22 @@ rgb_to_data_gray 	rtg(
 
 
 
-block_360	calculate(
+//block_360	calculate(
+//.i_pix_clk(rx_sclk),
+//.rst_n(I_rst_n),
+//.data_de(r_DE_0),
+//.pix_x(pix_x),							//1280*800 像素坐标);
+//.pix_y(pix_y),
+//.data_gray(data_gray),
+//
+//.r_Hsync_0(r_Hsync_0),
+//.r_Vsync_0(r_Vsync_0),
+//
+//
+//.buf_360_flatted(led_light_flatted)	//读出数据
+//);
+
+block_360_pro	calculate_pro(
 .i_pix_clk(rx_sclk),
 .rst_n(I_rst_n),
 .data_de(r_DE_0),
@@ -182,8 +229,16 @@ block_360	calculate(
 .pix_y(pix_y),
 .data_gray(data_gray),
 
-.buf_360_flatted()	//读出数据
+.r_Hsync_0(r_Hsync_0),
+.r_Vsync_0(r_Vsync_0),
+
+.gray_mode(gray_mode),
+
+.flag_done(flag_done),
+.cnt_360(cnt_360),
+.buf_360_flatted(led_light_flatted)	//读出数据
 );
+
 
 
 //MiniLED_driver
@@ -193,6 +248,11 @@ MiniLED_driver   MiniLED_driver_inst
     .I_rst_n(I_rst_n)   ,   
     .I_led_light(led_light_flatted) ,
     .I_led_mode(led_mode) ,
+	
+	.i_pix_clk(rx_sclk),
+	.cnt_360(cnt_360),
+	.flag_done(flag_done),
+	
     .LE(LE)             ,
     .DCLK(DCLK)         , //12.5M
     .SDI(SDI)           ,
