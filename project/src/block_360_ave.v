@@ -38,20 +38,19 @@ reg [5:0] cnt_v53;//场像素
 
 reg  [24*8-1:0] max_buf;
 reg  [24*8-1:0] ave_buf;
+reg [7:0]buf_360_fore[360-1:0];
 
+reg [7:0]buf_360_fore1[360-1:0];
+reg [7:0]buf_360_fore2[360-1:0];
+reg [7:0]buf_360_fore3[360-1:0];
+reg [7:0]buf_360_fore4[360-1:0];
+reg [7:0]buf_360_fore5[360-1:0];
+reg [7:0]buf_360_fore6[360-1:0];
 
 wire [7:0] BL_max;
 wire [7:0] BL_ave;
 wire [7:0] BL_diff;
 wire [7:0] BL_correction;
-
-//integer j;
-//initial
-//begin
-// for(j = 0; j < 24 ; j = j + 1) begin
-//        max_buf[j]=8'b0;
-//    end
-//end
 
 
 
@@ -263,12 +262,48 @@ always@(posedge i_pix_clk or negedge rst_n) begin
 					flag_done<=1'b1;
 					case(gray_mode)
 					
-					2'b01: buf_360_flatted <= BL_max;						//最大值算法
-					2'b10: buf_360_flatted <= BL_ave + BL_correction/2;		//最大值修正均值算法
+					2'b01: begin								//设计均值修正最大值算法
+								if(BL_diff>200)begin
+									buf_360_flatted <= (buf_360_fore[cnt_360]+buf_360_fore1[cnt_360]+buf_360_fore2[cnt_360]+buf_360_fore3[cnt_360]+buf_360_fore4[cnt_360]+buf_360_fore5[cnt_360]+buf_360_fore6[cnt_360]+(BL_max + BL_ave*3)/8 )/8;
+
+									buf_360_fore6[cnt_360]<=buf_360_fore5[cnt_360]; 
+									buf_360_fore5[cnt_360]<=buf_360_fore4[cnt_360]; 
+									buf_360_fore4[cnt_360]<=buf_360_fore3[cnt_360]; 
+									buf_360_fore3[cnt_360]<=buf_360_fore2[cnt_360]; 									
+									buf_360_fore2[cnt_360]<=buf_360_fore1[cnt_360];
+									buf_360_fore1[cnt_360]<=buf_360_fore[cnt_360];
+									buf_360_fore[cnt_360]<=(BL_max + BL_ave*3)/8;
+								end else begin
+									 buf_360_flatted <=(buf_360_fore[cnt_360]+buf_360_fore1[cnt_360]+buf_360_fore2[cnt_360]+buf_360_fore3[cnt_360]+buf_360_fore4[cnt_360]+buf_360_fore5[cnt_360]+buf_360_fore6[cnt_360]+(BL_max * 3 + BL_ave * 1)/4)/8; 
+									
+									 buf_360_fore6[cnt_360]<=buf_360_fore5[cnt_360]; 
+									 buf_360_fore5[cnt_360]<=buf_360_fore4[cnt_360]; 
+									 buf_360_fore4[cnt_360]<=buf_360_fore3[cnt_360]; 									
+									 buf_360_fore3[cnt_360]<=buf_360_fore2[cnt_360]; 
+									 buf_360_fore2[cnt_360]<=buf_360_fore1[cnt_360];
+									 buf_360_fore1[cnt_360]<=buf_360_fore[cnt_360];
+									 buf_360_fore [cnt_360]<=(BL_max * 3 + BL_ave * 1)/4;
+								 end
+							end							//最大值算法
+					2'b10: begin								
+								if(BL_diff>200)begin
+									buf_360_flatted <= (buf_360_fore[cnt_360]+buf_360_fore1[cnt_360]+buf_360_fore2[cnt_360]+(BL_max + BL_ave*3)/8 )/4;			//设计均值修正最大值算法
+									buf_360_fore2[cnt_360]<=buf_360_fore1[cnt_360];
+									buf_360_fore1[cnt_360]<=buf_360_fore[cnt_360];
+									buf_360_fore[cnt_360]<=(BL_max + BL_ave*3)/8;
+								end else begin
+									 buf_360_flatted <=(buf_360_fore[cnt_360]+buf_360_fore1[cnt_360]+buf_360_fore2[cnt_360]+(BL_max * 3 + BL_ave * 1)/4)/4; 
+									 
+									 buf_360_fore2[cnt_360]<=buf_360_fore1[cnt_360];
+									 buf_360_fore1[cnt_360]<=buf_360_fore[cnt_360];
+									 buf_360_fore[cnt_360]<=(BL_max * 3 + BL_ave * 1)/4;
+								 end
+							end		//最大值修正均值算法
 					2'b11: begin if(BL_diff>200)
 									buf_360_flatted <= (BL_max + BL_ave)/4;			//设计均值修正最大值算法
 								else 
 									 buf_360_flatted <= (BL_max * 3 + BL_ave * 1)/4;
+
 							end		 
 						default:buf_360_flatted <= BL_max;
 					endcase

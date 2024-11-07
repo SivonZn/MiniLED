@@ -181,14 +181,14 @@ always@(posedge clk or negedge rst_n) begin
             
             2'b00: begin//全亮 MODE2
                 if(cnt1>3 && cnt1 <= 364 && flag)
-                    wtdina <= 16'hffff ; 
+                    wtdina <= 8'hE0*256;  //224*256 ; 
                 else
                     wtdina <= 0;
             end
 
             2'b01: begin// 亮 1/2 灯珠 MODE3
                 if(wtaddr%24==0 || (wtaddr-1)%24==0 || (wtaddr-2)%24==0 || (wtaddr-3)%24==0 || (wtaddr-4)%24==0 || (wtaddr-5)%24==0 ||(wtaddr-6)%24==0 || (wtaddr-7)%24==0 || (wtaddr-8)%24==0 || (wtaddr-9)%24==0 || (wtaddr-10)%24==0 || (wtaddr-11)%24==0)
-                    wtdina <= 16'h7fff;
+                    wtdina <= 8'hE0*256;
                 else
                     wtdina <=  light_reg[wtaddr] * 256;
             end
