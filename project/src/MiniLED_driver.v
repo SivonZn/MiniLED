@@ -2,7 +2,7 @@ module MiniLED_driver
 (
     input           I_clk       ,  //50MHz      
     input           I_rst_n     ,   
-    input [8*360-1:0] I_led_light ,
+    input [7:0]     I_led_light ,
     input [1:0]     I_led_mode  ,
 	
 	input i_pix_clk,
@@ -105,7 +105,10 @@ SPI7001_gowin_top u3(
     .scan2(scan2),
     .scan3(scan3),
     .scan4(scan4),
-    .scan1_wire(scan1_wire)
+    .scan1_wire(scan1_wire),
+    .cnt_s(10'b0),
+    .cnt_ms(10'b0),
+    .cnt_us(10'b0)
 );
 
 endmodule
