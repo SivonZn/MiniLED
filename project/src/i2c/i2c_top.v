@@ -53,9 +53,6 @@ wire busy;
     assign read_data_0   = 8'h0d; // ALS 高八位寄存器数据（低四位有效）
     assign read_data_1   = 8'h0c; // ALS 低八位寄存器数据
 
-    assign led = O_data_out[3:0];
-
-
     // 生成 1s 延迟, 5000*10000
 //	 always @(posedge I_clk or negedge I_reset) begin
 //			if(!I_reset)  begin
@@ -96,7 +93,7 @@ wire busy;
                 clk <= ~clk;
             end
             else begin
-                clk_cnt <= clk_cnt + 1;
+                clk_cnt <= clk_cnt + 1'b1;
             end
         end
     end

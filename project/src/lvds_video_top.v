@@ -93,21 +93,22 @@ wire [10:0]pix_y;
 wire [8:0] cnt_360;
 wire flag_done;
 
-wire [11:0] bright_data;
+wire [7:0] bright_data;
 
 
 
-always@(posedge I_clk or negedge I_rst_n) begin
-	if(!I_rst_n) 
-	gray_mode<=1;
-	else begin if(!max_mode)
-			gray_mode<='d1;
-		else if(!ave_mode)			
-            gray_mode<='d2;
-		else if(!cor_mode)
-            gray_mode<='d3;
-	end
-end
+    always@(posedge I_clk or negedge I_rst_n) begin
+        if(!I_rst_n) 
+        gray_mode<=1;
+        else begin 
+            if(!max_mode)
+                gray_mode<='d1;
+            else if(!ave_mode)			
+                gray_mode<='d2;
+            else if(!cor_mode)
+                gray_mode<='d3;
+        end
+    end
 		
 		
 
@@ -162,6 +163,7 @@ MiniLED_driver   MiniLED_driver_inst
 	.i_pix_clk      (rx_sclk    ),
 	.cnt_360        (cnt_360    ),
 	.flag_done      (flag_done  ),
+    .I_bright       (bright_data),
 	
     .LE             (LE         ),
     .DCLK           (DCLK       ), //12.5M

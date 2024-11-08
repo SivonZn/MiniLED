@@ -6,8 +6,9 @@ module MiniLED_driver
     input [1:0]     I_led_mode  ,
 	
 	input           i_pix_clk   ,
-	input	[8:0]   cnt_360     ,
+	input [8:0]     cnt_360     ,
 	input  	        flag_done   ,
+    input [7:0]     I_bright    ,
 	
     //led
     output          LE          ,
@@ -51,6 +52,7 @@ ramflag_In u1_pro(
     .clk(clk25M),
     .rst_n(I_rst_n),
 	.light_reg_flatted(I_led_light),//背光灯珠亮度值
+    .I_bright(I_bright),
     .mode_selector(I_led_mode),//背光显示模式
     .sdbpflag_wire(sdbpflag),//写入一帧起始信号
     .wtdina_wire(wtdina),//写入的灰度值
@@ -61,7 +63,6 @@ ramflag_In u1_pro(
 	.cnt_360(cnt_360),
 	.flag_done(flag_done)
 	
-    
 );
 //以下代码不建议做修改
 sram_top_gowin_top u2(
