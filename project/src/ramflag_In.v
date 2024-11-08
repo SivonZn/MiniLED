@@ -127,10 +127,10 @@ end
 always@(posedge i_pix_clk )begin
 	if(!rst_n) 
 	cnt_360_delay<=0;
-	else begin
-			cnt_360_delay<=cnt_360;
-			if(flag_done)
+	else if(flag_done)begin
+			
 			light_reg[cnt_360_delay] <= light_reg_flatted;
+			cnt_360_delay<=cnt_360;
 		end
 end
 
@@ -204,7 +204,7 @@ always@(posedge clk or negedge rst_n) begin
 			
             2'b11:begin//根据传入的亮度数据调整灯珠亮度 MODE4
                 if(cnt1>3 && cnt1<=364 && flag) begin
-                    wtdina <= light_reg[wtaddr] * 256;
+                    wtdina <= light_reg[wtaddr] * 255;
                     //wtdina <= 8'hff *256;
                 end
                 else begin
