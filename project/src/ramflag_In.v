@@ -129,10 +129,10 @@ end
 always@(posedge i_pix_clk )begin
 	if(!rst_n) 
 	cnt_360_delay<=0;
-	else begin
-			cnt_360_delay<=cnt_360;
-			if(flag_done)
+	else if(flag_done)begin
+			
 			light_reg[cnt_360_delay] <= light_reg_flatted;
+			cnt_360_delay<=cnt_360;
 		end
 end
 
