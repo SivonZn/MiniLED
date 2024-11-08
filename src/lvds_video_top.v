@@ -215,7 +215,7 @@ AP3216_driver AP3216_driver_inst(
 //.buf_360_flatted(led_light_flatted)	//读出数据
 //);
 
-block_360_pro calculate_pro(
+block_360_ave calculate_pro(
 .i_pix_clk(rx_sclk),
 .rst_n(I_rst_n),
 .data_de(r_DE_0),
