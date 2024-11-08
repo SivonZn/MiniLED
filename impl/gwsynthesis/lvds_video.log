@@ -1,0 +1,116 @@
+GowinSynthesis start
+Running parser ...
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\MiniLED_driver.v'
+Undeclared symbol 'scan1_wire', assumed default net type 'wire'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\MiniLED_driver.v":97)
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\SPI7001_gowin.vp'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\block_360_ave.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\gowin_rpll\gowin_rpll.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\i2c\i2c_controller.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\i2c\i2c_top.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_rx\LVDS71RX_1CLK8DATA.v'
+Analyzing included file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_rx\lvds_7to1_rx_defines.v'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_rx\LVDS71RX_1CLK8DATA.v":2)
+Back to file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_rx\LVDS71RX_1CLK8DATA.v'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_rx\LVDS71RX_1CLK8DATA.v":2)
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_rx\bit_align_ctl.v'
+Analyzing included file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_rx\lvds_7to1_rx_defines.v'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_rx\bit_align_ctl.v":2)
+Back to file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_rx\bit_align_ctl.v'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_rx\bit_align_ctl.v":2)
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_rx\gowin_rpll2\LVDS_RX_rPLL2.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_rx\lvds_7to1_rx_defines.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_rx\lvds_7to1_rx_top.v'
+Analyzing included file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_rx\lvds_7to1_rx_defines.v'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_rx\lvds_7to1_rx_top.v":22)
+Back to file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_rx\lvds_7to1_rx_top.v'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_rx\lvds_7to1_rx_top.v":22)
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_rx\word_align_ctl.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_tx\gowin_rpll2\gowin_rpll\LVDS_TX_rPLL2.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_tx\ip_gddr71tx.v'
+Analyzing included file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_tx\lvds_7to1_tx_defines.v'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_tx\ip_gddr71tx.v":2)
+Back to file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_tx\ip_gddr71tx.v'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_tx\ip_gddr71tx.v":2)
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_tx\lvds_7to1_tx_defines.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_tx\lvds_7to1_tx_top.v'
+Analyzing included file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_tx\lvds_7to1_tx_defines.v'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_tx\lvds_7to1_tx_top.v":25)
+Back to file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_tx\lvds_7to1_tx_top.v'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_tx\lvds_7to1_tx_top.v":25)
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_video_top.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\ramflag_In.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\rgb_to_gray.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\sram_top_gowin_top_sim.v'
+Analyzing Verilog file 'C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\i2c\AP3216_driver.v'
+Compiling module 'lvds_video_top'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_video_top.v":22)
+Compiling module 'LVDS_7to1_RX_Top'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_rx\lvds_7to1_rx_top.v":24)
+Compiling module 'LVDS71RX_1CLK8DATA'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_rx\LVDS71RX_1CLK8DATA.v":6)
+Compiling module 'LVDS_RX_rPLL2'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_rx\gowin_rpll2\LVDS_RX_rPLL2.v":9)
+Compiling module 'bit_align_ctl'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_rx\bit_align_ctl.v":5)
+WARN  (EX2420) : Latch inferred for net 'next_state[3]'; We do not recommend the use of latches in FPGA designs, as they may lead to timing problems("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_rx\bit_align_ctl.v":126)
+Compiling module 'word_align_ctl'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_rx\word_align_ctl.v":1)
+WARN  (EX3073) : Port 'clkoutp' remains unconnected for this instance("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_tx\lvds_7to1_tx_top.v":158)
+Compiling module 'LVDS_7to1_TX_Top'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_tx\lvds_7to1_tx_top.v":27)
+Compiling module 'LVDS_TX_rPLL2'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_tx\gowin_rpll2\gowin_rpll\LVDS_TX_rPLL2.v":9)
+Compiling module 'ip_gddr71tx'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_tx\ip_gddr71tx.v":4)
+WARN  (EX2565) : Input 'psda[3]' on this instance is undriven. Assigning to 0, simulation mismatch possible. Please assign the input or remove the declaration("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_tx\lvds_7to1_tx_top.v":158)
+WARN  (EX2565) : Input 'psda[2]' on this instance is undriven. Assigning to 0, simulation mismatch possible. Please assign the input or remove the declaration("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_tx\lvds_7to1_tx_top.v":158)
+WARN  (EX2565) : Input 'psda[1]' on this instance is undriven. Assigning to 0, simulation mismatch possible. Please assign the input or remove the declaration("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_tx\lvds_7to1_tx_top.v":158)
+WARN  (EX2565) : Input 'psda[0]' on this instance is undriven. Assigning to 0, simulation mismatch possible. Please assign the input or remove the declaration("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_tx\lvds_7to1_tx_top.v":158)
+WARN  (EX2565) : Input 'dutyda[3]' on this instance is undriven. Assigning to 0, simulation mismatch possible. Please assign the input or remove the declaration("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_tx\lvds_7to1_tx_top.v":158)
+WARN  (EX2565) : Input 'dutyda[2]' on this instance is undriven. Assigning to 0, simulation mismatch possible. Please assign the input or remove the declaration("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_tx\lvds_7to1_tx_top.v":158)
+WARN  (EX2565) : Input 'dutyda[1]' on this instance is undriven. Assigning to 0, simulation mismatch possible. Please assign the input or remove the declaration("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_tx\lvds_7to1_tx_top.v":158)
+WARN  (EX2565) : Input 'dutyda[0]' on this instance is undriven. Assigning to 0, simulation mismatch possible. Please assign the input or remove the declaration("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_tx\lvds_7to1_tx_top.v":158)
+WARN  (EX2565) : Input 'fdly[3]' on this instance is undriven. Assigning to 0, simulation mismatch possible. Please assign the input or remove the declaration("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_tx\lvds_7to1_tx_top.v":158)
+WARN  (EX2565) : Input 'fdly[2]' on this instance is undriven. Assigning to 0, simulation mismatch possible. Please assign the input or remove the declaration("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_tx\lvds_7to1_tx_top.v":158)
+WARN  (EX2565) : Input 'fdly[1]' on this instance is undriven. Assigning to 0, simulation mismatch possible. Please assign the input or remove the declaration("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_tx\lvds_7to1_tx_top.v":158)
+WARN  (EX2565) : Input 'fdly[0]' on this instance is undriven. Assigning to 0, simulation mismatch possible. Please assign the input or remove the declaration("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_tx\lvds_7to1_tx_top.v":158)
+WARN  (EX3073) : Port 'promdout' remains unconnected for this instance("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\MiniLED_driver.v":79)
+Compiling module 'MiniLED_driver'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\MiniLED_driver.v":1)
+Compiling module 'SPI7001_25M_1M_rPLL'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\gowin_rpll\gowin_rpll.v":9)
+Compiling module 'ramflag_In'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\ramflag_In.v":1)
+Extracting RAM for identifier 'light_reg'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\ramflag_In.v":25)
+WARN  (EX3791) : Expression size 13 truncated to fit in target size 12("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\ramflag_In.v":45)
+WARN  (EX3791) : Expression size 32 truncated to fit in target size 31("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\ramflag_In.v":61)
+WARN  (EX3791) : Expression size 11 truncated to fit in target size 10("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\ramflag_In.v":79)
+WARN  (EX3791) : Expression size 15 truncated to fit in target size 14("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\ramflag_In.v":94)
+WARN  (EX3791) : Expression size 11 truncated to fit in target size 10("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\ramflag_In.v":119)
+Compiling module 'sram_top_gowin_top'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\sram_top_gowin_top_sim.v":8)
+Compiling module 'SPI7001_gowin_top'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\SPI7001_gowin.vp":7)
+Compiling module '**'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\SPI7001_gowin.vp":2392)
+Compiling module 'rgb_to_data_gray'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\rgb_to_gray.v":1)
+WARN  (EX3791) : Expression size 10 truncated to fit in target size 8("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\rgb_to_gray.v":50)
+Compiling module 'AP3216_driver'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\i2c\AP3216_driver.v":1)
+WARN  (EX3791) : Expression size 21 truncated to fit in target size 12("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\i2c\AP3216_driver.v":136)
+Compiling module 'i2c_top'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\i2c\i2c_top.v":1)
+Compiling module 'i2c_controller'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\i2c\i2c_controller.v":1)
+Compiling module 'block_360_pro'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\block_360_ave.v":1)
+Extracting RAM for identifier 'buf_360_fore'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\block_360_ave.v":41)
+Extracting RAM for identifier 'buf_360_fore1'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\block_360_ave.v":43)
+Extracting RAM for identifier 'buf_360_fore2'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\block_360_ave.v":44)
+Extracting RAM for identifier 'buf_360_fore3'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\block_360_ave.v":45)
+Extracting RAM for identifier 'buf_360_fore4'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\block_360_ave.v":46)
+Extracting RAM for identifier 'buf_360_fore5'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\block_360_ave.v":47)
+Extracting RAM for identifier 'buf_360_fore6'("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\block_360_ave.v":48)
+WARN  (EX3791) : Expression size 15 truncated to fit in target size 14("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\block_360_ave.v":207)
+WARN  (EX3791) : Expression size 14 truncated to fit in target size 8("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\block_360_ave.v":217)
+WARN  (EX3791) : Expression size 9 truncated to fit in target size 8("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\block_360_ave.v":220)
+WARN  (EX3791) : Expression size 12 truncated to fit in target size 8("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\block_360_ave.v":267)
+WARN  (EX3791) : Expression size 12 truncated to fit in target size 8("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\block_360_ave.v":277)
+WARN  (EX3791) : Expression size 9 truncated to fit in target size 8("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\block_360_ave.v":285)
+WARN  (EX3791) : Expression size 9 truncated to fit in target size 8("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\block_360_ave.v":290)
+WARN  (EX3791) : Expression size 9 truncated to fit in target size 8("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\block_360_ave.v":295)
+WARN  (EX3791) : Expression size 9 truncated to fit in target size 8("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\block_360_ave.v":299)
+WARN  (EX3791) : Expression size 9 truncated to fit in target size 8("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\block_360_ave.v":305)
+NOTE  (EX0101) : Current top module is "lvds_video_top"
+[5%] Running netlist conversion ...
+Running device independent optimization ...
+[10%] Optimizing Phase 0 completed
+[15%] Optimizing Phase 1 completed
+[25%] Optimizing Phase 2 completed
+Running inference ...
+[30%] Inferring Phase 0 completed
+[40%] Inferring Phase 1 completed
+[50%] Inferring Phase 2 completed
+[55%] Inferring Phase 3 completed
+Running technical mapping ...
+[60%] Tech-Mapping Phase 0 completed
+[65%] Tech-Mapping Phase 1 completed
+[75%] Tech-Mapping Phase 2 completed
+[80%] Tech-Mapping Phase 3 completed
+[90%] Tech-Mapping Phase 4 completed
+WARN  (NL0002) : The module "bit_align_ctl" instantiated to "bit_aln_ctl_inst" is swept in optimizing("C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\src\lvds_7to1_rx\lvds_7to1_rx_top.v":482)
+[95%] Generate netlist file "C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\impl\gwsynthesis\lvds_video.vg" completed
+WARN  (CK3000) : Can't calculate clocks' relationship between: "I_clk" and "LVDS_7to1_RX_Top_inst/lvds_71_rx/Inst6_CLKDIVC/CLKOUT.default_gen_clk"
+[100%] Generate report file "C:\Gowin\Gowin_V1.9.10.02_x64\IDE\bin\Documents\MiniLED\project\impl\gwsynthesis\lvds_video_syn.rpt.html" completed
+GowinSynthesis finish
