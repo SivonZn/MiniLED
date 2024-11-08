@@ -1,4 +1,4 @@
-module block_360_pro(
+module block_360_ave(
 input i_pix_clk,
 input rst_n,
 input data_de,
@@ -282,21 +282,7 @@ always@(posedge i_pix_clk or negedge rst_n) begin
 									 buf_360_fore [cnt_360]<=BL_max;
 								 end
 							end							
-					2'b10: begin								
-								if(BL_diff>200)begin
-									buf_360_flatted <= (buf_360_fore[cnt_360]+buf_360_fore1[cnt_360]+buf_360_fore2[cnt_360]+(BL_max + BL_ave*3)/8 )/4;			//设计均值修正最大值算法
-									
-									buf_360_fore2[cnt_360]<=buf_360_fore1[cnt_360];
-									buf_360_fore1[cnt_360]<=buf_360_fore[cnt_360];
-									buf_360_fore[cnt_360]<=(BL_max + BL_ave*3)/8;
-								end else begin
-									 buf_360_flatted <=(buf_360_fore[cnt_360]+buf_360_fore1[cnt_360]+buf_360_fore2[cnt_360]+(BL_max * 3 + BL_ave * 1)/4)/4; 
-									 
-									 buf_360_fore2[cnt_360]<=buf_360_fore1[cnt_360];
-									 buf_360_fore1[cnt_360]<=buf_360_fore[cnt_360];
-									 buf_360_fore[cnt_360]<=(BL_max * 3 + BL_ave * 1)/4;
-								 end
-							end		//最大值修正均值算法
+					2'b10: buf_360_flatted <= BL_max ;
 					2'b11: begin if(BL_diff>200)
 									buf_360_flatted <= (BL_max + BL_ave)/4;			//设计均值修正最大值算法
 								else 
