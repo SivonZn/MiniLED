@@ -149,7 +149,7 @@ wire rst_n1;
 `else
     `ifdef TX_USE_RPLL
         wire pll_lock;
-        LVDS_TX_rPLL LVDS_TX_rPLL_inst
+        LVDS_TX_rPLL2 LVDS_TX_rPLL_inst
         (
             .clkout(serial_clk), //x3.5
             .lock  (pll_lock  ),

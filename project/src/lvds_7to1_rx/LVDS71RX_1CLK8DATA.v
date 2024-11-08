@@ -506,7 +506,7 @@ assign ibuf_clk = buf_clk;
 
 //===============================================
 `ifdef RX_USE_RPLL
-    LVDS_RX_rPLL LVDS_RX_rPLL_inst
+    LVDS_RX_rPLL2 LVDS_RX_rPLL_inst
     (
         .clkout (        ), //x3.5
         .lock   (lock_chk), 
