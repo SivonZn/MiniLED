@@ -5,12 +5,9 @@ module MiniLED_driver
     input [7:0]     I_led_light ,
     input [1:0]     I_led_mode  ,
 	
-	input i_pix_clk,
-	input	[8:0] cnt_360,
-	input  	flag_done,
-	
-	
-	
+	input           i_pix_clk   ,
+	input	[8:0]   cnt_360     ,
+	input  	        flag_done   ,
 	
     //led
     output          LE          ,
@@ -66,15 +63,6 @@ ramflag_In u1_pro(
 	
     
 );
-
-
-
-
-
-
-
-
-
 //以下代码不建议做修改
 sram_top_gowin_top u2(
     .clka(clk25M),

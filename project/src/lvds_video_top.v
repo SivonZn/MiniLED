@@ -189,7 +189,7 @@ rgb_to_data_gray rtg(
 
 //===================================================================================
 //I2C_AP3216
-i2c_top i2c_top_inst(
+AP3216_driver AP3216_driver_inst(
     .I_clk          (I_clk      ),
     .I_reset        (I_rst_n    ),
     .sda            (sda        ),

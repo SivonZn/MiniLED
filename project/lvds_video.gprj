@@ -11,6 +11,7 @@
         <File path="src/block_360_ave.v" type="file.verilog" enable="1"/>
         <File path="src/block_360_pro.v" type="file.verilog" enable="0"/>
         <File path="src/gowin_rpll/gowin_rpll.v" type="file.verilog" enable="1"/>
+        <File path="src/i2c/AP3216_driver.v" type="file.verilog" enable="1"/>
         <File path="src/i2c/i2c_controller.v" type="file.verilog" enable="1"/>
         <File path="src/i2c/i2c_top.v" type="file.verilog" enable="1"/>
         <File path="src/lvds_7to1_rx/LVDS71RX_1CLK8DATA.v" type="file.verilog" enable="1"/>
