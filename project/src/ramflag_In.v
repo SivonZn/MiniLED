@@ -1,16 +1,18 @@
  module ramflag_In(
-    input clk,   // 25Mclk
-    input rst_n,
+    input           clk,   // 25Mclk
+    input           rst_n,
 	
-	input i_pix_clk,
-    input [7:0] light_reg_flatted,
-	input	[8:0] cnt_360,
-	input  	flag_done,
-	
-    input   [1:0] mode_selector,
-    output  sdbpflag_wire,
-    output  [15:0] wtdina_wire,
-    output  [9:0] wtaddr_wire
+	input           i_pix_clk,
+    input [7:0]     light_reg_flatted,
+	input [8:0]     cnt_360         ,
+	input  	        flag_done       ,
+    
+    input [1:0]     mode_selector   ,
+    input [7:0]     I_bright        ,
+
+    output          sdbpflag_wire   ,
+    output [15:0]   wtdina_wire     ,
+    output [9:0]    wtaddr_wire
 );
 reg [11:0] cnt;  //用于延迟1250个dclk 等待配置寄存器时间。
 reg [30:0] cnt1; //用于周期性发送sdbpflag信号，可以设置cnt1长度修改发送sdbpflag信号时间间隔
@@ -180,8 +182,8 @@ always@(posedge clk or negedge rst_n) begin
         case(mode_selector)
             
             2'b00: begin//全亮 MODE2
-                if(cnt1>3 && cnt1 <= 364 && flag)
-                    wtdina <= 8'hE0*256;  //224*256 ; 
+                if(cnt1 > 3 && cnt1 <= 364 && flag)
+                    wtdina <= 8'hE0 * I_bright;  //224*256 ; 
                 else
                     wtdina <= 0;
             end
@@ -193,18 +195,33 @@ always@(posedge clk or negedge rst_n) begin
                     wtdina <=  light_reg[wtaddr] * 256;
             end
             
-            2'b10:  begin //1/3全亮度 1/3一半亮度 1/3暗 MODE1
-                if(wtaddr%24==0 || (wtaddr-1)%24==0 || (wtaddr-2)%24==0 || (wtaddr-3)%24==0 || (wtaddr-4)%24==0 || (wtaddr-5)%24==0 ||(wtaddr-6)%24==0 || (wtaddr-7)%24==0)
-                    wtdina <= 16'hffff;
-                else if((wtaddr-8)%24==0 || (wtaddr-9)%24==0 || (wtaddr-10)%24==0 || (wtaddr-11)%24==0||(wtaddr-12)%24==0 || (wtaddr-13)%24==0 || (wtaddr-14)%24==0 || (wtaddr-15)%24==0)
-                    wtdina <= 16'h0100;
-                else
+            // 2'b10:  begin //1/3全亮度 1/3一半亮度 1/3暗 MODE1
+            //     if(wtaddr%24==0 || (wtaddr-1)%24==0 || (wtaddr-2)%24==0 || (wtaddr-3)%24==0 || (wtaddr-4)%24==0 || (wtaddr-5)%24==0 ||(wtaddr-6)%24==0 || (wtaddr-7)%24==0)
+            //         wtdina <= 16'hffff;
+            //     else if((wtaddr-8)%24==0 || (wtaddr-9)%24==0 || (wtaddr-10)%24==0 || (wtaddr-11)%24==0||(wtaddr-12)%24==0 || (wtaddr-13)%24==0 || (wtaddr-14)%24==0 || (wtaddr-15)%24==0)
+            //         wtdina <= 16'h0100;
+            //     else
+            //         wtdina <= 0;
+			// end
+
+            2'b10:  begin // 开启背光自动调整的分区背光模式
+                // if(wtaddr%24==0 || (wtaddr-1)%24==0 || (wtaddr-2)%24==0 || (wtaddr-3)%24==0 || (wtaddr-4)%24==0 || (wtaddr-5)%24==0 ||(wtaddr-6)%24==0 || (wtaddr-7)%24==0)
+                //     wtdina <= 16'hffff;
+                // else if((wtaddr-8)%24==0 || (wtaddr-9)%24==0 || (wtaddr-10)%24==0 || (wtaddr-11)%24==0||(wtaddr-12)%24==0 || (wtaddr-13)%24==0 || (wtaddr-14)%24==0 || (wtaddr-15)%24==0)
+                //     wtdina <= 16'h0100;
+                // else
+                //     wtdina <= 0;
+                if(cnt1 > 3 && cnt1 <= 364 && flag) begin
+                    wtdina <= light_reg[wtaddr] * I_bright;
+                end
+                else begin
                     wtdina <= 0;
+                end
 			end
 			
             2'b11:begin//根据传入的亮度数据调整灯珠亮度 MODE4
-                if(cnt1>3 && cnt1<=364 && flag) begin
-                    wtdina <= light_reg[wtaddr] * 255;
+                if(cnt1 > 3 && cnt1 <= 364 && flag) begin
+                    wtdina <= light_reg[wtaddr] * 256;
                     //wtdina <= 8'hff *256;
                 end
                 else begin
