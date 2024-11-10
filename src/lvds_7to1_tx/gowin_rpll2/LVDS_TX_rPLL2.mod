@@ -7,7 +7,7 @@
 
 -mod_name LVDS_TX_rPLL2
 -file_name LVDS_TX_rPLL2
--path C:/Gowin/Gowin_V1.9.10.02_x64/IDE/bin/Documents/MiniLED/project/src/lvds_7to1_tx/gowin_rpll2/gowin_rpll/
+-path D:/Project/Verilog/MiniLED/src/lvds_7to1_tx/gowin_rpll2/
 -type PLL
 -rPll true
 -file_type vlg
@@ -26,9 +26,8 @@
 -en_lock true
 -clkout_bypass false
 -clkout_ft_dir 1
--en_clkoutp true
+-en_clkoutp false
 -clkoutp_bypass false
--clkoutp_ft_dir 1
 -en_clkoutd false
 -clkoutd_bypass false
 -en_clkoutd3 false

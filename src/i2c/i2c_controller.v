@@ -25,7 +25,6 @@ module i2c_controller (
     reg [2:0] state, next_state;
     reg [3:0] bit_cnt;
     reg sda_out, sda_enable;
-    // reg slave_ready;
     wire [6:0] i2c_addr; // 外设地址
     wire raw_sda;
     wire sda_in;
@@ -35,12 +34,10 @@ module i2c_controller (
     reg data_to_write;
     reg addr_to_write;
     reg [1:0] clk_count;
-    reg get_ack;
 
     // 将 SDA 配置为输入或输出
     assign sda = sda_enable ? sda_out : 1'bz;
     assign sda_in = sda;
-    // assign raw_sda = sda;
 
     // 配置外设地址
     assign i2c_addr = 7'h1E;
@@ -53,8 +50,8 @@ module i2c_controller (
             scl <= ~scl;
             clk_count <= clk_count + 1'b1;
         end
-        else if(clk_count == 2) begin // I2C时钟信号生成，4:1，输入 clk 为 400kHz，输出 scl 为 100kHz
-            scl <= ~scl;
+        else if(clk_count == 2) begin 
+            scl <= ~scl;                    // I2C时钟信号生成，4:1，输入 clk 为 400kHz，输出 scl 为 100kHz
             clk_count <= clk_count + 1'b1;
         end 
         else if(clk_count == 3) begin
@@ -75,9 +72,6 @@ module i2c_controller (
                 addr_to_write <= i2c_addr[bit_cnt];
                 state <= next_state;
             end
-            // else if(clk_count == 3) begin
-            //     sda_in <= raw_sda;
-            // end
         end
     end
 
@@ -134,7 +128,6 @@ module i2c_controller (
                             end
 
                 SEND_ADDR:  begin
-                                get_ack <= 0;
                                 sda_out <= addr_to_write; // 发送设备地址
                                 if (bit_cnt == 0) begin
                                     next_state <= SEND_RW;
@@ -148,18 +141,19 @@ module i2c_controller (
                                 sda_out <= rw_flag; // 发送R/W位
                                 sda_rw_change <= 1;
                                 next_state <= WAIT_ACK;
-                                get_ack <= 0;
                             end
 
-                WAIT_ACK:   begin // 处理XACK
+                // 处理 ACK, NACK
+                WAIT_ACK:   begin 
                                 if(rw_flag == 1 && sda_enable == 1) begin
                                     sda_out <= 1; // 响应NACK
                                     O_busy <= 0; //读取完成，结束忙状态
                                     next_state <= STOP;
                                 end
                                 else if(sda_in == 0) begin //从机ACK
-                                    get_ack <= 1;
-                                    if (O_busy) begin // 当从SEND_RW状态进入时
+                                
+                                    // 当从SEND_RW状态进入时
+                                    if (O_busy) begin 
                                         if(rw_flag == 0) begin //如果是写入
                                             // slave_ready <= 1;
                                             next_state <= WRITE_DATA;
@@ -202,7 +196,6 @@ module i2c_controller (
                                     bit_cnt <= 4'd7;
                                     sda_rw_change <= 1;
                                     next_state <= WAIT_ACK;
-                                    get_ack <= 0;
                                 end else begin
                                     bit_cnt <= bit_cnt - 1'b1;
                                 end

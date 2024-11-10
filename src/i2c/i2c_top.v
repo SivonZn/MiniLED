@@ -30,21 +30,18 @@ wire busy;
     localparam STOP         = 3'b101;
     
 
-    wire [7:0] init_data_0, init_data_1, read_data_0, read_data_1; // 预配置的数据
-    reg [2:0] state, next_state; // 状态控制
+    wire [7:0] init_data_0, init_data_1, read_data_0, read_data_1;  // 预配置的数据
+    reg  [2:0] state, next_state;                                    // 状态控制
     
     reg [7:0] data[3:0];    // 需要写入的数据
     reg [2:0] data_count;   // 当前数据位
 
-    reg RW; // 读写标志位，RW=1 时为写，RW=0 时为读
+    reg RW;             // 读写标志位，RW=1 时为写，RW=0 时为读
     reg [11:0] getData; // 缓存读取的数据，等待完整后再次读取 
     reg init_flag;
 
     reg clk;
     reg [7:0] clk_cnt;
-
-//	reg clk_16;
-//	reg [7:0] clk_16_count;
 
     reg dummy_write; // 虚写地址标志位 
 
@@ -52,34 +49,6 @@ wire busy;
     assign init_data_1   = 8'h01; // 对 0x00 写入 0x01 以启用 ALS
     assign read_data_0   = 8'h0d; // ALS 高八位寄存器数据（低四位有效）
     assign read_data_1   = 8'h0c; // ALS 低八位寄存器数据
-
-    // 生成 1s 延迟, 5000*10000
-//	 always @(posedge I_clk or negedge I_reset) begin
-//			if(!I_reset)  begin
-//				cnt_10000<=0;
-//			end
-//			else if(cnt_10000=='d9999)
-//				cnt_10000<=0;
-//			else 
-//				cnt_10000 <= cnt_10000 + 1'b1;
-//	end
-//			
-//	always @(posedge I_clk or negedge I_reset) begin
-//        if(!I_reset) begin
-//            start_flag <= 0;
-//            cnt_5000<=0;
-//        end
-//        else if(cnt_10000=='d9999)begin
-//            if(cnt_5000=='d4999) begin
-//                start_flag <= ~start_flag;
-//                cnt_5000 <= 0;
-//            end
-//            else 
-//                cnt_5000<=cnt_5000+1'b1;
-//        end
-//	end
-
-    // assign clk = clk_test;
 
     // 从50MHz时钟生成400KHz时钟，供 I2C 通信使用
     always @(posedge I_clk or negedge I_reset) begin
@@ -115,7 +84,8 @@ wire busy;
 //        end
 //    end
 
-    always @(posedge scl or negedge I_reset) begin //状态机
+    //状态机
+    always @(posedge scl or negedge I_reset) begin 
         if(!I_reset) begin  //数据初始化
             // 状态初始化
             next_state <= START;
@@ -147,7 +117,8 @@ wire busy;
             read_enable <= 0;
 
             case (state)
-                START:      begin // 初始状态
+                // 初始状态
+                START:      begin 
                                 if(RW) begin // 准备写入
                                     start <= 1;
                                     write_enable <= 1;
@@ -170,7 +141,8 @@ wire busy;
                                 next_state <= WAITING;
                             end
 
-                WAITING:    begin // 等待数据处理 
+                // 等待数据处理
+                WAITING:    begin  
                                 if(busy) begin // 等待一组数据处理完成
                                     if(RW == 0) begin // 当状态为写入时
                                         next_state <= WAITING;
@@ -181,14 +153,16 @@ wire busy;
                                 end
                                 else begin // 读取/写入结束
 
-                                    if(data_count == 0) begin // 当前位于第一个数据
+                                    // 当前位于第一个数据
+                                    if(data_count == 0) begin 
                                         start <= 1;
                                         write_enable <= 1;
                                         data_count <= data_count + 1'd1; // 下一数据
                                         next_state <= WRITE_START;
                                     end
 
-                                    else if(data_count == 1) begin // 当前位于第二个数据
+                                    // 当前位于第二个数据
+                                    else if(data_count == 1) begin
                                         data_count <= data_count + 1'd1; // 下一数据
                                         // 切换为虚写地址的模式
                                         RW <= 1; // 写入模式                                            
@@ -196,7 +170,8 @@ wire busy;
                                         next_state <= WAIT_STOP; // 额外的一个scl周期延迟
                                     end
 
-                                    else if(data_count == 2) begin // 当前位于第三个数据
+                                    // 当前位于第三个数据
+                                    else if(data_count == 2) begin 
                                         if(dummy_write == 1) begin // 当处于虚写地址的状态时
                                             // 开始读取
                                             start <= 1;
@@ -217,7 +192,8 @@ wire busy;
                                         end
                                     end
 
-                                    else if(data_count == 3) begin // 当前位于第四个数据
+                                    // 当前位于第四个数据
+                                    else if(data_count == 3) begin 
                                         if(dummy_write == 1) begin // 当处于虚写地址的状态时
                                             // 开始读取
                                             start <= 1;
@@ -236,11 +212,13 @@ wire busy;
                                 end
                             end
 
-                WAIT_STOP:  begin // 额外的一个scl周期延迟，用于写入或读取一段数据完成之后
+                // 额外的一个scl周期延迟，用于写入或读取一段数据完成之后
+                WAIT_STOP:  begin 
                                 next_state <= START;
                             end
 
-                STOP:       begin // 用于重新读取
+                // 用于重新读取
+                STOP:       begin 
                                 O_bright_data <= getData; // 输出缓存的数据
                                 data_count <= 2; // 进入读取
                                 RW <= 1; // 切换为写入模式
@@ -248,24 +226,27 @@ wire busy;
                                 next_state <= START;
                             end
 
-                default:    begin // default
+                // default
+                default:    begin 
                                 state <= state;
                             end
             endcase
         end
     end
 
-i2c_controller i2c_controller_inst(             //实例化I2C控制器
-    .I_clk(clk),                    // 系统时钟
-    .I_reset(!I_reset),             // 系统复位
-    .I_start(start),                // 开始信号
-    .I_data_in(data_in),            // 要写入的数据
-    .I_write_enable(write_enable),  // 写入使能
-    .I_read_enable(read_enable),    // 读取使能
-    .O_data_out(O_data_out),        // 读取的数据
-    .O_busy(busy),                  // 正在进行I2C通信
-    .scl(scl),                      // I2C时钟信号
-    .sda(sda)                       // I2C数据信号
+//===================================================================================
+// 实例化I2C控制器
+i2c_controller i2c_controller_inst( 
+    .I_clk          (clk            ), // 系统时钟
+    .I_reset        (!I_reset       ), // 系统复位
+    .I_start        (start          ), // 开始信号
+    .I_data_in      (data_in        ), // 要写入的数据
+    .I_write_enable (write_enable   ), // 写入使能
+    .I_read_enable  (read_enable    ), // 读取使能
+    .O_data_out     (O_data_out     ), // 读取的数据
+    .O_busy         (busy           ), // 正在进行I2C通信
+    .scl            (scl            ), // I2C时钟信号
+    .sda            (sda            )  // I2C数据信号
 );
 
 
