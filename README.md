@@ -56,5 +56,5 @@ MINILED
     │           LVDS_TX_rPLL2.mod
     │           LVDS_TX_rPLL2.v
     │           LVDS_TX_rPLL2_tmp.v
-	└───────────────────────────────
+    └───────────────────────────────
 ```
