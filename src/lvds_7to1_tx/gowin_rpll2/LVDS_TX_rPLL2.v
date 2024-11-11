@@ -4,19 +4,16 @@
 //Tool Version: V1.9.10.02
 //Part Number: GW2A-LV55PG484C8/I7
 //Device: GW2A-55
-//Created Time: Thu Nov  7 20:54:07 2024
+//Created Time: Mon Nov 11 01:25:12 2024
 
-module LVDS_TX_rPLL2 (clkout, lock, clkoutp, reset, clkin, psda, dutyda, fdly);
+module LVDS_TX_rPLL2 (clkout, lock, reset, clkin);
 
 output clkout;
 output lock;
-output clkoutp;
 input reset;
 input clkin;
-input [3:0] psda;
-input [3:0] dutyda;
-input [3:0] fdly;
 
+wire clkoutp_o;
 wire clkoutd_o;
 wire clkoutd3_o;
 wire gw_gnd;
@@ -26,7 +23,7 @@ assign gw_gnd = 1'b0;
 rPLL rpll_inst (
     .CLKOUT(clkout),
     .LOCK(lock),
-    .CLKOUTP(clkoutp),
+    .CLKOUTP(clkoutp_o),
     .CLKOUTD(clkoutd_o),
     .CLKOUTD3(clkoutd3_o),
     .RESET(reset),
@@ -36,9 +33,9 @@ rPLL rpll_inst (
     .FBDSEL({gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd}),
     .IDSEL({gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd}),
     .ODSEL({gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd,gw_gnd}),
-    .PSDA(psda),
-    .DUTYDA(dutyda),
-    .FDLY(fdly)
+    .PSDA({gw_gnd,gw_gnd,gw_gnd,gw_gnd}),
+    .DUTYDA({gw_gnd,gw_gnd,gw_gnd,gw_gnd}),
+    .FDLY({gw_gnd,gw_gnd,gw_gnd,gw_gnd})
 );
 
 defparam rpll_inst.FCLKIN = "70.2";

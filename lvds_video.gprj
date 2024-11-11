@@ -20,7 +20,7 @@
         <File path="src/lvds_7to1_rx/lvds_7to1_rx_top.v" type="file.verilog" enable="1"/>
         <File path="src/lvds_7to1_rx/word_align_ctl.v" type="file.verilog" enable="1"/>
         <File path="src/lvds_7to1_tx/gowin_rpll/LVDS_TX_rPLL.v" type="file.verilog" enable="0"/>
-        <File path="src/lvds_7to1_tx/gowin_rpll2/gowin_rpll/LVDS_TX_rPLL2.v" type="file.verilog" enable="1"/>
+        <File path="src/lvds_7to1_tx/gowin_rpll2/LVDS_TX_rPLL2.v" type="file.verilog" enable="1"/>
         <File path="src/lvds_7to1_tx/ip_gddr71tx.v" type="file.verilog" enable="1"/>
         <File path="src/lvds_7to1_tx/lvds_7to1_tx_defines.v" type="file.verilog" enable="1"/>
         <File path="src/lvds_7to1_tx/lvds_7to1_tx_top.v" type="file.verilog" enable="1"/>
