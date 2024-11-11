@@ -27,6 +27,15 @@ wire [11:0] bright_data;
     reg [26:0] ms_delay_count;
     reg s_delay_flag;
     reg [30:0] s_delay_count;
+	
+	reg clk_25M;
+	always @(posedge I_clk) begin
+	  if(!I_reset) 
+	  clk_25M<=0;
+	  else
+	  clk_25M<=~clk_25M;
+	end
+	
 
     // 12位数据转8位，并限制最低值
     always @(posedge I_clk) begin 

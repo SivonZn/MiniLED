@@ -20,17 +20,17 @@ reg [9:0] cnt2;  // 用于每帧暂存时间
 reg [13:0]  cnt3;  // 每一轮addr自加+1 当addr=cnt3时点亮对应位置的灯珠
 reg flag= 'd0; //标志配置寄存器结束，可以发送sdbp数据了;
 reg sdbpflag;
-reg [15:0]wtdina;
-reg [9:0]wtaddr;
-reg [7:0]light_reg[360-1:0];
-
-reg [8:0] cnt_360_delay;
-
+reg [15:0]wtdina;//灯珠驱动亮度值
+reg [9:0]wtaddr;//灯珠驱动地址
+reg [7:0]light_reg[360-1:0];//缓存灯珠数据
+reg [8:0] cnt_360_delay;//对灰度数据坐标进行延迟修正
 
 
 assign sdbpflag_wire = sdbpflag;
 assign wtdina_wire = wtdina;
 assign wtaddr_wire = wtaddr;
+
+
 //cnt记满后视为配置寄存器完毕
 always @(posedge clk or negedge rst_n)   
  begin
@@ -125,54 +125,17 @@ end
 
 
 
-//灰度值传入
+//对输入的灯珠灰度值缓存
 always@(posedge i_pix_clk )begin
 	if(!rst_n) 
 	cnt_360_delay<=0;
 	else if(flag_done)begin
-			
 			light_reg[cnt_360_delay] <= light_reg_flatted;
 			cnt_360_delay<=cnt_360;
 		end
 end
 
 
-
-
-//流水灯 换显示形式时把此always块注释掉
-//always@(posedge clk or negedge rst_n)
-//  begin
-//      if(!rst_n)
-//          wtdina <= 0;
-//      else if(wtaddr==cnt3&&flag)
-//              wtdina <= 16'hfff;
-//      else
-//          wtdina <= 0;
-//  end
-//亮固定某一个灯珠 换显示形式时把此always块注释掉
-// always@(posedge clk or negedge rst_n)begin 
-// if(!rst_n)begin
-//         wtdina <= 0;
-//     end 
-// else if(wtaddr == 23)begin//wtaddr == x代表第x+1颗灯
-//         wtdina <= 16'hffff;
-//     end 
-// else begin
-//         wtdina <= 0;
-//     end
-// end 
-//根据传入的亮度数据调整灯珠亮度
-//always@(posedge clk or negedge rst_n)
-//begin
-//    if(!rst_n)begin
-//        wtdina <= 0;
-//    end
-//    else if(cnt1>3 && cnt1<=364 && flag)begin
-//        wtdina <= 16'hffff;
-//    end
-//    else
-//        wtdina <= 0;
-//end
 
 always@(posedge clk or negedge rst_n) begin
     if(!rst_n) 
@@ -181,36 +144,22 @@ always@(posedge clk or negedge rst_n) begin
     else begin
         case(mode_selector)
             
-            2'b00: begin//全亮 MODE2
+            2'b00: begin//未处理的全背光模式
                 if(cnt1 > 3 && cnt1 <= 364 && flag)
-                    wtdina <= 8'hE0 * I_bright;  //224*256 ; 
+                    wtdina <= 8'hE0 * 255;  //224*256 ; 
                 else
                     wtdina <= 0;
             end
 
-            2'b01: begin// 亮 1/2 灯珠 MODE3
+            2'b01: begin// 分区背光左右off/on半屏对比
                 if(wtaddr%24==0 || (wtaddr-1)%24==0 || (wtaddr-2)%24==0 || (wtaddr-3)%24==0 || (wtaddr-4)%24==0 || (wtaddr-5)%24==0 ||(wtaddr-6)%24==0 || (wtaddr-7)%24==0 || (wtaddr-8)%24==0 || (wtaddr-9)%24==0 || (wtaddr-10)%24==0 || (wtaddr-11)%24==0)
-                    wtdina <= 8'hE0*256;
+                    wtdina <= 8'hE0*255;
                 else
-                    wtdina <=  light_reg[wtaddr] * 256;
+                    wtdina <=  light_reg[wtaddr] * 255;
             end
-            
-            // 2'b10:  begin //1/3全亮度 1/3一半亮度 1/3暗 MODE1
-            //     if(wtaddr%24==0 || (wtaddr-1)%24==0 || (wtaddr-2)%24==0 || (wtaddr-3)%24==0 || (wtaddr-4)%24==0 || (wtaddr-5)%24==0 ||(wtaddr-6)%24==0 || (wtaddr-7)%24==0)
-            //         wtdina <= 16'hffff;
-            //     else if((wtaddr-8)%24==0 || (wtaddr-9)%24==0 || (wtaddr-10)%24==0 || (wtaddr-11)%24==0||(wtaddr-12)%24==0 || (wtaddr-13)%24==0 || (wtaddr-14)%24==0 || (wtaddr-15)%24==0)
-            //         wtdina <= 16'h0100;
-            //     else
-            //         wtdina <= 0;
-			// end
-
-            2'b10:  begin // 开启背光自动调整的分区背光模式
-                // if(wtaddr%24==0 || (wtaddr-1)%24==0 || (wtaddr-2)%24==0 || (wtaddr-3)%24==0 || (wtaddr-4)%24==0 || (wtaddr-5)%24==0 ||(wtaddr-6)%24==0 || (wtaddr-7)%24==0)
-                //     wtdina <= 16'hffff;
-                // else if((wtaddr-8)%24==0 || (wtaddr-9)%24==0 || (wtaddr-10)%24==0 || (wtaddr-11)%24==0||(wtaddr-12)%24==0 || (wtaddr-13)%24==0 || (wtaddr-14)%24==0 || (wtaddr-15)%24==0)
-                //     wtdina <= 16'h0100;
-                // else
-                //     wtdina <= 0;
+                     
+            2'b10:  begin // 开启亮度自动调节的分区背光模式
+                
                 if(cnt1 > 3 && cnt1 <= 364 && flag) begin
                     wtdina <= light_reg[wtaddr] * I_bright;
                 end
@@ -219,9 +168,9 @@ always@(posedge clk or negedge rst_n) begin
                 end
 			end
 			
-            2'b11:begin//根据传入的亮度数据调整灯珠亮度 MODE4
+            2'b11:begin//分区背光模式
                 if(cnt1 > 3 && cnt1 <= 364 && flag) begin
-                    wtdina <= light_reg[wtaddr] * 256;
+                    wtdina <= light_reg[wtaddr] * 255;
                     //wtdina <= 8'hff *256;
                 end
                 else begin

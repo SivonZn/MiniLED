@@ -40,7 +40,7 @@ module rgb_to_data_gray(
 			end
 		end
 	end
-
+  
 	//灰度转换
 	always@ (posedge i_pix_clk or negedge rst_n) begin
 		if(!rst_n) 
@@ -50,5 +50,4 @@ module rgb_to_data_gray(
 			data_gray <= ('d306 * data_r + 'd601 * data_g + 'd117 * data_b) / 'd1024;
 		end
 	end
-
 endmodule
