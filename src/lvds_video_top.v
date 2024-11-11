@@ -72,7 +72,7 @@ wire        r_DE_0   ;
 wire 		rx_sclk;
 
 wire		flag_start;
-wire  [7:0] led_light_flatted;
+wire  [7:0] led_light;
 
 //wire        rx_sclk_copy;
 //wire        rx_sclk_debug;
@@ -110,8 +110,6 @@ wire [7:0] bright_data;
         end
     end
 		
-		
-
 //==============================================================
 // LVDS Reciver
 LVDS_7to1_RX_Top LVDS_7to1_RX_Top_inst
@@ -155,9 +153,9 @@ LVDS_7to1_TX_Top LVDS_7to1_TX_Top_inst
 // MiniLED_driver
 MiniLED_driver   MiniLED_driver_inst
 (
-    .I_clk          (I_clk      ),  //50MHz      
+    .I_clk          (I_clk      ), //50MHz      
     .I_rst_n        (I_rst_n    ),   
-    .I_led_light    (led_light_flatted) ,
+    .I_led_light    (led_light  ),
     .I_led_mode     (led_mode   ),
 	
 	.i_pix_clk      (rx_sclk    ),
@@ -176,7 +174,7 @@ MiniLED_driver   MiniLED_driver_inst
 );
 
 //===================================================================================
-//RGB2GRAY
+// RGB2GRAY
 rgb_to_data_gray rtg(
     .i_pix_clk      (rx_sclk    ),
     .rst_n          (I_rst_n    ),
@@ -190,7 +188,7 @@ rgb_to_data_gray rtg(
 );
 
 //===================================================================================
-//I2C_AP3216
+// I2C_AP3216
 AP3216_driver AP3216_driver_inst(
     .I_clk          (I_clk      ),
     .I_reset        (I_rst_n    ),
@@ -199,38 +197,25 @@ AP3216_driver AP3216_driver_inst(
     .O_bright_data  (bright_data)
 );
 
-
-//b lock_360	calculate(
-//.i_pix_clk(rx_sclk),
-//.rst_n(I_rst_n),
-//.data_de(r_DE_0),
-//.pix_x(pix_x),							//1280*800 像素坐标);
-//.pix_y(pix_y),
-//.data_gray(data_gray),
-//
-//.r_Hsync_0(r_Hsync_0),
-//.r_Vsync_0(r_Vsync_0),
-//
-//
-//.buf_360_flatted(led_light_flatted)	//读出数据
-//);
+//===================================================================================
+// 背光算法
 
 block_360_ave calculate_pro(
-.i_pix_clk(rx_sclk),
-.rst_n(I_rst_n),
-.data_de(r_DE_0),
-.pix_x(pix_x),							//1280*800 像素坐标);
-.pix_y(pix_y),
-.data_gray(data_gray),
+    .i_pix_clk      (rx_sclk    ),
+    .rst_n          (I_rst_n    ),
+    .data_de        (r_DE_0     ),
+    .pix_x          (pix_x      ), // 1280*800 像素坐标;
+    .pix_y          (pix_y      ),
+    .data_gray      (data_gray  ),
 
-.r_Hsync_0(r_Hsync_0),
-.r_Vsync_0(r_Vsync_0),
+    .r_Hsync_0      (r_Hsync_0  ),
+    .r_Vsync_0      (r_Vsync_0  ),
 
-.gray_mode(gray_mode),
+    .gray_mode      (gray_mode  ),
 
-.flag_done(flag_done),
-.cnt_360(cnt_360),
-.buf_360_flatted(led_light_flatted)	//读出数据
+    .flag_done      (flag_done  ),
+    .cnt_360        (cnt_360    ),
+    .buf_360_flatted(led_light  )  // 读出数据
 );
 
 
