@@ -1,14 +1,14 @@
 # MiniLED
 
-中文 | [英文](README_EN.md)
+[中文](README.md) | 英文
 
-## 简介
+## introduction
 
-本项目基于高云MIniLED分区背光开发套件，采用分区背光算法对输入的视频信号进行灰度典型值的统计计算，得出360个背光分区的灰度典型值，再将360个典型值通过SPI传输到背光灯版，实现对LCD屏幕的分区背光控制，以提高显示的对比度和节能。
+This project is based on the Gowin MiniLED zonal backlight development kit, which adopts the zonal backlight algorithm to statistically calculate the grayscale typical values of the input video signal to derive the grayscale typical values of the 360 backlight zones, and then transmits the 360 typical values to the backlight version through the SPI to realize the control of the zonal backlight on the LCD screen in order to improve the contrast of the display and energy saving.
 
-本项目采用的分区背光开发套件由开发板，LCD（1280x800@60Hz），背光灯板（24x15个灯珠）组成。
+The zoned backlight development kit used in this project consists of development board, LCD (1280x800@60Hz), and backlight board (24x15 lamp beads).
 
-本项目结构如下：
+The structure of this project is as follows:
 ```
 MINILED
 │   .gitignore
@@ -56,5 +56,5 @@ MINILED
     │           LVDS_TX_rPLL2.mod
     │           LVDS_TX_rPLL2.v
     │           LVDS_TX_rPLL2_tmp.v
-	└───────────────────────────────
+    └───────────────────────────────
 ```
