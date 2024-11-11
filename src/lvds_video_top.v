@@ -199,8 +199,7 @@ AP3216_driver AP3216_driver_inst(
 
 //===================================================================================
 // 背光算法
-
-block_360_ave calculate_pro(
+block_360_pro backlight_algorithm_inst(
     .i_pix_clk      (rx_sclk    ),
     .rst_n          (I_rst_n    ),
     .data_de        (r_DE_0     ),
@@ -217,6 +216,5 @@ block_360_ave calculate_pro(
     .cnt_360        (cnt_360    ),
     .buf_360        (led_light  )  // 读出数据
 );
-
 
 endmodule

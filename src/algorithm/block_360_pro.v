@@ -1,4 +1,26 @@
-module block_360_ave(
+// ====================================================================================
+// 
+//  .oooooo..o                                   o8o             
+// d8P'    `Y8                                   `"'             
+// Y88bo.      oooo  oooo  ooo. .oo.   oooo d8b oooo    oooooooo 
+//  `"Y8888o.  `888  `888  `888P"Y88b  `888""8P `888   d'""7d8P  
+//      `"Y88b  888   888   888   888   888      888     .d8P'   
+// oo     .d8P  888   888   888   888   888      888   .d8P'  .P 
+// 8""88888P'   `V88V"V8P' o888o o888o d888b    o888o d8888888P  
+                                                              
+//  [Code name   ] block_360_pro.v
+//  [Description ] MiniLED Backlight Algorithm
+//
+// ====================================================================================
+//                                  Code Vision
+// ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// Versivon    |  Author    | Date       | Mod.
+// ----------------------------------------------------------------------------------
+// V1.0        |  Sunriz    | 11/11/24   | Initial version
+// ----------------------------------------------------------------------------------
+// ====================================================================================
+
+module block_360_pro(
 	input 				i_pix_clk	,
 	input 				rst_n		,
 	input 				data_de		,
@@ -202,7 +224,9 @@ module block_360_ave(
 			if (cnt_h53 == 'd52 && cnt_v53 == 'd52)begin
 				flag_done <= 1'b1;
 				case(gray_mode)
-					2'b01: 	begin // MODE1 �?大�?�优化算�?
+
+					// MODE1 �?大�?�优化算�?
+					2'b01: 	begin
 								if (BL_diff > 200)begin // 非典型�?�判�?
 									buf_360 <= (3 * buf_360_fore[cnt_360] + 3 * buf_360_fore1[cnt_360] + 
 														2 * buf_360_fore2[cnt_360] + buf_360_fore3[cnt_360] + 
@@ -220,7 +244,9 @@ module block_360_ave(
 								buf_360_fore3[cnt_360] <= buf_360_fore2[cnt_360];
 								buf_360_fore4[cnt_360] <= buf_360_fore3[cnt_360];
 							end
-					2'b10: 	begin // MODE2 �?大�?�静态修正算�?
+
+					// MODE2 �?大�?�静态修正算�?
+					2'b10: 	begin 
 								if (BL_diff > 200) begin
 									buf_360 <= (BL_max + 3 * BL_ave) / 8;
 								end
@@ -228,13 +254,15 @@ module block_360_ave(
 									buf_360 <= BL_max;
 								end
 					end
+
+					//MODE3 传统�?大�?�算�?
 					2'b11:	begin
-							buf_360 <= BL_max;	//MODE3 传统�?大�?�算�?
-					end
+								buf_360 <= BL_max;	
+							end
 					
 					default:begin
-						buf_360 <= BL_max;
-					end
+								buf_360 <= BL_max;
+							end
 				endcase
 			end 
 			else begin
