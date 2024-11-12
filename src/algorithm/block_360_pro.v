@@ -35,7 +35,7 @@ module block_360_pro(
 
 	output reg [8:0]	cnt_360,//分区计数
 	output reg 			flag_done,
-	output reg [7:0]	buf_360_flatted	//读出数据
+	output reg [7:0]	buf_360	//读出数据
 );
 
 	parameter H_TOTAL	= 'd1280;
@@ -56,7 +56,7 @@ module block_360_pro(
 	reg  [24*8-1:0] max_buf;
 	reg  [24*8-1:0] ave_buf;
 
-	reg [7:0] buf_360_fore[360-1:0];
+	reg [7:0] buf_360_fore [360-1:0];
 	reg [7:0] buf_360_fore1[360-1:0];
 	reg [7:0] buf_360_fore2[360-1:0];
 	reg [7:0] buf_360_fore3[360-1:0];
@@ -234,7 +234,7 @@ module block_360_pro(
 	///buffer_360赋值最大值算法
 	always@(posedge i_pix_clk or negedge rst_n) begin
 		if(!rst_n) begin
-			buf_360_flatted <= 0;
+			buf_360 <= 0;
 			flag_done <= 0;
 		end else begin 
 			if(cnt_h53 == 'd52 && cnt_v53 == 'd52 )begin 
@@ -243,7 +243,7 @@ module block_360_pro(
 
 					2'b01: begin								//设计均值修正最大值算法
 						if(BL_diff > 200)begin
-							buf_360_flatted <= (buf_360_fore[cnt_360] + buf_360_fore1[cnt_360] + 
+							buf_360 <= (buf_360_fore[cnt_360] + buf_360_fore1[cnt_360] + 
 												buf_360_fore2[cnt_360] + buf_360_fore3[cnt_360] + 
 												buf_360_fore4[cnt_360] + (BL_max + BL_ave * 3) / 8 ) / 6;
 						
@@ -254,7 +254,7 @@ module block_360_pro(
 							buf_360_fore[cnt_360] <= (BL_max + BL_ave * 3) / 8;
 						end 
 						else begin
-							buf_360_flatted <= (buf_360_fore[cnt_360] + buf_360_fore1[cnt_360] + 
+							buf_360 <= (buf_360_fore[cnt_360] + buf_360_fore1[cnt_360] + 
 												buf_360_fore2[cnt_360] + buf_360_fore3[cnt_360] + 
 												buf_360_fore4[cnt_360] + (BL_max * 3 + BL_ave * 1) / 4) / 6; 
 							
@@ -268,20 +268,20 @@ module block_360_pro(
 					end							
 
 					2'b10: begin
-						buf_360_flatted <= BL_max;
+						buf_360 <= BL_max;
 					end
 
 					2'b11: 	begin 
 						if(BL_diff > 200) begin
-							buf_360_flatted <= (BL_max + BL_ave) / 4;			//设计均值修正最大值算法
+							buf_360 <= (BL_max + BL_ave) / 4;			//设计均值修正最大值算法
 						end
 						else begin
-							buf_360_flatted <= BL_max;
+							buf_360 <= BL_max;
 						end
 					end		 
 
 					default: begin
-						buf_360_flatted <= BL_max;
+						buf_360 <= BL_max;
 					end
 				endcase
 			end else begin

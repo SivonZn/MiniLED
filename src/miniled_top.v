@@ -215,7 +215,7 @@ block_360_pro backlight_algorithm_inst(
 
     .flag_done      (flag_done  ),
     .cnt_360        (cnt_360    ),
-    .buf_360_flatted        (led_light  )  // 读出数据
+    .buf_360        (led_light  )  // 读出数据
 );
 
 endmodule
