@@ -23,10 +23,10 @@
         <File path="src/lvds_7to1_tx/ip_gddr71tx.v" type="file.verilog" enable="1"/>
         <File path="src/lvds_7to1_tx/lvds_7to1_tx_defines.v" type="file.verilog" enable="1"/>
         <File path="src/lvds_7to1_tx/lvds_7to1_tx_top.v" type="file.verilog" enable="1"/>
-        <File path="src/lvds_video_top.v" type="file.verilog" enable="1"/>
+        <File path="src/miniled_top.v" type="file.verilog" enable="1"/>
         <File path="src/ramflag_In.v" type="file.verilog" enable="1"/>
         <File path="src/sram_top_gowin_top_sim.v" type="file.verilog" enable="1"/>
-        <File path="src/lvds_video.cst" type="file.cst" enable="1"/>
-        <File path="src/lvds_video.sdc" type="file.sdc" enable="1"/>
+        <File path="src/miniled.cst" type="file.cst" enable="1"/>
+        <File path="src/miniled.sdc" type="file.sdc" enable="1"/>
     </FileList>
 </Project>
