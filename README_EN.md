@@ -1,6 +1,6 @@
 # MiniLED
 
-[中文](README.md) | 英文
+[中文](README.md) | English
 
 ## introduction
 
@@ -58,3 +58,7 @@ MINILED
     │           LVDS_TX_rPLL2_tmp.v
     └───────────────────────────────
 ```
+
+## License
+
+The code for this project is available under the MIT license.
