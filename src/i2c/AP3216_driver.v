@@ -49,13 +49,22 @@ wire [11:0] bright_data;
     reg [26:0] ms_delay_count;
     reg s_delay_flag;
     reg [30:0] s_delay_count;
-	
+    reg start_change_flag;
+    reg changing_flag;
+
+    reg [12:0] change_count;
+    reg [12:0] change_delay;
+    reg [12:0] change_delay_remain;
+    reg [12:0] change_count_already_exec;
+
 	reg clk_25M;
 	always @(posedge I_clk) begin
-	  if(!I_reset) 
-	  clk_25M<=0;
-	  else
-	  clk_25M<=~clk_25M;
+        if(!I_reset) begin
+            clk_25M <= 0;
+        end
+        else begin
+            clk_25M <= ~clk_25M;
+        end
 	end
 	
 
@@ -87,6 +96,11 @@ wire [11:0] bright_data;
             // 初始化状态机
             state <= DECTECT;
             next_state <= DECTECT;
+
+            change_count <= 0;
+            change_delay <= 0;
+            change_delay_remain <= 0;
+            change_count_already_exec <= 0;
         end
         else begin
             state = next_state;
@@ -98,14 +112,25 @@ wire [11:0] bright_data;
                                     next_state <= WAIT;
                                 end
                                 else begin
-                                    last_bright <= bright_data;
+                                    //last_bright <= bright_data;
                                     next_state <= DECTECT;
                                 end
                             end
 
                 // 等待，用于确定进行亮度调整
                 WAIT:       begin 
-                                if(s_delay_flag == 1) begin // 2s 延迟
+                                if(start_change_flag == 1) begin
+                                    if(target_bright > last_bright) begin
+                                        change_count <= target_bright - last_bright;
+                                        change_delay <= 4096 / (target_bright - last_bright);
+                                    end
+                                    else begin
+                                        change_count <= last_bright - target_bright;
+                                        change_delay <= 4096 / (last_bright - target_bright);
+                                    end
+                                    next_state <= CHANGE; // 开始调整亮度
+                                end
+                                else if(s_delay_flag == 1) begin // 2s 延迟
                                     if(s_delay_count == 0) begin
                                         s_delay_count  <= 'd100_000_000;
                                         s_delay_flag <= !s_delay_flag;
@@ -120,10 +145,11 @@ wire [11:0] bright_data;
                                     if(als_avg > last_bright + 1500 || als_avg < last_bright - 1500) begin // 当这两秒内亮度平均值确实发生了变化
                                         target_bright <= als_avg;
                                         ms_delay_flag <= 1;
-                                        next_state <= CHANGE; // 开始调整亮度
+                                        start_change_flag <= 1; // 在下个周期进入亮度调整阶段
+                                        next_state <= WAIT;
                                     end
                                     else begin
-                                        last_bright <= als_avg;
+                                        //last_bright <= als_avg;
                                         next_state <= DECTECT; // 返回检测
                                     end
                                 end
@@ -131,9 +157,13 @@ wire [11:0] bright_data;
 
                 // 平滑调整亮度
                 CHANGE :    begin 
+                                if(start_change_flag == 1) begin // 等待时钟
+                                    start_change_flag <= 0;
+                                    next_state <= CHANGE;
+                                end
                                 if(ms_delay_flag == 1) begin // 亮度每 1ms 跳变一次
                                     if(ms_delay_count == 0) begin
-                                        ms_delay_count  <= 'd50_000;
+                                        ms_delay_count <= 'd50_000;
                                         ms_delay_flag <= !ms_delay_flag;
                                         next_state <= CHANGE;
                                     end
@@ -143,19 +173,27 @@ wire [11:0] bright_data;
                                     end
                                 end
                                 else begin // 亮度变化过程
-                                    if(new_bright_data > target_bright) begin
-                                        new_bright_data <= new_bright_data - 1'b1;
-                                        ms_delay_flag = 1;
-                                        next_state <= CHANGE;
+                                    if(change_delay_remain == 0 && change_count_already_exec <= change_count) begin
+                                        change_delay_remain <= change_delay;
+                                        change_count_already_exec <= change_count_already_exec + 1;
+                                        if(new_bright_data > target_bright) begin
+                                            new_bright_data <= new_bright_data - 1'b1;
+                                            ms_delay_flag = 1;
+                                            next_state <= CHANGE;
+                                        end
+                                        else if(new_bright_data < target_bright) begin
+                                            new_bright_data <= new_bright_data + 1'b1;
+                                            ms_delay_flag = 1;
+                                            next_state <= CHANGE;
+                                        end 
+                                        else begin
+                                            last_bright <= target_bright;
+                                            change_count_already_exec <= 0;
+                                            next_state <= DECTECT;
+                                        end
                                     end
-                                    else if(new_bright_data < target_bright) begin
-                                        new_bright_data <= new_bright_data + 1'b1;
-                                        ms_delay_flag = 1;
-                                        next_state <= CHANGE;
-                                    end 
                                     else begin
-                                        last_bright <= target_bright;
-                                        next_state <= DECTECT;
+                                        change_delay_remain <= change_delay_remain - 1;
                                     end
                                 end
                             end
