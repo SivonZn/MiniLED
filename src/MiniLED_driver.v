@@ -44,8 +44,8 @@ SPI7001_25M_1M_rPLL SPI7001_25M_1M_rPLL_inst(
 ramflag_In u1_pro(
     .clk            (clk25M     ),
     .rst_n          (I_rst_n    ),
-	.I_light_reg    (I_led_light),//背光灯珠亮度值
-    .I_bright       (I_bright   ),
+	.light_reg_flatted    (I_led_light),//背光灯珠亮度值
+    // .I_bright       (I_bright   ),
     .mode_selector  (I_led_mode ),//背光显示模式
     .sdbpflag_wire  (sdbpflag   ),//写入一帧起始信号
     .wtdina_wire    (wtdina     ),//写入的灰度值
